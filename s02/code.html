@@ -17,7 +17,7 @@
         พร้อมตรวจจับ AI
       </span>
 </div>
-<div class="relative w-full bg-surface-container-low rounded-xl p-3 flex flex-col gap-2 transition-all">
+<div class="relative w-full bg-surface-container-low rounded-xl p-3 flex flex-col gap-2 transition-all cursor-text" id="targetInputBox">
 <div class="flex items-start justify-between gap-2">
 <div class="flex items-center gap-2 flex-wrap flex-1 min-w-0">
 <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-primary-container text-on-primary text-[14px]">
@@ -165,6 +165,20 @@
         toastNotification.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
         toastNotification.classList.remove('opacity-100', 'translate-y-0');
       }, 2000);
+    }
+
+    const targetInputBox = document.getElementById('targetInputBox');
+    if (targetInputBox && targetInputText) {
+      targetInputBox.addEventListener('click', (e) => {
+        if (e.target.closest('#clearBtn')) return;
+        targetInputText.focus();
+      });
+      targetInputText.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          targetInputText.blur();
+        }
+      });
     }
 
     if (clearBtn && targetInputText) {
