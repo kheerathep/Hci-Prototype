@@ -142,7 +142,7 @@
 <div class="w-12 h-12 flex items-center justify-center text-primary shrink-0 pl-1">
 <span class="material-symbols-outlined text-[22px]">manage_search</span>
 </div>
-<input class="w-full h-12 bg-transparent text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none pr-3" id="check-input" data-proto-goto="S02" placeholder="วางลิงก์โปรไฟล์ เลขบัญชี หรือเบอร์โทร" type="text"/>
+<input class="w-full min-w-0 h-12 bg-transparent text-on-surface font-body-md text-[16px] placeholder:text-outline focus:outline-none pr-3" id="check-input" placeholder="วางลิงก์โปรไฟล์ เลขบัญชี หรือเบอร์โทร" type="text"/>
 <button aria-label="วางข้อมูลจากคลิปบอร์ด" class="h-9 px-2.5 mr-2 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-transform" id="paste-btn" type="button">
 <span class="material-symbols-outlined text-[16px]">content_paste</span>
 <span>วาง</span>
@@ -357,6 +357,25 @@
       }, 2200);
     }
 
+    function syncToS02(val) {
+      const s2Input = document.querySelector('#screen-S02 #targetInputText');
+      if (s2Input && val && val.trim()) {
+        s2Input.value = val;
+      }
+    }
+
+    if (input) {
+      input.addEventListener('input', () => {
+        syncToS02(input.value);
+      });
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (typeof protoGoto === 'function') protoGoto('S03');
+        }
+      });
+    }
+
     if (pasteBtn && input) {
       pasteBtn.addEventListener('click', async () => {
         try {
@@ -364,6 +383,7 @@
             const text = await navigator.clipboard.readText();
             if (text) {
               input.value = text;
+              syncToS02(text);
               showToast('วางข้อมูลเรียบร้อยแล้ว');
               return;
             }
@@ -372,6 +392,7 @@
           // Fallback if clipboard permission denied
         }
         input.value = '081-998-7654';
+        syncToS02(input.value);
         showToast('กรอกข้อมูลจำลองสำเร็จ');
       });
     }
@@ -380,6 +401,8 @@
       tag.addEventListener('click', () => {
         if (input) {
           input.value = tag.textContent.trim();
+          syncToS02(input.value);
+          input.focus();
           showToast('ใส่ตัวอย่างในช่องค้นหาแล้ว');
         }
       });
@@ -387,17 +410,15 @@
 
     if (submitBtn) {
       submitBtn.addEventListener('click', () => {
-        if (!input || !input.value.trim()) {
-          showToast('กรุณาระบุเลขบัญชี หรือลิงก์เพื่อตรวจสอบ');
-          if (input) input.focus();
-        } else {
-          showToast('กำลังวิเคราะห์ประวัติคู่ค้า...');
+        if (input && input.value.trim()) {
+          syncToS02(input.value.trim());
         }
+        showToast('กำลังวิเคราะห์ประวัติคู่ค้า...');
       });
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="check-deal" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="safety-checklist" data-proto-goto="S09" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="check-deal" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="safety-checklist" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
 
 
 
@@ -428,9 +449,7 @@
 <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-risk-safe text-on-primary text-[14px]">
 <span class="material-symbols-outlined text-[16px]">account_balance</span>
 </span>
-<span class="font-body-md text-body-md text-on-surface font-medium break-all select-all" id="targetInputText">
-            facebook.com/min.sneaker.shop · กสิกรไทย xxx-x-x4821-x
-          </span>
+<input class="w-full min-w-[180px] flex-1 bg-transparent font-body-md text-[16px] text-on-surface font-medium focus:outline-none placeholder:text-on-surface-variant" id="targetInputText" placeholder="วางลิงก์โปรไฟล์ร้านค้า หรือ เลขบัญชีธนาคาร" type="text" value="facebook.com/min.sneaker.shop · กสิกรไทย xxx-x-x4821-x"/>
 </div>
 <button aria-label="ล้างข้อความ" class="shrink-0 flex items-center justify-center min-w-[48px] min-h-[48px] -mr-1 -mt-1 text-on-surface-variant hover:text-error transition-colors rounded-lg" id="clearBtn" data-proto-goto="S01">
 <span class="material-symbols-outlined text-[18px]">close</span>
@@ -578,10 +597,24 @@
       }, 2000);
     }
 
+    if (targetInputText) {
+      targetInputText.addEventListener('input', () => {
+        const s1Input = document.querySelector('#screen-S01 #check-input');
+        if (s1Input) s1Input.value = targetInputText.value;
+      });
+      targetInputText.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (typeof protoGoto === 'function') protoGoto('S03');
+        }
+      });
+    }
+
     if (clearBtn && targetInputText) {
       clearBtn.addEventListener('click', function() {
-        targetInputText.textContent = 'วางลิงก์โปรไฟล์ร้านค้า หรือ เลขบัญชีธนาคาร';
-        targetInputText.classList.add('text-on-surface-variant');
+        targetInputText.value = '';
+        const s1Input = document.querySelector('#screen-S01 #check-input');
+        if (s1Input) s1Input.value = '';
         showToast('ล้างข้อมูลค้นหาแล้ว');
       });
     }
@@ -593,7 +626,7 @@
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="check-deal" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="safety-checklist" data-proto-goto="S09" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="check-deal" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="safety-checklist" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
 
 
 
@@ -6556,7 +6589,7 @@ function copyBuyerId() {
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="bg-tab-bg-active text-primary-container font-semibold"><div class="grid grid-cols-4 items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="check" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-caption text-caption mt-0.5">เช็ก</span></a><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="checklist" data-proto-goto="S09" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-caption text-caption mt-0.5">เช็กลิสต์</span></a><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-caption text-caption mt-0.5">โปรไฟล์</span></a><a aria-current="page" class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl transition-colors min-h-[48px] bg-tab-bg-active text-primary-container font-semibold" data-path="report" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">flag</span><span class="font-caption text-caption mt-0.5">รายงาน</span></a></div></nav>
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="bg-tab-bg-active text-primary-container font-semibold"><div class="grid grid-cols-4 items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="check" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-caption text-caption mt-0.5">เช็ก</span></a><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="checklist" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-caption text-caption mt-0.5">เช็กลิสต์</span></a><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-caption text-caption mt-0.5">โปรไฟล์</span></a><a aria-current="page" class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl transition-colors min-h-[48px] bg-tab-bg-active text-primary-container font-semibold" data-path="report" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">flag</span><span class="font-caption text-caption mt-0.5">รายงาน</span></a></div></nav>
 
 
 
