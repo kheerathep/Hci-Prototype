@@ -199,7 +199,7 @@
 </div>
 </div>
 <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-risk-safe-bg text-risk-safe font-label-sm text-label-sm font-semibold">
-      99.2% แม่นยำ
+      อัปเดตต่อเนื่อง
     </span>
 </div>
 <!-- Recent Checks Section (ตรวจล่าสุด) -->
@@ -335,6 +335,7 @@
       </p>
 </div>
 </div>
+<p class="text-center font-caption text-caption text-secondary/80 mt-space-md pb-2">Prototype เพื่อการทดสอบ ข้อมูลทั้งหมดเป็นข้อมูลสมมติ</p>
 <!-- Subtle Ambient Toast (Hidden by default, triggered via interaction) -->
 <div aria-live="polite" class="fixed left-1/2 -translate-x-1/2 bottom-20 z-40 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-full font-label-md text-label-md shadow-2xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300" id="toast-notification" role="status">
 <span class="material-symbols-outlined text-[18px] text-risk-safe">check_circle</span>
@@ -511,7 +512,7 @@
 </div>
 <div class="flex flex-col min-w-0">
 <span class="font-label-md text-label-md text-on-surface truncate">Min Sneaker Shop</span>
-<span class="font-caption text-caption text-on-surface-variant truncate">เพจสร้าง 12 วันก่อน · เปลี่ยนชื่อ 4 ครั้ง</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">เพจสร้าง 5 วันก่อน · ยังไม่มีดีลยืนยัน</span>
 </div>
 </div>
 <div class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-risk-high-bg text-risk-high font-label-sm text-label-sm">
@@ -525,8 +526,8 @@
 <img class="w-full h-full object-cover" data-alt="Minimalist vintage tote bag and preloved fashion clothing aesthetic soft portrait with warm sunlight on neutral fabric backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJqR2penBjrWohcfxBUCBoasuMcYEFZ4wrrm4RJ07h_ameRv1ERU5IYhQPCKTOIFTBJP0eQif-z9noBu_32cSMQpm3N_isEmduMBS9suCP6rhDaaqWEg0YVklV11Z70JAPl3f8fQc9KowliIxHgR9sL_O6TzLIgxSL8GyPwFf8mHdP1V786mViDB0sdw8FgWSy2geHq8DmjRhf6-8IM87MUpa-GV10Zmihr5PNpzI"/>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md text-on-surface truncate">Pim Preloved Clothes</span>
-<span class="font-caption text-caption text-on-surface-variant truncate">บัญชีไม่ตรงกับชื่อบัตรประชาชน</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Pim Preloved</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">ดีลที่ยืนยันแล้วยังน้อย</span>
 </div>
 </div>
 <div class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-risk-caution-bg text-risk-caution font-label-sm text-label-sm">
@@ -946,7 +947,7 @@
 <div class="flex flex-col gap-1.5 font-caption text-caption text-on-surface-variant">
 <div class="flex justify-between">
 <span>วันที่สร้างเพจ:</span>
-<span class="font-medium text-on-surface">19 มีนาคม 2025</span>
+<span class="font-medium text-on-surface">5 วันที่แล้ว</span>
 </div>
 <div class="flex justify-between">
 <span>ผู้ติดตาม:</span>
@@ -1303,7 +1304,7 @@ function toggleDetails(elementId) {
 <span class="material-symbols-outlined text-[16px] text-tertiary">task_alt</span>
 <span class="font-label-sm text-label-sm">สถิติการขาย</span>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface font-semibold">12 ดีลที่ยืนยันแล้ว (100% สำเร็จ)</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">12 ดีลที่ยืนยันแล้ว</span>
 </div>
 </div>
 </section>
@@ -1336,7 +1337,7 @@ function toggleDetails(elementId) {
 <h4 class="font-label-md text-label-md text-on-surface font-semibold">ชื่อบัญชีตรงกับบัตรและโปรไฟล์</h4>
 <span class="material-symbols-outlined text-risk-safe text-[16px]">check_circle</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ตรวจเช็กความตรงกัน 100% ชื่อ-นามสกุล บัญชีธนาคาร กสิกรไทย</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ชื่อ-นามสกุลตรงกับบัญชีธนาคาร กสิกรไทย</p>
 </div>
 </div>
 <!-- 3. Passed Clean Report Record -->
@@ -1376,7 +1377,7 @@ function toggleDetails(elementId) {
 <!-- Sticky-Ready Bottom Action Group -->
 <footer class="pt-space-sm space-y-space-sm">
 <!-- Primary CTA: Look at verified reviews -->
-<button class="w-full h-12 bg-primary-container text-on-primary rounded-2xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md transition-all active:bg-state-pressed-blue" data-proto-goto="S32">
+<button id="s06-view-reviews-btn" onclick="window.setS32Profile && window.setS32Profile('kitti', 'S06')" class="w-full h-12 bg-primary-container text-on-primary rounded-2xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md transition-all active:bg-state-pressed-blue" data-proto-goto="S32">
 <span class="material-symbols-outlined text-[20px]">reviews</span>
 <span>ดูรีวิวที่ยืนยันแล้ว</span>
 </button>
@@ -1461,7 +1462,7 @@ function triggerCopyToast() {
 </div>
 <div class="flex flex-col min-w-0">
 <span class="font-headline-sm text-headline-sm text-on-surface truncate" id="s07-bank-owner">นายสมชาย ใจดี</span>
-<span class="font-caption text-caption text-on-surface-variant" id="s07-bank-acc">เลขบัญชี: xxx-x-x4892-x</span>
+<span class="font-caption text-caption text-on-surface-variant" id="s07-bank-acc">เลขบัญชี: xxx-x-x4821-x</span>
 </div>
 </div>
 </div>
@@ -1487,7 +1488,7 @@ function triggerCopyToast() {
 </div>
 <div class="flex flex-col min-w-0">
 <span class="font-headline-sm text-headline-sm text-on-surface truncate" id="s07-seller-name">Min Sneaker Shop</span>
-<span class="font-caption text-caption text-on-surface-variant">ผู้ใช้งานตั้งแต่มกราคม 2024</span>
+<span class="font-caption text-caption text-on-surface-variant">สร้างเมื่อ 5 วันก่อน</span>
 </div>
 </div>
 </div>
@@ -1896,7 +1897,7 @@ function handleChecklistRedirect() {
 </div>
 <div class="mt-space-sm pt-space-xs flex items-center gap-1.5 text-secondary">
 <span class="material-symbols-outlined text-[15px]">lock_reset</span>
-<span class="font-caption text-caption">ป้องกันการดึงรหัสคืน 100%</span>
+<span class="font-caption text-caption">ช่วยลดความเสี่ยงการดึงรหัสคืน</span>
 </div>
 </button>
 <!-- Category 2: Shoes / Sneakers (Recommended Focus for Fah) -->
@@ -1983,9 +1984,9 @@ function handleChecklistRedirect() {
 </div>
 <div class="flex-1 min-w-0">
 <h4 class="font-label-md text-label-md text-on-surface truncate font-semibold" id="s09-preview-title">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</h4>
-<p class="font-body-sm text-body-sm text-primary font-medium mt-0.5" id="s09-preview-price">฿1,500 <span class="font-caption text-caption text-on-surface-variant line-through ml-1">฿2,800</span></p>
+<p class="font-body-sm text-body-sm text-primary font-medium mt-0.5" id="s09-preview-price">฿900 <span class="font-caption text-caption text-on-surface-variant line-through ml-1">฿2,800</span></p>
 <span class="font-caption text-caption text-on-surface-variant flex items-center gap-1 mt-0.5">
-<span class="material-symbols-outlined text-[13px]">person_outline</span> <span id="s09-preview-seller">ผู้ขาย: Nutthapong K.</span>
+<span class="material-symbols-outlined text-[13px]">person_outline</span> <span id="s09-preview-seller">ผู้ขาย: Min Sneaker Shop</span>
         </span>
 </div>
 </div>
@@ -2105,7 +2106,7 @@ function handleChecklistRedirect() {
 <p class="font-caption text-caption text-on-surface-variant">การซื้อขายเป้าหมาย</p>
 <h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5 mt-0.5">
         <span id="s10-product-title">Nike Kyrie 7 มือสอง</span>
-        <span class="text-primary font-label-md text-label-md font-bold" id="s10-product-price">฿1,500</span>
+        <span class="text-primary font-label-md text-label-md font-bold" id="s10-product-price">฿900</span>
 </h2>
 <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
 <span class="material-symbols-outlined text-[16px] text-outline">straighten</span>
@@ -2162,7 +2163,7 @@ function handleChecklistRedirect() {
 <span class="font-caption text-caption text-risk-safe bg-risk-safe-bg px-2 py-0.5 rounded-full shrink-0">เสร็จสิ้น</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
-            ราคา ฿900 ต่ำกว่าราคาตลาด ฿1,800 - ฿2,500 ถึง 55%
+            ราคา ฿900 ต่ำกว่าราคาตลาด ฿2,500 - ฿3,000 ถึง 64%
           </p>
 <div class="mt-2 px-2.5 py-1.5 rounded-lg bg-risk-caution-bg text-risk-caution font-caption text-caption flex items-start gap-1.5">
 <span class="material-symbols-outlined text-[15px] shrink-0 mt-0.5">warning</span>
@@ -2265,7 +2266,7 @@ function handleChecklistRedirect() {
 <!-- Tip Box -->
 <div class="mt-2.5 p-2 rounded-lg bg-risk-safe-bg text-risk-safe font-caption text-caption flex items-center gap-1.5">
 <span class="material-symbols-outlined text-[16px] shrink-0" style="font-variation-settings: 'FILL' 1;">security</span>
-<span>ป้องกันมิจฉาชีพขโมยรูปจากกลุ่มสนีกเกอร์ได้ 99%</span>
+<span>ช่วยลดความเสี่ยงจากผู้ขายที่นำรูปผู้อื่นมาแอบอ้าง</span>
 </div>
 </div>
 </div>
@@ -2326,17 +2327,17 @@ function handleChecklistRedirect() {
 <div class="flex flex-col min-w-0">
 <span class="font-caption text-caption text-on-surface-variant font-medium">รายการที่กำลังเช็ก</span>
 <span class="font-label-md text-label-md text-on-surface font-semibold truncate" id="s11-product-title">Nike Kyrie 7 มือสอง ไซซ์ 42</span>
-<span class="font-body-sm text-body-sm text-primary font-medium" id="s11-product-price">฿1,500</span>
+<span class="font-body-sm text-body-sm text-primary font-medium" id="s11-product-price">฿900</span>
 </div>
 </div>
 <!-- Progress Meter -->
 <div class="flex flex-col space-y-1.5">
 <div class="flex justify-between items-center text-on-surface-variant">
 <span class="font-label-sm text-label-sm">ความคืบหน้าการเช็ก</span>
-<span class="font-label-sm text-label-sm font-bold text-risk-safe">100% สมบูรณ์</span>
+<span class="font-label-sm text-label-sm font-bold text-risk-safe">ครบทุกข้อแล้ว</span>
 </div>
 <div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
-<div class="h-full bg-risk-safe rounded-full transition-all duration-500 ease-out" style="width: 100%;"></div>
+<div class="w-full h-full bg-risk-safe rounded-full transition-all duration-500 ease-out"></div>
 </div>
 </div>
 </div>
@@ -2369,7 +2370,7 @@ function handleChecklistRedirect() {
 <span class="font-label-md text-label-md text-on-surface font-medium">เทียบราคากับมือสองสภาพเดียวกัน</span>
 <span class="px-2 py-0.5 rounded-full bg-risk-caution-bg text-risk-caution font-caption text-caption font-semibold">฿900 ต่ำกว่าตลาด</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ราคาเฉลี่ยตลาดอยู่ที่ราว ฿1,500 - ฿2,200 บันทึกหมายเหตุความเสี่ยงราคาแล้ว</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="s11-price-note">ราคาเฉลี่ยตลาดอยู่ที่ราว ฿2,500 - ฿3,000 บันทึกหมายเหตุความเสี่ยงราคาแล้ว (ต่ำกว่าตลาด 64%)</p>
 </div>
 </div>
 <!-- Item 3 -->
@@ -2511,7 +2512,7 @@ function handleGenerateCode() {
 <div class="flex items-start gap-space-xs pt-1">
 <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">shopping_bag</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
-        สำหรับสั่งซื้อ: <span class="font-medium text-on-surface" id="s12-context-item">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</span> จาก <span class="font-medium text-primary" id="s12-context-seller">Nutthapong K.</span>
+        สำหรับสั่งซื้อ: <span class="font-medium text-on-surface" id="s12-context-item">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</span> จาก <span class="font-medium text-primary" id="s12-context-seller">Min Sneaker Shop</span>
 </p>
 </div>
 </div>
@@ -2532,9 +2533,16 @@ function handleGenerateCode() {
       </span>
 </div>
 <!-- Countdown & Validity Chip -->
-<div class="mt-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-risk-caution-bg text-risk-caution font-label-sm text-label-sm font-medium">
-<span class="material-symbols-outlined text-[16px] animate-spin" style="animation-duration: 4s;">timelapse</span>
-<span>ใช้ได้ภายใน <span class="font-semibold" id="timer-display">29:54</span> นาที</span>
+<div id="s12-timer-chip" class="mt-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-risk-caution-bg text-risk-caution font-label-sm text-label-sm font-medium">
+<span id="s12-timer-icon" class="material-symbols-outlined text-[16px] animate-spin" style="animation-duration: 4s;">timelapse</span>
+<span id="s12-timer-status-text">ใช้ได้ภายใน <span class="font-semibold" id="timer-display">30:00</span> นาที</span>
+</div>
+<div id="s12-expired-actions" class="hidden mt-3 flex flex-col items-center gap-1.5 w-full">
+  <span class="font-caption text-caption text-risk-high font-medium">รหัสนี้หมดอายุแล้ว กรุณาสร้างรหัสใหม่ก่อนส่งให้ผู้ขาย</span>
+  <button id="s12-regen-btn" type="button" onclick="window.ProofCodeTimer && window.ProofCodeTimer.regenerate()" class="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-sm active:scale-95 transition-all">
+    <span class="material-symbols-outlined text-[18px]">refresh</span>
+    <span>สร้างรหัสใหม่</span>
+  </button>
 </div>
 </div>
 <!-- Step-by-Step Instruction Visual Card -->
@@ -2615,25 +2623,7 @@ function handleGenerateCode() {
     querySelector: (s) => _root ? _root.querySelector(s) : document.querySelector(s),
     querySelectorAll: (s) => _root ? _root.querySelectorAll(s) : document.querySelectorAll(s)
   };
-// Countdown Timer Simulation
-  (function initTimer() {
-    let durationSeconds = 30 * 60 - 6; // Starts at ~29:54
-    const display = _doc.getElementById('timer-display');
-    if (!display) return;
-
-    const interval = setInterval(() => {
-      if (_root && _root.classList.contains("hidden")) return;
-      if (durationSeconds <= 0) {
-        clearInterval(interval);
-        display.textContent = '00:00';
-        return;
-      }
-      durationSeconds--;
-      const mins = Math.floor(durationSeconds / 60);
-      const secs = durationSeconds % 60;
-      display.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-    }, 1000);
-  })();
+// Proof Code timer is managed centrally by window.ProofCodeTimer
 
   function showToast(message) {
     const toast = _doc.getElementById('toast-pill');
@@ -2723,9 +2713,16 @@ function handleGenerateCode() {
 <!-- Proof Code -->
 <div class="my-space-sm tracking-wider font-headline-lg text-primary-container select-all font-bold" id="s13-code-big" style="font-size: 38px; line-height: 46px; letter-spacing: 0.08em;">KT-4829</div>
 <!-- Expiration Chip -->
-<div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-risk-caution-bg text-risk-caution">
-<span class="material-symbols-outlined text-[16px]">schedule</span>
-<span class="font-label-sm text-label-sm">ใช้ได้ภายใน 29:51 นาที</span>
+<div id="s13-timer-chip" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-risk-caution-bg text-risk-caution">
+<span id="s13-timer-icon" class="material-symbols-outlined text-[16px]">schedule</span>
+<span id="s13-timer-status-text" class="font-label-sm text-label-sm">ใช้ได้ภายใน <span class="font-semibold" id="s13-timer-display">30:00</span> นาที</span>
+</div>
+<div id="s13-expired-actions" class="hidden mt-3 flex flex-col items-center gap-1.5 w-full">
+  <span class="font-caption text-caption text-risk-high font-medium">รหัสยืนยันหมดอายุแล้ว</span>
+  <button id="s13-regen-btn" type="button" onclick="window.ProofCodeTimer && window.ProofCodeTimer.regenerate()" class="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-sm active:scale-95 transition-all">
+    <span class="material-symbols-outlined text-[18px]">refresh</span>
+    <span>สร้างรหัสใหม่</span>
+  </button>
 </div>
 </div>
 <!-- Visual Guidance / Instructions -->
@@ -2805,7 +2802,7 @@ function handleGenerateCode() {
 
     if (copyBtn && toast) {
       copyBtn.addEventListener('click', function() {
-        const textToCopy = "สวัสดีครับ สนใจ Kyrie 7 ไซซ์ 42 ครับ รบกวนช่วยถ่ายรูปคู่กับป้ายกระดาษเขียนรหัส 'KT-4829' ให้หน่อยนะครับ พอดีเช็กความปลอดภัยก่อนโอนเงินครับ ขอบคุณครับ";
+        const textToCopy = (typeof window.getActiveProofCopyMessage === "function") ? window.getActiveProofCopyMessage() : "สวัสดีครับ สนใจ Kyrie 7 ไซซ์ 42 ราคา ฿900 ครับ รบกวนช่วยถ่ายรูปคู่กับป้ายกระดาษเขียนรหัส 'KT-4829' ให้หน่อยนะครับ พอดีเช็กความปลอดภัยก่อนโอนเงินครับ ขอบคุณครับ";
         navigator.clipboard?.writeText(textToCopy);
 
         clearTimeout(hideTimeout);
@@ -3217,10 +3214,10 @@ function handleCardCopy(element, textToCopy) {
 <div class="flex flex-col min-w-0 flex-1">
 <span class="font-caption text-caption text-secondary uppercase tracking-wider">เป้าหมายการตรวจเช็ก</span>
 <h3 class="font-label-md text-label-md text-on-surface font-semibold truncate" id="s16-target-title">
-          Nike Kyrie 7 มือสอง ไซซ์ 42 (฿1,500)
+          Nike Kyrie 7 มือสอง ไซซ์ 42 (฿900)
         </h3>
 <span class="font-body-sm text-body-sm text-on-surface-variant truncate" id="s16-target-seller">
-          ผู้ขาย: Nutthapong K.
+          ผู้ขาย: Min Sneaker Shop
         </span>
 </div>
 </div>
@@ -3236,11 +3233,11 @@ function handleCardCopy(element, textToCopy) {
 <span class="material-symbols-outlined text-risk-caution text-[18px]">warning</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md text-risk-caution font-semibold">
-            ราคาต่ำกว่าตลาด 55%
+<span id="s16-price-diff-title" class="font-label-md text-label-md text-risk-caution font-semibold">
+            ราคาต่ำกว่าตลาด 64%
           </span>
-<span class="font-caption text-caption text-risk-caution/80">
-            ราคาตลาดเฉลี่ยอยู่ที่ ฿2,000 - ฿2,400
+<span id="s16-price-range-desc" class="font-caption text-caption text-risk-caution/80">
+            ราคาตลาดเฉลี่ยอยู่ที่ ฿2,500 - ฿3,000
           </span>
 </div>
 </div>
@@ -3381,7 +3378,7 @@ function handleCardCopy(element, textToCopy) {
 <!-- Caution / Lower Bound Zone -->
 <div class="w-[15%] bg-risk-caution"></div>
 <!-- Normal Safe Market Zone -->
-<div class="w-[55%] bg-risk-safe"></div>
+<div class="flex-1 bg-risk-safe"></div>
 </div>
 <!-- Range Scale Labels -->
 <div class="flex justify-between text-caption font-caption text-on-surface-variant mt-1.5">
@@ -3520,7 +3517,7 @@ function handleCardCopy(element, textToCopy) {
 <span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
 <span class="font-label-md text-label-md text-on-surface">บันทึกบทสนทนาที่ตรวจจับ</span>
 </div>
-<span class="font-caption text-caption text-secondary">แชตวันที่ 24 ต.ค.</span>
+<span class="font-caption text-caption text-secondary">แชตเมื่อ 1 วันที่แล้ว</span>
 </div>
 <section class="flex flex-col gap-space-md mb-space-lg">
 <!-- Bubble 1: Buyer (Right) -->
@@ -3765,7 +3762,7 @@ function handleCardCopy(element, textToCopy) {
 <div class="mt-space-md bg-risk-safe-bg rounded-xl p-space-md flex items-center gap-space-sm">
 <span class="material-symbols-outlined text-risk-safe text-[24px] shrink-0" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
 <p class="text-body-sm font-body-sm text-risk-safe">
-      การสละเวลาเพียงไม่กี่วินาทีช่วยลดโอกาสถูกหลอกได้ถึง 85% ตรวจสอบให้มั่นใจก่อนกดโอน
+      การหยุดคิดเพียงไม่กี่วินาทีช่วยลดโอกาสโอนพลาดจากความเร่งรัด ตรวจสอบให้มั่นใจก่อนกดโอน
     </p>
 </div>
 <!-- Bottom Interactive Actions -->
@@ -3871,7 +3868,7 @@ function showUnsureDialog() {
 <!-- Hero Title & Subtitle -->
 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-risk-safe-bg mb-2">
 <span class="w-2 h-2 rounded-full bg-risk-safe"></span>
-<span class="font-label-sm text-label-sm text-risk-safe">พร้อมโอน ปลอดภัย 100%</span>
+<span class="font-label-sm text-label-sm text-risk-safe">ผ่านการตรวจเบื้องต้น</span>
 </div>
 <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2 font-bold tracking-tight">
       พร้อมแล้ว ตัดสินใจได้เลย
@@ -4144,21 +4141,21 @@ function showUnsureDialog() {
 </div>
 <div class="flex flex-col flex-1 min-w-0">
 <div class="flex items-center justify-between gap-1">
-<h4 class="text-label-lg font-label-lg text-on-surface truncate">⚠️ ราคาถูกกว่าปกติ 55% และมีพฤติกรรมเร่งรัด</h4>
+<h4 id="s21-price-title" class="text-label-lg font-label-lg text-on-surface truncate">⚠️ ราคาถูกกว่าปกติ 64% และมีพฤติกรรมเร่งรัด</h4>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
-            เสนอขาย ฿900 เทียบกับราคาตลาด ฿1,800-฿2,500 พร้อมเร่งให้โอนมัดจำ
+<p id="s21-price-desc" class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            เสนอขาย ฿900 เทียบกับราคาตลาด ฿2,500 - ฿3,000 พร้อมเร่งให้โอนมัดจำ
           </p>
 </div>
 </div>
 <div class="mt-space-xs bg-surface-container-low/60 rounded-lg p-space-sm flex flex-col gap-1">
 <div class="flex items-center justify-between text-caption font-caption text-secondary">
-<span>ราคาที่เสนอ: <strong class="text-on-surface">฿900</strong></span>
-<span>ราคาตลาดกลาง: ฿2,150</span>
+<span id="s21-offer-label">ราคาที่เสนอ: <strong class="text-on-surface">฿900</strong></span>
+<span id="s21-market-mid">ราคาตลาดกลาง: ฿2,750</span>
 </div>
 <div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden flex">
-<div class="bg-risk-high w-[45%] h-full"></div>
-<div class="bg-surface-variant w-[55%] h-full"></div>
+<div id="s21-offer-bar" class="bg-risk-high w-[36%] h-full"></div>
+<div class="bg-surface-variant flex-1 h-full"></div>
 </div>
 </div>
 </article>
@@ -4301,7 +4298,7 @@ function showUnsureDialog() {
 </div>
 <div class="flex items-center gap-1.5">
 <span class="material-symbols-outlined text-[16px] text-risk-safe">check_circle</span>
-<span>ปิดดีลเร็วกว่า 3 เท่า</span>
+<span>ช่วยเพิ่มความน่าเชื่อถือ</span>
 </div>
 </div>
 <button class="w-full h-12 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-sm active:bg-state-pressed-blue transition-all duration-150" id="verify-btn" type="button" data-proto-goto="S23">
@@ -4880,8 +4877,8 @@ function showUnsureDialog() {
 <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">handshake</span>
 </div>
 <div class="min-w-0 flex-1">
-<div class="font-label-md text-label-md text-on-surface">สร้างความเชื่อมั่น 100% ในทุกการซื้อขาย</div>
-<div class="font-body-sm text-body-sm text-secondary">ผู้ซื้อเห็นสัญลักษณ์ Verified และปิดการขายได้ไวกว่าเดิม 3 เท่า</div>
+<div class="font-label-md text-label-md text-on-surface">แสดงสถานะยืนยันตัวตนในทุกการซื้อขาย</div>
+<div class="font-body-sm text-body-sm text-secondary">ผู้ซื้อเห็นสัญลักษณ์ Verified และตัดสินใจได้อย่างมั่นใจมากขึ้น</div>
 </div>
 <span class="material-symbols-outlined text-risk-safe text-[20px] shrink-0 mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 </div>
@@ -4968,7 +4965,7 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
 <div class="bg-surface-container-low rounded-xl p-space-sm flex flex-col items-center justify-center">
 <div class="flex items-center gap-1 text-primary">
 <span class="material-symbols-outlined text-[18px]">handshake</span>
-<span class="font-headline-sm text-headline-sm font-bold">12</span>
+<span class="font-headline-sm text-headline-sm font-bold" id="s26-deals-count">0</span>
 </div>
 <span class="font-caption text-caption text-secondary mt-0.5">ดีลที่ยืนยันแล้ว</span>
 </div>
@@ -5029,104 +5026,21 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
 <p class="font-caption text-caption text-secondary">บันทึกผ่านระบบยืนยันความปลอดภัย 2 ฝ่าย</p>
 </div>
 <div class="flex items-center gap-1 bg-surface-card px-2.5 py-1 rounded-full shadow-sm">
-<span class="material-symbols-outlined text-amber-500 text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-md text-label-md font-bold text-on-surface">5.0</span>
-<span class="font-caption text-caption text-secondary">(3)</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">star</span>
+<span class="font-label-md text-label-md font-semibold text-secondary" id="s26-rating-summary">ยังไม่มีคะแนน</span>
+<span class="font-caption text-caption text-secondary">(0)</span>
 </div>
 </div>
-<!-- Review Item 1 -->
-<article class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<div class="w-9 h-9 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Avatar profile image of a young male gamer in casual streetwear hoodie, soft warm daylight, friendly look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJxhlQmPVVmWh8PQbKaNYG5np1YPEZoijuacBzlh2-f5VH6GdYTS-FJfQx3eXrC7w3BwzCpPBhCKHjphGsBoOEky_ApL2oJkzZfe26zVtRgf5Z1xrJSlLa0fzRa39dMxsCgS6S4dbYHEtE-Ct1KTKCRh3_3rHGKb9l_3whf_sJ2NB9ZgBGajpo8xaNyB4FQAodfQvTyeehQ8V-itoLb3RT8mgbi6I5uhxWGLXvvR0"/>
+<!-- Empty State for New Verified Profile -->
+<div id="s26-reviews-empty" class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col items-center justify-center text-center gap-2">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">rate_review</span>
 </div>
-<div class="flex flex-col">
-<span class="font-label-md text-label-md text-on-surface font-semibold">ผู้ซื้อไอดีเกม/เสื้อผ้า</span>
-<span class="font-caption text-caption text-secondary">2 วันที่แล้ว</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">ยังไม่มีรีวิว</span>
+<p class="font-body-sm text-body-sm text-secondary max-w-[260px] leading-relaxed">
+  เมื่อทำดีลสำเร็จและยืนยันการรับ-ส่งของผ่านระบบ รีวิวจากคู่ค้าจะแสดงที่นี่
+</p>
 </div>
-</div>
-<!-- 5 Star Rating -->
-<div class="flex items-center text-amber-400">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface">
-        "ได้รับรองเท้าสภาพสวยมาก ส่งไว พูดจาน่ารักค่ะ"
-      </p>
-<div class="flex items-center">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-risk-safe-bg text-risk-safe font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-          ดีลที่ยืนยันโดยทั้งสองฝ่าย
-        </span>
-</div>
-</article>
-<!-- Review Item 2 -->
-<article class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<div class="w-9 h-9 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Avatar profile portrait of a smiling young Thai creative professional named Nut, stylish glasses, casual modern office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrmHCiO4WPNvdpLCPfFqiRbesluizNUzFakMH38sVy83PXpmMLhgJ8e7P1jsmOKrNMKLXA2s7kS1PaM56nWvHvF6bV-_e3KgBxmgt3gxBJeWnAhKaC4iq19wVEzROiLvY6Ajp1M5O865Bpve68Yj9VFAroMThs5XIDUmSZOVwJwQXvy513tEcQwMtOZpAjB0VTWHaU_0DHVr707FgOv4Zit0jmeJbiYw-fCAPHAuA"/>
-</div>
-<div class="flex flex-col">
-<span class="font-label-md text-label-md text-on-surface font-semibold">คุณนัท</span>
-<span class="font-caption text-caption text-secondary">1 สัปดาห์ที่แล้ว</span>
-</div>
-</div>
-<!-- 5 Star Rating -->
-<div class="flex items-center text-amber-400">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface">
-        "โอนไว คุยง่าย มารับสินค้าตามเวลาที่นัด"
-      </p>
-<div class="flex items-center">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-risk-safe-bg text-risk-safe font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-          ดีลที่ยืนยันโดยทั้งสองฝ่าย
-        </span>
-</div>
-</article>
-<!-- Review Item 3 -->
-<article class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<div class="w-9 h-9 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Avatar headshot of young Thai sneakerhead buyer in minimalist streetwear cap, outdoor urban background, sharp friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Io_qRf6N0ursbHyFBN3z1XHa18d0CAYoKfwYtz5TOSSiCppu_EFMlgriJnbyH6JgNeasLWt10_gEWqSMxnt2V_6XcpmJvXNhyKYhUTpse6Jsw01_xgEpB5BJFqQ2izi-lWDcuQxv4Ck005R0zN0x0kiYSUu6v5WKYfQQvUXkD6Q1RIo_2xo4tcsXBbuUMJNYrH2R_FlOGdFnx4qyd2FxRqRbA9Gam2zj9VUtyNA"/>
-</div>
-<div class="flex flex-col">
-<span class="font-label-md text-label-md text-on-surface font-semibold">ผู้ซื้อสตรีทแวร์</span>
-<span class="font-caption text-caption text-secondary">2 สัปดาห์ที่แล้ว</span>
-</div>
-</div>
-<!-- 5 Star Rating -->
-<div class="flex items-center text-amber-400">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface">
-        "ซื้อขายปลอดภัย มีโค้ดตรวจสอบ มั่นใจได้เลยครับ"
-      </p>
-<div class="flex items-center">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-risk-safe-bg text-risk-safe font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-          ดีลที่ยืนยันโดยทั้งสองฝ่าย
-        </span>
-</div>
-</article>
 </section>
 <!-- Level 3 Elevation: Toast Notification (Shown on link copy) -->
 <div class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-[#0F172A] text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2 pointer-events-none opacity-0 translate-y-3 transition-all duration-300 ease-out" id="copyToast">
@@ -5216,7 +5130,7 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
 <div class="grid grid-cols-2 gap-space-sm bg-surface-container-low rounded-lg p-space-sm">
 <div class="flex flex-col items-center justify-center py-1">
 <span class="font-label-sm text-label-sm text-on-surface-variant">ดีลที่ยืนยันแล้ว</span>
-<span class="font-headline-md text-headline-md text-primary-container">12</span>
+<span class="font-headline-md text-headline-md text-primary-container" id="s27-deals-count">0</span>
 </div>
 <div class="flex flex-col items-center justify-center py-1 bg-surface-card rounded-md shadow-xs">
 <span class="font-label-sm text-label-sm text-on-surface-variant">ถูกรายงาน</span>
@@ -5260,101 +5174,21 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
 <div class="flex flex-col gap-space-sm">
 <div class="flex items-center justify-between px-space-xs">
 <span class="font-headline-sm text-headline-sm text-on-surface">รีวิวจากผู้ซื้อ</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">ทั้งหมด (3)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ทั้งหมด (0)</span>
 </div>
-<!-- Review 1 -->
-<div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-sm min-w-0">
-<div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="Young East Asian university male student with stylish glasses smiling outdoors in daylight, friendly and trustworthy expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmkFqIg-opi3yEpMzEgXr-VQpuV6dvGr1WHzJJVnF0_TBnou7UgexpK18IspioVBcACNArhXAsYDQak6v6orc-SixtFb6paj6TeGuDmoX8YDc2q4LorbJmpV9pkM-2-x7-sPsChLe_YxYZhLZM2xBzHO4FvyFzoBw-WnwtbUpVbThQJW92BV4YhLiU37Y9ehca3FZ6LK03nUKeq_FD19JYhdGQ6lzC-7n97GjXhkY"/>
+<!-- Empty State -->
+<div id="s27-reviews-empty" class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col items-center justify-center text-center gap-2">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">rate_review</span>
 </div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md text-on-surface truncate font-semibold">กิตติศักดิ์</span>
-<span class="font-caption text-caption text-on-surface-variant">2 วันที่แล้ว</span>
-</div>
-</div>
-<div class="flex items-center text-risk-caution">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface">
-        ส่งไวมากครับ เครื่องสภาพดีตรงตามรูปเป๊ะ มีคลิปวิดีโอตอนแพ็กของให้ดูด้วย สบายใจมาก แนะนำเลยครับ
-      </p>
-<div class="pt-space-xs flex items-center">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-risk-safe-bg text-risk-safe font-caption text-caption font-medium">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-          ดีลที่ยืนยันโดยทั้งสองฝ่าย
-        </span>
-</div>
-</div>
-<!-- Review 2 -->
-<div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-sm min-w-0">
-<div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="Smiling university student woman with bob haircut holding coffee cup in a cafe, bright natural illumination, candid and authentic style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMEyYN65vVo59goiNkQSD3I940qUpl2JYeTyqBO4BUQJo6w64ZoX1Vm8MnXeMH-NHTkydDAB0_rDTVrsypDTNrpDEWfNgPDyag1rd8KE7rUAmrb-JSpZio6U2tGH0z39vDgnXGhUQohP6bcBD6j6h4DAYnmHE3qvWZEaX6vbK4_iJzv9zB-ag6jJTZy8zwr-ZRcNKl8xYhMYV21P9FsXKJoF_Wv4N_5_bAnQJ5isA"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md text-on-surface truncate font-semibold">ณิชา</span>
-<span class="font-caption text-caption text-on-surface-variant">5 วันที่แล้ว</span>
-</div>
-</div>
-<div class="flex items-center text-risk-caution">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface">
-        นัดรับที่คณะ แม่ค้าตรงเวลาและสุภาพมาก เช็กเครื่องจนพอใจค่อยโอนเงิน ปลอดภัย 100% ค่า
-      </p>
-<div class="pt-space-xs flex items-center">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-risk-safe-bg text-risk-safe font-caption text-caption font-medium">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-          ดีลที่ยืนยันโดยทั้งสองฝ่าย
-        </span>
-</div>
-</div>
-<!-- Review 3 -->
-<div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-sm min-w-0">
-<div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="Portrait of a young Thai man with headphones around neck in modern university common area, friendly smile, clean minimalist lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_5xlPpJ_VMsfFMPZhOQSF7uBpigZxqxw3xGauzbO6VubBwlcceIbzLJt97YtLR6H0ClJmW4c5JrIQ_OaIL6jtjiX3SnYDStjFPE8Ag78IENAntaxu-9aXrF7Hims0-ndasJjCRu8Vll6ndWmyAaK_sNS-jSuakLb_SorMCsEdgP-MQBr3O_Br1hbHPCLAS6uEJid7B7Zoct-JWGbzLYrzkmJ1uoti69iIt-QCKzg"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md text-on-surface truncate font-semibold">ธนพล</span>
-<span class="font-caption text-caption text-on-surface-variant">1 สัปดาห์ที่แล้ว</span>
-</div>
-</div>
-<div class="flex items-center text-risk-caution">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface">
-        ดีลรอบที่สองแล้วครับ พี่ฟ้าใจดีตอบแชตไว ให้คำแนะนำเรื่องประกันแอปเปิ้ลแคร์ดีมาก
-      </p>
-<div class="pt-space-xs flex items-center">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-risk-safe-bg text-risk-safe font-caption text-caption font-medium">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-          ดีลที่ยืนยันโดยทั้งสองฝ่าย
-        </span>
-</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">ยังไม่มีรีวิว</span>
+<p class="font-body-sm text-body-sm text-secondary max-w-[260px] leading-relaxed">
+  ยังไม่มีรายการรีวิวที่ยืนยันในโปรไฟล์นี้
+</p>
 </div>
 </div>
 <!-- Floating Toast Notification (Level 3 Elevation strictly pinned above tab navigation) -->
-<div class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 transform">
+<div id="s27-copy-toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 transform opacity-0 translate-y-3">
 <div class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E293B] text-white shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)]">
 <span class="material-symbols-outlined text-[#10B981] text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span class="font-label-md text-label-md tracking-wide">คัดลอกแล้ว</span>
@@ -5371,10 +5205,19 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
   };
 (function() {
     const btn = _doc.getElementById('copyBtn');
+    const toast = _doc.getElementById('s27-copy-toast');
     if (btn) {
       btn.addEventListener('click', function() {
         if (navigator.clipboard) {
           navigator.clipboard.writeText('https://checkdeal.app/u/fah_chula_market').catch(() => {});
+        }
+        if (toast) {
+          toast.classList.remove('opacity-0', 'translate-y-3');
+          toast.classList.add('opacity-100', 'translate-y-0');
+          setTimeout(() => {
+            toast.classList.remove('opacity-100', 'translate-y-0');
+            toast.classList.add('opacity-0', 'translate-y-3');
+          }, 2000);
         }
       });
     }
@@ -5423,7 +5266,7 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
 </div>
 <p class="font-caption text-caption text-secondary flex items-center gap-1 mt-0.5">
 <span class="inline-block w-2 h-2 rounded-full bg-risk-safe"></span>
-            ยืนยันตัวตนระดับบัตรประชาชนแล้ว (Trust Score 98%)
+            ยืนยันตัวตนระดับบัตรประชาชนแล้ว
           </p>
 </div>
 </div>
@@ -5575,31 +5418,62 @@ function showToast(message) {
   const confirmBtn = _doc.getElementById('btn-confirm');
   const canvas = _doc.getElementById('confetti-canvas');
 
+  let isConfirming = false;
   if (confirmBtn && canvas) {
-    confirmBtn.addEventListener('click', () => {
-      confirmBtn.disabled = true;
+    confirmBtn.addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      if (confirmBtn.dataset.confirmed === 'true') {
+        if (typeof window.protoGoto === 'function') window.protoGoto('S29');
+        return;
+      }
+      if (isConfirming) return;
+      isConfirming = true;
+      confirmBtn.classList.add('pointer-events-none', 'opacity-90');
       confirmBtn.innerHTML = `
         <span class="material-symbols-outlined text-[22px] animate-spin">progress_activity</span>
         <span>กำลังบันทึกดีล...</span>
       `;
-      
+
       triggerCelebration();
 
       setTimeout(() => {
-        confirmBtn.className = "w-full h-12 bg-risk-safe text-white rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md transition-all";
+        isConfirming = false;
+        confirmBtn.dataset.confirmed = 'true';
+        confirmBtn.disabled = false;
+        confirmBtn.className = "w-full h-12 bg-risk-safe text-white rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.98]";
         confirmBtn.innerHTML = `
           <span class="material-symbols-outlined text-[22px]">task_alt</span>
-          <span>บันทึกสำเร็จเรียบร้อย!</span>
+          <span>บันทึกสำเร็จเรียบร้อย! (ไปให้คะแนน)</span>
         `;
         showToast('ดีลนี้ได้รับการยืนยันและเพิ่ม Trust Score แล้ว');
-      }, 1000);
+        setTimeout(() => {
+          const s28El = document.getElementById('screen-S28');
+          if (s28El && !s28El.classList.contains('hidden') && typeof window.protoGoto === 'function') {
+            window.protoGoto('S29');
+          }
+        }, 700);
+      }, 900);
     });
   }
+  window.resetS28Confirm = function() {
+    isConfirming = false;
+    if (confirmBtn) {
+      confirmBtn.disabled = false;
+      confirmBtn.dataset.confirmed = 'false';
+      confirmBtn.className = "w-full h-12 bg-primary-container hover:bg-state-pressed-blue active:scale-[0.98] text-white rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md transition-all";
+      confirmBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[22px]">check_circle</span>
+        <span>ยืนยันว่าซื้อขายสำเร็จ</span>
+      `;
+    }
+  };
 
   function triggerCelebration() {
+    if (!canvas || typeof canvas.getContext !== 'function') return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     canvas.classList.remove('opacity-0');
     canvas.classList.add('opacity-100');
-    const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -5782,7 +5656,7 @@ function showToast(message) {
 </div>
 <!-- Submit Action (Disabled state initially) -->
 <div class="pt-2 flex flex-col items-center space-y-2">
-<button class="w-full h-12 rounded-xl flex items-center justify-center font-label-lg text-label-lg transition-all shadow-sm bg-surface-container text-outline cursor-not-allowed" disabled="" id="submit-review-btn" type="button">
+<button class="w-full h-12 rounded-xl flex items-center justify-center font-label-lg text-label-lg transition-all shadow-sm bg-surface-container text-outline cursor-not-allowed" disabled="" id="submit-review-btn" type="button" data-proto-goto="S31">
 <span>ส่งรีวิว</span>
 </button>
 <p class="font-caption text-caption text-secondary flex items-center gap-1" id="submit-disclaimer">
@@ -6223,7 +6097,7 @@ function showToast(message) {
 <span class="material-symbols-outlined text-[20px]">account_circle</span>
 <span>ไปที่โปรไฟล์ของฉัน</span>
 </button>
-<button class="w-full h-11 bg-transparent text-secondary rounded-xl font-label-md text-label-md flex items-center justify-center hover:text-on-surface transition-colors active:scale-[0.99]" onclick="protoGoto('S30')" type="button" data-proto-goto="S01">
+<button class="w-full h-11 bg-transparent text-secondary rounded-xl font-label-md text-label-md flex items-center justify-center hover:text-on-surface transition-colors active:scale-[0.99]" type="button" data-proto-goto="S01">
 <span>กลับสู่หน้าแรก</span>
 </button>
 </div>
@@ -6261,46 +6135,42 @@ function handleGoToProfile() {
 </div>
 
 
-<!-- SCREEN S32: โปรไฟล์ผู้ซื้อ: คุณพิม -->
+<!-- SCREEN S32: รีวิวที่ยืนยันแล้ว & โปรไฟล์ผู้ค้า -->
 <div id="screen-S32" class="screen-view hidden" data-screen-id="S32">
-<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="ย้อนกลับ" data-proto-goto="S06" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full shrink-0" onclick="protoGoto('S06')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">Buyer Profile Detail</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="บัญชีผู้ใช้" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm hover:opacity-95 transition-opacity active:scale-95 cursor-pointer" data-profile-trigger="true" data-proto-goto="S22" type="button"><span class="material-symbols-outlined text-[18px]">person</span></button></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button id="s32-back-btn" aria-label="ย้อนกลับ" data-proto-goto="S06" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full shrink-0"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 id="s32-header-title" class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">Seller Reviews Detail</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="บัญชีผู้ใช้" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm hover:opacity-95 transition-opacity active:scale-95 cursor-pointer" data-profile-trigger="true" data-proto-goto="S22" type="button"><span class="material-symbols-outlined text-[18px]">person</span></button></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
 <!-- Toast Notification (Dynamic feedback) -->
 <div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-[#0F172A] text-white px-5 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)] flex items-center gap-2 transition-all duration-300 opacity-0 pointer-events-none translate-y-3" id="copy-toast">
 <span class="material-symbols-outlined text-[18px] text-risk-safe">check_circle</span>
-<span class="font-label-md text-label-md">คัดลอกรหัสผู้ซื้อแล้ว</span>
+<span id="s32-toast-msg" class="font-label-md text-label-md">คัดลอกรหัสผู้ขายแล้ว</span>
 </div>
-<!-- Buyer Profile Header Card -->
+<!-- Profile Header Card -->
 <div class="bg-surface-card rounded-xl p-space-md shadow-[0px_2px_8px_rgba(15,23,42,0.06)] flex flex-col gap-space-md relative overflow-hidden">
-<!-- Subtle Ambient Accent -->
 <div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
 <div class="flex items-start gap-space-md relative">
-<!-- Avatar with Live Status -->
 <div class="relative shrink-0">
-<img alt="โปรไฟล์ คุณพิม" class="w-16 h-16 rounded-full object-cover shadow-sm" data-alt="A candid profile portrait of a smiling young Thai female university student named Pim in casual attire with clean natural studio lighting, soft pastel background, friendly, trustworthy expression, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2yn687GW-fsFENZBl4OL3yOM9j5V0AnayLjBCbR7YiVF7D-lFV7jBtr6Z9wIq7ysvR-VN6jMf8Y40km-5iX02WHyd1vOzifTV8usJ2ijgdXl7jXr-I-aqOqyKLfbAX5EiQatTsCYf7AdCXKYbC6SAaSsAi3mhY0kYSyHnH8bJwZNB0_b87TPjdOPFrEW9FGF5Nhm64o-R7ujTHQbt53fpIzqyuyo2aSfYVg4VIuI"/>
+<img id="s32-avatar" alt="โปรไฟล์ Kitti Used Gear" class="w-16 h-16 rounded-full object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkyDYL3KkWZY8kBPUfsXifIvUDqqaY_E2jK4vP1CvZIomJhK4_KjE_weobVklgl1xQbClT5Jq08dAPP1Xa4mDYNzzCfk-U0qVQO3MZhdG6L3h87Jvk_fMqMVlWyKnB7XvGlGHPVyDoIpFs7TD-k7iwk6kptKirwEHFrm1AwWpZ1PERFt9ZGVBDRveH10YvGF_JSrcL3I-BBaaWYgaCA-MUUGMOx7SqwVL21BOqDTM"/>
 <div class="absolute -bottom-1 -right-1 bg-surface-card p-0.5 rounded-full shadow-sm flex items-center justify-center">
 <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
 </div>
 </div>
-<!-- Identity & Tags -->
 <div class="flex flex-col flex-1 min-w-0">
 <div class="flex items-center gap-1.5 flex-wrap">
-<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">คุณพิม (Pim)</h2>
-<span class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-caption text-caption shrink-0">
+<h2 id="s32-name" class="font-headline-sm text-headline-sm text-on-surface truncate">Kitti Used Gear</h2>
+<span id="s32-kyc-badge" class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-caption text-caption shrink-0">
 <span class="material-symbols-outlined text-[13px] text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
             ยืนยันตัวตนแล้ว (KYC)
           </span>
 </div>
-<p class="font-body-sm text-body-sm text-secondary mt-0.5 line-clamp-1">ผู้ซื้อในกลุ่ม Facebook / มหาวิทยาลัย</p>
-<!-- Student & Safety Meta Chips -->
+<p id="s32-subtitle" class="font-body-sm text-body-sm text-secondary mt-0.5 line-clamp-1">กลุ่มไอที มหาวิทยาลัย · หูฟังเกมมิ่ง</p>
 <div class="flex items-center gap-2 mt-2">
-<span class="inline-flex items-center gap-1 font-caption text-caption text-secondary bg-surface-container-low px-2 py-0.5 rounded-md">
+<span id="s32-tenure" class="inline-flex items-center gap-1 font-caption text-caption text-secondary bg-surface-container-low px-2 py-0.5 rounded-md">
 <span class="material-symbols-outlined text-[13px]">school</span>
-            สมาชิกกลุ่ม นศ. 2 ปี
+<span id="s32-tenure-text">สมาชิกกลุ่ม นศ. 2 ปี</span>
           </span>
 <button class="inline-flex items-center gap-1 font-caption text-caption text-primary hover:text-state-pressed-blue transition-colors bg-primary-fixed/50 px-2 py-0.5 rounded-md active:scale-95" onclick="copyBuyerId()" type="button">
 <span class="material-symbols-outlined text-[13px]">content_copy</span>
-            ID: PIM-9482
-          </button>
+<span id="s32-code-text">ID: KIT-8810</span>
+</button>
 </div>
 </div>
 </div>
@@ -6312,7 +6182,7 @@ function handleGoToProfile() {
 </div>
 <div class="flex flex-col min-w-0">
 <span class="font-caption text-caption text-secondary">ดีลที่ยืนยันแล้ว</span>
-<span class="font-headline-sm text-headline-sm text-on-surface font-bold">10 ดีล</span>
+<span id="s32-deals-count" class="font-headline-sm text-headline-sm text-on-surface font-bold">12 ดีล</span>
 </div>
 </div>
 <div class="bg-risk-safe-bg rounded-lg p-3 flex items-center gap-3">
@@ -6333,8 +6203,8 @@ function handleGoToProfile() {
 <span class="font-label-md text-label-md text-risk-safe font-semibold">ยืนยันตัวตนระดับบัตรประชาชนแล้ว</span>
 <span class="material-symbols-outlined text-risk-safe text-[16px]">check</span>
 </div>
-<p class="font-body-sm text-body-sm text-risk-safe/90 mt-0.5 leading-snug">
-          ผู้ซื้อผ่านการตรวจสอบเอกสาร KYC เรียบร้อย มีประวัตินัดรับตรงเวลา และไม่มีข้อพิพาทค้างชำระ
+<p id="s32-banner-desc" class="font-body-sm text-body-sm text-risk-safe/90 mt-0.5 leading-snug">
+          ผู้ขายผ่านการตรวจสอบเอกสาร KYC เรียบร้อย ชื่อบัญชีตรงกับบัตรประชาชน และไม่มีประวัติร้องเรียน
         </p>
 </div>
 </div>
@@ -6348,120 +6218,26 @@ function handleGoToProfile() {
 </div>
 <span class="font-caption text-caption text-secondary">3 รายการล่าสุด</span>
 </div>
-<div class="flex flex-col gap-space-sm">
-<!-- Item 1: เสื้อผ้ามือสอง -->
-<div class="bg-surface-card rounded-xl p-space-md shadow-[0px_2px_8px_rgba(15,23,42,0.06)] flex flex-col gap-2.5 transition-all active:bg-surface-container-low">
-<div class="flex items-start justify-between gap-2">
-<div class="flex items-center gap-3 min-w-0">
-<div class="w-12 h-12 rounded-lg bg-surface-container-low overflow-hidden shrink-0 flex items-center justify-center">
-<img alt="เสื้อผ้ามือสอง" class="w-full h-full object-cover" data-alt="A modern stylish vintage denim jacket laid flat on a clean neutral white surface, minimalist aesthetic, natural diffuse daylight, student peer-to-peer marketplace resale item photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoAT1dbKyEoySqMCH_mZ8y6gsIWMasr9yESxUeu0ONPic8dFNktqjbkAh2EbUaUePX1Y8ywQaHK_MJly_3YllJI0Ui1TrUSDEEPGfYA3m_O1U1ZYB_7XoBOrZHPDviOoVxdOPvj__z8pW77ZDgfLw27VUKavu_WxRBA-_E5jKVRWFHaPbCUBGqEhsYqOB7XOooW_Lksd080XsGMaj9v3fGVpTtjHJ9fJdjVppWT7c"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">ซื้อ "เสื้อผ้ามือสอง"</span>
-<span class="font-caption text-caption text-secondary">นัดรับ คอนโดใกล้มหาวิทยาลัย • 3 วันที่แล้ว</span>
+<div id="s32-reviews-list" class="flex flex-col gap-space-sm">
+<!-- Dynamically populated by setS32Profile() -->
 </div>
 </div>
-<span class="inline-flex items-center gap-1 bg-surface-container-low text-on-secondary-container px-2 py-0.5 rounded-full font-caption text-caption shrink-0">
-<span class="material-symbols-outlined text-[13px] text-risk-safe" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-            ดีลที่ยืนยันโดยทั้งสองฝ่าย
-          </span>
-</div>
-<div class="bg-surface-container-low/70 rounded-lg p-2.5 flex flex-col gap-1">
-<div class="flex items-center gap-1 text-[#F59E0B]">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm text-on-surface ml-1 font-semibold">5.0</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface italic">
-            "ตรงเวลา สุภาพ โอนไว คุยง่ายมากครับ แนะนำเลย"
-          </p>
-<span class="font-caption text-caption text-secondary mt-0.5">— ผู้ขาย @Tar_Secondhand (ยืนยันแล้ว)</span>
-</div>
-</div>
-<!-- Item 2: iPad Air 5 -->
-<div class="bg-surface-card rounded-xl p-space-md shadow-[0px_2px_8px_rgba(15,23,42,0.06)] flex flex-col gap-2.5 transition-all active:bg-surface-container-low">
-<div class="flex items-start justify-between gap-2">
-<div class="flex items-center gap-3 min-w-0">
-<div class="w-12 h-12 rounded-lg bg-surface-container-low overflow-hidden shrink-0 flex items-center justify-center">
-<img alt="iPad Air 5" class="w-full h-full object-cover" data-alt="Apple iPad Air tablet in space gray resting on a wooden study table next to a notebook, high resolution gadget photography, warm indoor student library setting, sleek product shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD3bssiA_pEpZBG__BTsH9tk38is5uQC8tNOwm6FwHlYoy_FfSRu0ukznQ5aT19WCHrXN2GC7aUsg1oTtmE-JsCOEKrtMgV8umMoVPl7yhPoIGls6g7NKflJAlivCfC8jxT8elKCpsWUKMYWN4AsMIBnZPuPiFNrrMg1P0NdPdubdRkOOrGhUjjFdCHsl-7c5a_yznUlX_5VgYI_7CzH8Vd0YvdEMnCPZNwds-cKI"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">ซื้อ "iPad Air 5"</span>
-<span class="font-caption text-caption text-secondary">นัดรับ โรงอาหารกลาง มข. • 2 สัปดาห์ก่อน</span>
-</div>
-</div>
-<span class="inline-flex items-center gap-1 bg-surface-container-low text-on-secondary-container px-2 py-0.5 rounded-full font-caption text-caption shrink-0">
-<span class="material-symbols-outlined text-[13px] text-risk-safe" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-            ดีลที่ยืนยันโดยทั้งสองฝ่าย
-          </span>
-</div>
-<div class="bg-surface-container-low/70 rounded-lg p-2.5 flex flex-col gap-1">
-<div class="flex items-center gap-1 text-[#F59E0B]">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm text-on-surface ml-1 font-semibold">5.0</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface italic">
-            "มารับเครื่องตามนัด ตรวจสภาพรวดเร็ว โอนเงินทันที เชื่อถือได้ 100%"
-          </p>
-<span class="font-caption text-caption text-secondary mt-0.5">— ผู้ขาย @Apple_StudentDeals (ยืนยันแล้ว)</span>
-</div>
-</div>
-<!-- Item 3: หูฟังไร้สาย -->
-<div class="bg-surface-card rounded-xl p-space-md shadow-[0px_2px_8px_rgba(15,23,42,0.06)] flex flex-col gap-2.5 transition-all active:bg-surface-container-low">
-<div class="flex items-start justify-between gap-2">
-<div class="flex items-center gap-3 min-w-0">
-<div class="w-12 h-12 rounded-lg bg-surface-container-low overflow-hidden shrink-0 flex items-center justify-center">
-<img alt="หูฟังไร้สาย" class="w-full h-full object-cover" data-alt="Modern true wireless earbuds in open charging case on modern desk with pastel aesthetics, soft morning light, crisp audio lifestyle product photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_GcMCy5sYQXal2xrW2XPLdXRp0rHV_8rfcYBYo44lQ7BOW8xdve0fwry0IdS2kkbaRXrXEqzDOsPTz5UevoZpIuIWJp2Kfbk1lROUWn0UVEAqcjPXeMsw1oJ2_TlxdAQGA3AOXCUb8cYf-8zAxsDj3iWeFdMJeKMSh5KdtP7FRv-AHIHHRzUBJGJuyyh4Drp7gxRjeZdlmD2u7b6edozHKQcLdIJHTRQ2y4ktwKs"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-lg text-label-lg text-on-surface truncate">ซื้อ "หูฟังไร้สาย"</span>
-<span class="font-caption text-caption text-secondary">จัดส่งพัสดุด่วน • 1 เดือนที่แล้ว</span>
-</div>
-</div>
-<span class="inline-flex items-center gap-1 bg-surface-container-low text-on-secondary-container px-2 py-0.5 rounded-full font-caption text-caption shrink-0">
-<span class="material-symbols-outlined text-[13px] text-risk-safe" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-            ดีลที่ยืนยันโดยทั้งสองฝ่าย
-          </span>
-</div>
-<div class="bg-surface-container-low/70 rounded-lg p-2.5 flex flex-col gap-1">
-<div class="flex items-center gap-1 text-[#F59E0B]">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm text-on-surface ml-1 font-semibold">5.0</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface italic">
-            "ตกลงง่าย ไม่เรื่องมาก ตอบแชทเร็ว ไว้ใจได้เลยครับ"
-          </p>
-<span class="font-caption text-caption text-secondary mt-0.5">— ผู้ขาย @SoundGear_TH (ยืนยันแล้ว)</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Safety Assurance Banner -->
-<div class="mt-space-md bg-surface-container-low rounded-xl p-space-md flex items-center gap-3">
-<div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-primary text-[20px]">lock</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md text-on-surface font-semibold">แนะนำนัดรับในพื้นที่ปลอดภัย</span>
+<!-- Security Notice Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md mt-space-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">safety_check</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">แนะนำให้นัดรับในพื้นที่ปลอดภัย</span>
 <span class="font-caption text-caption text-secondary">เช่น ใต้ตึกคณะ หรือจุดบริการนักศึกษาที่มีกล้องวงจรปิด</span>
 </div>
 </div>
-<!-- Fixed-Feel Bottom Action Container -->
-<div class="mt-space-xl pt-2 pb-4">
-<button class="w-full h-12 bg-primary-container text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md hover:bg-state-pressed-blue active:bg-state-pressed-blue transition-all active:scale-[0.99]" onclick="handleConfirmAppointment()" type="button" data-proto-goto="S28">
-<span class="material-symbols-outlined text-[20px]">send</span>
-<span>ส่งข้อความยืนยันนัดหมาย</span>
+<!-- Bottom Action Container -->
+<div class="mt-space-xl pt-2 pb-4 flex flex-col gap-2">
+<button id="s32-primary-cta" class="w-full h-12 bg-primary-container text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md hover:bg-state-pressed-blue active:bg-state-pressed-blue transition-all active:scale-[0.99]" type="button" data-proto-goto="S10">
+<span id="s32-primary-cta-icon" class="material-symbols-outlined text-[20px]">checklist</span>
+<span id="s32-primary-cta-label">ไปเช็กลิสต์ก่อนโอน</span>
+</button>
+<button id="s32-secondary-cta" class="w-full h-11 bg-transparent text-secondary rounded-xl font-label-md text-label-md flex items-center justify-center hover:text-on-surface transition-colors" type="button" data-proto-goto="S06">
+<span id="s32-secondary-cta-label">กลับไปหน้าผลตรวจผู้ขาย</span>
 </button>
 </div>
 </div>
@@ -6473,47 +6249,23 @@ function handleGoToProfile() {
     querySelector: (s) => _root ? _root.querySelector(s) : document.querySelector(s),
     querySelectorAll: (s) => _root ? _root.querySelectorAll(s) : document.querySelectorAll(s)
   };
-function copyBuyerId() {
-    navigator.clipboard?.writeText('PIM-9482');
+  let activeIdCode = 'KIT-8810';
+  window._s32SetCopyId = function(code) { activeIdCode = code; };
+  function copyBuyerId() {
+    navigator.clipboard?.writeText(activeIdCode).catch(() => {});
     const toast = _doc.getElementById('copy-toast');
     if (!toast) return;
     toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
     toast.classList.add('opacity-100', 'translate-y-0');
-    
     setTimeout(() => {
       toast.classList.remove('opacity-100', 'translate-y-0');
       toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
-    }, 2200);
-  }
-
-  function handleConfirmAppointment() {
-    const toast = _doc.getElementById('copy-toast');
-    if (!toast) return;
-    toast.querySelector('.font-label-md').textContent = 'เปิดห้องแชทเพื่อนัดหมายแล้ว';
-    toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
-    toast.classList.add('opacity-100', 'translate-y-0');
-
-    setTimeout(() => {
-      toast.classList.remove('opacity-100', 'translate-y-0');
-      toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
-      // Reset toast label for next clicks
-      setTimeout(() => {
-        toast.querySelector('.font-label-md').textContent = 'คัดลอกรหัสผู้ซื้อแล้ว';
-      }, 300);
     }, 2200);
   }
   window.copyBuyerId = copyBuyerId;
-  window.handleConfirmAppointment = handleConfirmAppointment;
 })();
 </script></main>
-
-
-
-
-
 </div>
-
-
 <!-- SCREEN S33: ศูนย์รับแจ้งเรื่องมิจฉาชีพ -->
 <div id="screen-S33" class="screen-view hidden" data-screen-id="S33">
 <header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-full bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">verified_user</span></div><h1 class="font-headline-sm text-headline-sm text-on-surface">Report</h1></div><div class="flex items-center gap-space-xs"><button aria-label="การแจ้งเตือน" data-proto-goto="S39" class="w-12 h-12 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-12 h-12 flex items-center justify-center"><button aria-label="บัญชีผู้ใช้" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm hover:opacity-95 active:scale-95 transition-all cursor-pointer" data-profile-trigger="true" data-proto-goto="S22" type="button"><span class="material-symbols-outlined text-[18px]">person</span></button></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-24 bg-background min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl">
@@ -6761,7 +6513,7 @@ function copyBuyerId() {
 <div class="flex items-center justify-between mb-space-xs">
 <span class="font-label-sm text-label-sm text-secondary">ตัวอย่างหลักฐานที่ถูกต้อง</span>
 <span class="font-caption text-caption text-primary flex items-center gap-0.5">
-<span class="material-symbols-outlined text-[14px]">verified</span> ได้ผลแม่นยำขึ้น
+<span class="material-symbols-outlined text-[14px]">verified</span> ช่วยให้ตรวจสอบได้เร็วขึ้น
       </span>
 </div>
 <div class="grid grid-cols-2 gap-space-sm">
@@ -7193,7 +6945,7 @@ function showToast(message) {
 </div>
 <div class="flex justify-between items-center gap-space-sm">
 <span class="font-body-sm text-body-sm text-secondary">วันที่โอนเงิน</span>
-<span class="font-body-sm text-body-sm text-on-surface font-medium">24 ต.ค. 2024</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">1 วันที่แล้ว</span>
 </div>
 <div class="flex justify-between items-start gap-space-sm">
 <span class="font-body-sm text-body-sm text-secondary shrink-0">รูปแบบพฤติกรรม</span>
@@ -7352,7 +7104,7 @@ const submitBtn = _doc.getElementById('btn-submit');
 <div class="flex items-center justify-between py-1">
 <span class="font-body-sm text-body-sm text-secondary">รหัสรายงาน</span>
 <div class="flex items-center gap-1.5">
-<span class="font-label-md text-label-md text-on-surface font-semibold tracking-wide" id="report-code">#RP-2024-8841</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold tracking-wide" id="report-code">#RP-8841</span>
 <button aria-label="คัดลอกรหัสรายงาน" class="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:text-primary active:bg-surface-container transition-colors" id="copy-btn" onclick="copyReportId()" type="button">
 <span class="material-symbols-outlined text-[18px]">content_copy</span>
 </button>
@@ -7464,8 +7216,8 @@ function copyReportId() {
 <span class="font-label-lg text-label-lg font-bold text-on-primary mt-0.5">14 ครั้ง</span>
 </div>
 <div class="flex flex-col bg-white/10 rounded-xl p-2.5 backdrop-blur-sm">
-<span class="font-caption text-caption text-on-primary/80">ระดับความแม่นยำ</span>
-<span class="font-label-lg text-label-lg font-bold text-on-primary mt-0.5">100% ตรวจสอบได้</span>
+<span class="font-caption text-caption text-on-primary/80">สถานะหลักฐาน</span>
+<span class="font-label-lg text-label-lg font-bold text-on-primary mt-0.5">ตรวจสอบแล้ว</span>
 </div>
 </div>
 </div>
@@ -7495,7 +7247,7 @@ function copyReportId() {
               Min Sneaker Shop
             </h4>
 <span class="font-caption text-caption text-secondary">
-              ส่งเรื่องเมื่อ 24 ต.ค. 2024
+              ส่งเรื่องเมื่อ 1 วันที่แล้ว
             </span>
 </div>
 </div>
@@ -7834,8 +7586,8 @@ function markAllAsRead() {
 <div class="flex items-start justify-between gap-3 text-left">
 <span class="font-body-sm text-body-sm text-secondary shrink-0">รหัสรายงาน</span>
 <div class="flex items-center gap-1.5">
-<span class="font-label-sm text-label-sm font-semibold text-on-surface">#RP-2024-9102</span>
-<button aria-label="คัดลอกรหัสรายงาน" class="text-secondary hover:text-primary transition-colors flex items-center p-0.5 active:scale-90" onclick="navigator.clipboard?.writeText('#RP-2024-9102'); showToast();" type="button">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">#RP-9102</span>
+<button aria-label="คัดลอกรหัสรายงาน" class="text-secondary hover:text-primary transition-colors flex items-center p-0.5 active:scale-90" onclick="navigator.clipboard?.writeText('#RP-9102'); showToast();" type="button">
 <span class="material-symbols-outlined text-[16px]">content_copy</span>
 </button>
 </div>
@@ -8339,25 +8091,87 @@ function copyClaimCode() {
       }
     };
 
+    function calcDiscountPct(offerPrice, marketMinPrice) {
+      if (!marketMinPrice || marketMinPrice <= 0) return 0;
+      return Math.round(((marketMinPrice - offerPrice) / marketMinPrice) * 100);
+    }
+
+    const DEMO_DATA = Object.freeze({
+      product: {
+        name: 'Nike Kyrie 7 มือสอง ไซซ์ 42',
+        fullTitle: 'รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42',
+        shortTitle: 'Nike Kyrie 7 มือสอง',
+        sub: 'ไซซ์ 42 EU • สภาพผ่านการใช้งาน',
+        offerPrice: 900,
+        offerPriceFormatted: '฿900',
+        origPrice: 2800,
+        origPriceFormatted: '฿2,800',
+        marketMin: 2500,
+        marketMax: 3000,
+        marketMid: 2750,
+        marketRangeFormatted: '฿2,500 - ฿3,000',
+        marketMidFormatted: '฿2,750',
+        minDiffFormatted: '-฿1,600',
+        get discountPct() { return calcDiscountPct(this.offerPrice, this.marketMin); }
+      },
+      seller: {
+        name: 'Min Sneaker Shop',
+        link: 'facebook.com/min.sneaker.shop',
+        fullUrl: 'Facebook (facebook.com/min.sneaker.shop)',
+        ageRelative: '5 วันที่แล้ว',
+        confirmedDeals: 0,
+        reportCount: 3,
+        summaryLine: 'เพจสร้าง 5 วันก่อน · ยังไม่มีดีลยืนยัน'
+      },
+      bank: {
+        name: 'ธนาคารกสิกรไทย',
+        shortName: 'กสิกรไทย (KBANK)',
+        accountMasked: 'xxx-x-x4821-x',
+        accountCombined: 'กสิกรไทย xxx-x-x4821-x',
+        owner: 'นายสมชาย ใจดี'
+      },
+      findings: [
+        'พบประวัติถูกรายงาน 3 ครั้ง',
+        'ชื่อบัญชี นายสมชาย ใจดี ไม่ตรงกับชื่อร้าน Min Sneaker Shop',
+        'เพจสร้างเมื่อ 5 วันก่อน และยังไม่มีดีลยืนยัน (0 ดีล)'
+      ],
+      proofCode: 'KT-4829',
+      proofCodeDurationSec: 30 * 60,
+      pimSeller: {
+        name: 'Pim Preloved',
+        summaryCaution: 'ดีลที่ยืนยันแล้วยังน้อย'
+      },
+      profileUser: {
+        name: 'ฟ้า',
+        confirmedDeals: 0,
+        reviews: []
+      }
+    });
+    window.DEMO_DATA = DEMO_DATA;
+    window.calcDiscountPct = calcDiscountPct;
+
     const DEMO_PERSONAS = {
       P1: {
         code: 'P1',
         name: 'P1 — นัท/ฟ้า (ผู้ซื้อสนีกเกอร์มือสอง)',
-        roleDesc: 'ค้นหา Min Sneaker Shop • เช็กหมวดรองเท้า (Kyrie 7 ฿1,500) • เทียบราคา ฿900',
-        searchQuery: 'Min Sneaker Shop',
+        roleDesc: `ค้นหา ${DEMO_DATA.seller.name} • เช็กหมวดรองเท้า (Kyrie 7 ${DEMO_DATA.product.offerPriceFormatted}) • เทียบราคา ${DEMO_DATA.product.marketRangeFormatted}`,
+        searchQuery: DEMO_DATA.seller.name,
         category: 'shoes',
         kycVerified: false,
-        s17Title: 'Nike Kyrie 7 มือสอง ไซซ์ 42',
-        s17Offer: '฿900',
-        s17Market: '฿2,500 - ฿3,000',
-        s17Diff: '-฿1,600 (ถูกเกินจริง)',
-        s17Verdict: 'ถูกกว่าตลาด 64% ผิดปกติ',
-        reportSeller: 'Min Sneaker Shop',
-        reportOwner: 'นายสมชาย ใจดี',
-        reportAcc: 'กสิกรไทย xxx-x-x4821-x',
-        reportChannel: 'Facebook (facebook.com/min.sneaker.shop)',
-        reportProduct: 'รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42',
-        reportAmount: '฿900',
+        s17Title: DEMO_DATA.product.name,
+        s17OfferNum: DEMO_DATA.product.offerPrice,
+        s17MarketMin: DEMO_DATA.product.marketMin,
+        s17MarketMax: DEMO_DATA.product.marketMax,
+        s17Offer: DEMO_DATA.product.offerPriceFormatted,
+        s17Market: DEMO_DATA.product.marketRangeFormatted,
+        s17Diff: `${DEMO_DATA.product.minDiffFormatted} (ถูกเกินจริง)`,
+        s17Verdict: `ถูกกว่าตลาด ${DEMO_DATA.product.discountPct}% ผิดปกติ`,
+        reportSeller: DEMO_DATA.seller.name,
+        reportOwner: DEMO_DATA.bank.owner,
+        reportAcc: DEMO_DATA.bank.accountCombined,
+        reportChannel: DEMO_DATA.seller.fullUrl,
+        reportProduct: DEMO_DATA.product.fullTitle,
+        reportAmount: DEMO_DATA.product.offerPriceFormatted,
         reportSlipName: 'สลิปโอนเงิน_KBANK_900.jpg',
         primaryScreen: 'S01',
         altScreen: 'S17',
@@ -8366,16 +8180,19 @@ function copyClaimCode() {
       P2: {
         code: 'P2',
         name: 'P2 — มิ้นท์/พิม (ผู้ซื้อเสื้อผ้ามือสอง IG)',
-        roleDesc: 'ตรวจร้าน Pim Preloved (S05 ควรระวัง) • เช็กลิสต์เสื้อผ้า 50% (3/6 ข้อ • CL-2940)',
-        searchQuery: 'Pim Preloved',
+        roleDesc: `ตรวจร้าน ${DEMO_DATA.pimSeller.name} (S05 ควรระวัง) • เช็กลิสต์เสื้อผ้า 50% (3/6 ข้อ • CL-2940)`,
+        searchQuery: DEMO_DATA.pimSeller.name,
         category: 'clothing',
         kycVerified: false,
         s17Title: 'เสื้อแจ็คเก็ต Stüssy Work Jacket ไซซ์ L',
+        s17OfferNum: 1200,
+        s17MarketMin: 2400,
+        s17MarketMax: 2900,
         s17Offer: '฿1,200',
         s17Market: '฿2,400 - ฿2,900',
         s17Diff: '-฿1,200 (ต่ำกว่าตลาดมาก)',
-        s17Verdict: 'ถูกกว่าตลาด 50% ควรขอคลิปสด',
-        reportSeller: 'Pim Preloved',
+        s17Verdict: `ถูกกว่าตลาด ${calcDiscountPct(1200, 2400)}% ควรขอคลิปสด`,
+        reportSeller: DEMO_DATA.pimSeller.name,
         reportOwner: 'นางสาวพิมลดา รักษ์ดี',
         reportAcc: 'ไทยพาณิชย์ xxx-x-x2190-x',
         reportChannel: 'Instagram (@pim.preloved)',
@@ -8394,10 +8211,13 @@ function copyClaimCode() {
         category: 'game',
         kycVerified: false,
         s17Title: 'ไอดี Valorant Rank Ascendant 2 + Reaver',
+        s17OfferNum: 1800,
+        s17MarketMin: 3000,
+        s17MarketMax: 3800,
         s17Offer: '฿1,800',
         s17Market: '฿3,000 - ฿3,800',
         s17Diff: '-฿1,200 (เสี่ยงถูกดึงรหัสคืน)',
-        s17Verdict: 'ต่ำกว่าตลาด 40% ต้องขอดูอีเมลแรก',
+        s17Verdict: `ต่ำกว่าตลาด ${calcDiscountPct(1800, 3000)}% ต้องขอดูอีเมลแรก`,
         reportSeller: 'ProGamer_TH99',
         reportOwner: 'นายวรพล เกมเมอร์',
         reportAcc: 'ไทยพาณิชย์ xxx-x-x7712-x',
@@ -8417,16 +8237,19 @@ function copyClaimCode() {
         category: 'others',
         kycVerified: false,
         s17Title: 'หูฟัง Sony WH-1000XM4 มือสอง ศูนย์ไทย',
+        s17OfferNum: 3200,
+        s17MarketMin: 5500,
+        s17MarketMax: 6500,
         s17Offer: '฿3,200',
         s17Market: '฿5,500 - ฿6,500',
         s17Diff: '-฿2,300 (ต่ำกว่าครึ่งราคา)',
-        s17Verdict: 'ราคาถูกผิดปกติ 42% ควรตรวจซีเรียล',
+        s17Verdict: `ราคาถูกผิดปกติ ${calcDiscountPct(3200, 5500)}% ควรตรวจซีเรียล`,
         reportSeller: 'สมชาย ตัวอย่าง',
         reportOwner: 'นายสมชาย ตัวอย่าง',
         reportAcc: 'ธนาคารสมมติ 000-0-00000-0',
         reportChannel: 'Facebook (facebook.com/example.seller)',
-        reportProduct: 'รองเท้าบาส Nike Kyrie 7 (กรณีทดสอบ T5)',
-        reportAmount: '฿900',
+        reportProduct: `${DEMO_DATA.product.fullTitle} (กรณีทดสอบ T5)`,
+        reportAmount: DEMO_DATA.product.offerPriceFormatted,
         reportSlipName: 'สลิปจำลอง_000-0-00000-0_900.jpg',
         primaryScreen: 'S33',
         altScreen: 'S01',
@@ -8435,11 +8258,14 @@ function copyClaimCode() {
       P5: {
         code: 'P5',
         name: 'P5 — เมย์ (ผู้ขายสร้าง Trust Profile + ชี้แจง)',
-        roleDesc: 'ยืนยันตัวตน KYC (S22–S27) • ส่งรีวิวดีล (S28–S32) • ชี้แจงข้อร้องเรียน (S40–S41)',
+        roleDesc: 'ยืนยันตัวตน KYC (S22–S27) • ดีลรอยืนยัน (S28–S32) • ชี้แจงข้อร้องเรียน (S40–S41)',
         searchQuery: 'Kitti Used Gear',
         category: 'others',
         kycVerified: false,
         s17Title: 'หูฟัง Sony WH-1000XM4 มือสอง ศูนย์ไทย',
+        s17OfferNum: 3200,
+        s17MarketMin: 5500,
+        s17MarketMax: 6500,
         s17Offer: '฿3,200',
         s17Market: '฿5,500 - ฿6,500',
         s17Diff: '-฿2,300 (ขอนัดรับเช็กของ)',
@@ -8462,24 +8288,24 @@ function copyClaimCode() {
         badgeLabel: 'รองเท้าบาส / สนีกเกอร์',
         shortLabel: 'รองเท้า / สนีกเกอร์',
         icon: 'steps',
-        fullTitle: 'รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42',
-        shortTitle: 'Nike Kyrie 7 มือสอง',
-        price: '฿1,500',
-        origPrice: '฿2,800',
-        sub: 'ไซซ์ 42 EU • สภาพผ่านการใช้งาน',
-        seller: 'Nutthapong K.',
-        tipHtml: 'ฟ้ากำลังสนใจ <strong class="font-semibold text-on-surface">"รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42"</strong> (฿1,500) แนะนำเลือกหมวด <span class="text-primary font-semibold underline decoration-primary/40 underline-offset-2">รองเท้า</span> เพื่อเปิดชุดตรวจเช็กป้ายไซซ์และพื้นกันย้อมแมว',
-        proofCode: 'KT-4829',
-        copyMsg: 'สวัสดีครับ สนใจ Kyrie 7 ไซซ์ 42 ราคา ฿1,500 ครับ รบกวนช่วยถ่ายรูปคู่กับป้ายกระดาษเขียนรหัส \'KT-4829\' ให้หน่อยนะครับ พอดีเช็กความปลอดภัยก่อนโอนเงินครับ ขอบคุณครับ',
+        fullTitle: DEMO_DATA.product.fullTitle,
+        shortTitle: DEMO_DATA.product.shortTitle,
+        price: DEMO_DATA.product.offerPriceFormatted,
+        origPrice: DEMO_DATA.product.origPriceFormatted,
+        sub: DEMO_DATA.product.sub,
+        seller: DEMO_DATA.seller.name,
+        tipHtml: `ฟ้ากำลังสนใจ <strong class="font-semibold text-on-surface">"${DEMO_DATA.product.fullTitle}"</strong> (${DEMO_DATA.product.offerPriceFormatted}) แนะนำเลือกหมวด <span class="text-primary font-semibold underline decoration-primary/40 underline-offset-2">รองเท้า</span> เพื่อเปิดชุดตรวจเช็กป้ายไซซ์และพื้นกันย้อมแมว`,
+        proofCode: DEMO_DATA.proofCode,
+        copyMsg: `สวัสดีครับ สนใจ Kyrie 7 ไซซ์ 42 ราคา ${DEMO_DATA.product.offerPriceFormatted} ครับ รบกวนช่วยถ่ายรูปคู่กับป้ายกระดาษเขียนรหัส '${DEMO_DATA.proofCode}' ให้หน่อยนะครับ พอดีเช็กความปลอดภัยก่อนโอนเงินครับ ขอบคุณครับ`,
         doneItems: [
           { title: 'ถามเหตุผลที่ขาย', note: 'สอบถามประวัติการใช้งานและสาเหตุที่ปล่อยต่อ (เปลี่ยนรุ่นใหม่)' },
-          { title: 'เทียบราคากับมือสองสภาพเดียวกัน', note: 'ราคา ฿1,500 อยู่ในเกณฑ์สมเหตุสมผล แต่ควรตรวจความแท้ซ้ำ', warn: 'ควรขอดูรูปป้ายไซซ์และตำหนิเพิ่มเติม' },
+          { title: 'เทียบราคากับมือสองสภาพเดียวกัน', note: `ราคา ${DEMO_DATA.product.offerPriceFormatted} ต่ำกว่าราคาตลาด (${DEMO_DATA.product.marketRangeFormatted}) ประมาณ ${DEMO_DATA.product.discountPct}%`, warn: 'ต่ำกว่าราคาตลาดมาก ควรขอรูปสินค้าจริงพร้อม Proof Code ก่อนโอน' },
           { title: 'ตกลงวิธีนัดรับหรือส่ง', note: 'ขอส่งพัสดุด่วนพร้อมเลขติดตามพัสดุ (Flash Express)' },
           { title: 'ตรวจชื่อบัญชีก่อนโอน', note: 'ตรวจสอบบัญชีปลายทางเทียบชื่อโปรไฟล์ก่อนโอนทุกครั้ง' }
         ],
         pendingItems: [
           { title: 'ขอรูปถ่ายพื้นรองเท้าและป้ายไซซ์', desc: 'เช็กตำหนิจริง รอยสึก และความแท้ของสินค้าก่อนโอนเงิน', pill: 'ขอดู 3 มุม: ป้ายไซซ์, พื้นดอกยาง, แผ่นรองด้านใน', important: false },
-          { title: 'ขอรูปคู่กับ Proof Code', desc: 'ให้ผู้ขายเขียนรหัส KT-4829 คู่กับสินค้าสด เพื่อยืนยันว่ามีของจริงในมือ', tip: 'ป้องกันมิจฉาชีพขโมยรูปจากกลุ่มสนีกเกอร์ได้ 99%', important: true }
+          { title: 'ขอรูปคู่กับ Proof Code', desc: `ให้ผู้ขายเขียนรหัส ${DEMO_DATA.proofCode} คู่กับสินค้าสด เพื่อยืนยันว่ามีของจริงในมือ`, tip: 'ช่วยลดความเสี่ยงจากผู้ขายที่นำรูปผู้อื่นมาแอบอ้าง', important: true }
         ],
         questions: [
           { tag: 'ขอหลักฐานสินค้าจริง', icon: 'verified_user', q: 'ขอรูปสินค้าตอนนี้พร้อมเขียนโค้ดหรือชื่อลงกระดาษวางคู่ได้ไหมครับ', tip: 'ใช้ตรวจว่าคนขายมีของอยู่จริงในมือ' },
@@ -8584,19 +8410,22 @@ function copyClaimCode() {
       riskTarget: 'S04',
       checklistCategory: 'shoes',
       lastQuery: '',
-      activeProofCode: 'KT-4829',
+      activeProofCode: DEMO_DATA.proofCode,
       kycVerified: false,
-      activePersona: 'P1'
+      activePersona: 'P1',
+      reportType: 'scammed'
     };
 
     let currentScreen = null;
     let s03Timer = null;
     let s19Timer = null;
 
-    function applyChecklistCategory(catKey) {
+    function applyChecklistCategory(catKey, preserveProofCode = false) {
       const cat = CHECKLIST_CATEGORIES[catKey] || CHECKLIST_CATEGORIES.shoes;
       appState.checklistCategory = CHECKLIST_CATEGORIES[catKey] ? catKey : 'shoes';
-      appState.activeProofCode = cat.proofCode;
+      if (!preserveProofCode) {
+        appState.activeProofCode = cat.proofCode;
+      }
 
       const doneCount = cat.doneItems.length;
       const total = doneCount + cat.pendingItems.length;
@@ -8728,6 +8557,8 @@ function copyClaimCode() {
       }
 
       // S12 & S13 Proof Code
+      const activeCode = appState.activeProofCode || cat.proofCode;
+      const activeCopyMsg = cat.copyMsg.replace(cat.proofCode, activeCode);
       const s12Item = document.getElementById('s12-context-item');
       const s12Seller = document.getElementById('s12-context-seller');
       const s12CodeBig = document.getElementById('s12-code-big');
@@ -8740,13 +8571,13 @@ function copyClaimCode() {
 
       if (s12Item) s12Item.textContent = cat.fullTitle;
       if (s12Seller) s12Seller.textContent = cat.seller;
-      if (s12CodeBig) s12CodeBig.textContent = cat.proofCode;
-      if (s12CodeInline) s12CodeInline.textContent = cat.proofCode;
-      if (s12CopyMsg) s12CopyMsg.textContent = cat.copyMsg;
+      if (s12CodeBig) s12CodeBig.textContent = activeCode;
+      if (s12CodeInline) s12CodeInline.textContent = activeCode;
+      if (s12CopyMsg) s12CopyMsg.textContent = activeCopyMsg;
       if (s13Item) s13Item.textContent = cat.fullTitle;
-      if (s13CodeBig) s13CodeBig.textContent = cat.proofCode;
-      if (s13CodeInline) s13CodeInline.textContent = `"${cat.proofCode}"`;
-      if (s13Template) s13Template.textContent = `"${cat.copyMsg}"`;
+      if (s13CodeBig) s13CodeBig.textContent = activeCode;
+      if (s13CodeInline) s13CodeInline.textContent = `"${activeCode}"`;
+      if (s13Template) s13Template.textContent = `"${activeCopyMsg}"`;
 
       // S14 & S15 Questions
       const s14Cat = document.getElementById('s14-cat-label');
@@ -8800,8 +8631,14 @@ function copyClaimCode() {
       const s16Seller = document.getElementById('s16-target-seller');
       const s16Proof = document.getElementById('s16-proof-note');
       if (s16Icon) s16Icon.textContent = cat.icon || 'shopping_bag';
-      if (s16Title) s16Title.textContent = `${cat.shortTitle} (${cat.price})`;
+      if (s16Title) s16Title.textContent = `${cat.fullTitle} (${cat.price})`;
       if (s16Seller) s16Seller.textContent = 'ผู้ขาย: ' + cat.seller;
+      const s16Diff = document.getElementById('s16-price-diff-title');
+      const s16Range = document.getElementById('s16-price-range-desc');
+      if (appState.checklistCategory === 'shoes') {
+        if (s16Diff) s16Diff.textContent = `ราคาต่ำกว่าตลาด ${DEMO_DATA.product.discountPct}%`;
+        if (s16Range) s16Range.textContent = `ราคาตลาดเฉลี่ยอยู่ที่ ${DEMO_DATA.product.marketRangeFormatted}`;
+      }
       if (s16Proof) s16Proof.textContent = `รหัสยืนยัน ${cat.proofCode} ถ่ายคู่สินค้าจริง`;
 
       // Highlight matching category card on S09
@@ -8901,27 +8738,27 @@ function copyClaimCode() {
       } else if (q && !lower.includes('min sneaker')) {
         if (s04Name) s04Name.textContent = q;
         if (s04Link) s04Link.textContent = q.includes('/') || q.includes('.') ? q : 'ค้นหาจากระบบ: ' + q;
-        if (s04BankName) s04BankName.textContent = 'ธนาคารกสิกรไทย';
-        if (s04BankAcc) s04BankAcc.textContent = /\d{3}/.test(q) ? q : 'xxx-x-x4821-x';
-        if (s04BankOwner) s04BankOwner.textContent = 'นายสมชาย ใจดี';
+        if (s04BankName) s04BankName.textContent = DEMO_DATA.bank.name;
+        if (s04BankAcc) s04BankAcc.textContent = /\d{3}/.test(q) ? q : DEMO_DATA.bank.accountMasked;
+        if (s04BankOwner) s04BankOwner.textContent = DEMO_DATA.bank.owner;
         if (s04R2Desc) s04R2Desc.textContent = 'ข้อมูลผู้รับโอนไม่สอดคล้องกับชื่อโปรไฟล์ ' + q;
-        if (s07Bank) s07Bank.textContent = 'กสิกรไทย (KBANK)';
-        if (s07Owner) s07Owner.textContent = 'นายสมชาย ใจดี';
-        if (s07Acc) s07Acc.textContent = 'เลขบัญชี: ' + (/\d{3}/.test(q) ? q : 'xxx-x-x4892-x');
+        if (s07Bank) s07Bank.textContent = DEMO_DATA.bank.shortName;
+        if (s07Owner) s07Owner.textContent = DEMO_DATA.bank.owner;
+        if (s07Acc) s07Acc.textContent = 'เลขบัญชี: ' + (/\d{3}/.test(q) ? q : DEMO_DATA.bank.accountMasked);
         if (s07Seller) s07Seller.textContent = q;
         if (s08Seller) s08Seller.textContent = q;
       } else {
-        if (s04Name) s04Name.textContent = 'Min Sneaker Shop';
-        if (s04Link) s04Link.textContent = 'facebook.com/min.sneaker.shop';
-        if (s04BankName) s04BankName.textContent = 'ธนาคารกสิกรไทย';
-        if (s04BankAcc) s04BankAcc.textContent = 'xxx-x-x4821-x';
-        if (s04BankOwner) s04BankOwner.textContent = 'นายสมชาย ใจดี';
-        if (s04R2Desc) s04R2Desc.textContent = 'ชื่อบัญชี นายสมชาย ใจดี ไม่ตรงกับชื่อร้าน Min Sneaker Shop';
-        if (s07Bank) s07Bank.textContent = 'กสิกรไทย (KBANK)';
-        if (s07Owner) s07Owner.textContent = 'นายสมชาย ใจดี';
-        if (s07Acc) s07Acc.textContent = 'เลขบัญชี: xxx-x-x4892-x';
-        if (s07Seller) s07Seller.textContent = 'Min Sneaker Shop';
-        if (s08Seller) s08Seller.textContent = 'Min Sneaker Shop';
+        if (s04Name) s04Name.textContent = DEMO_DATA.seller.name;
+        if (s04Link) s04Link.textContent = DEMO_DATA.seller.link;
+        if (s04BankName) s04BankName.textContent = DEMO_DATA.bank.name;
+        if (s04BankAcc) s04BankAcc.textContent = DEMO_DATA.bank.accountMasked;
+        if (s04BankOwner) s04BankOwner.textContent = DEMO_DATA.bank.owner;
+        if (s04R2Desc) s04R2Desc.textContent = `ชื่อบัญชี ${DEMO_DATA.bank.owner} ไม่ตรงกับชื่อร้าน ${DEMO_DATA.seller.name}`;
+        if (s07Bank) s07Bank.textContent = DEMO_DATA.bank.shortName;
+        if (s07Owner) s07Owner.textContent = DEMO_DATA.bank.owner;
+        if (s07Acc) s07Acc.textContent = 'เลขบัญชี: ' + DEMO_DATA.bank.accountMasked;
+        if (s07Seller) s07Seller.textContent = DEMO_DATA.seller.name;
+        if (s08Seller) s08Seller.textContent = DEMO_DATA.seller.name;
       }
     }
 
@@ -9006,6 +8843,23 @@ function copyClaimCode() {
       if (s17Diff) s17Diff.textContent = p.s17Diff;
       if (s17Verdict) s17Verdict.textContent = p.s17Verdict;
 
+      // 3b. Sync S21 "ยังมีข้อสงสัย" price summary dynamically
+      const s21Pct = calcDiscountPct(p.s17OfferNum, p.s17MarketMin);
+      const s21Mid = Math.round(((p.s17MarketMin || 2500) + (p.s17MarketMax || 3000)) / 2).toLocaleString('en-US');
+      const s21Title = document.getElementById('s21-price-title');
+      const s21Desc = document.getElementById('s21-price-desc');
+      const s21OfferLbl = document.getElementById('s21-offer-label');
+      const s21MidEl = document.getElementById('s21-market-mid');
+      const s21OfferBar = document.getElementById('s21-offer-bar');
+      if (s21Title) s21Title.textContent = `⚠️ ราคาถูกกว่าปกติ ${s21Pct}% และมีพฤติกรรมเร่งรัด`;
+      if (s21Desc) s21Desc.textContent = `เสนอขาย ${p.s17Offer} เทียบกับราคาตลาด ${p.s17Market} พร้อมเร่งให้โอนมัดจำ`;
+      if (s21OfferLbl) s21OfferLbl.innerHTML = `ราคาที่เสนอ: <strong class="text-on-surface">${p.s17Offer}</strong>`;
+      if (s21MidEl) s21MidEl.textContent = `ราคาตลาดกลาง: ฿${s21Mid}`;
+      if (s21OfferBar) {
+        const offerWidth = Math.max(15, Math.min(85, 100 - s21Pct));
+        s21OfferBar.style.width = offerWidth + '%';
+      }
+
       // 4. Sync S35/S36 Report Demo Details
       const s35File = document.getElementById('s35-file-name');
       const s35Name = document.getElementById('field-name-val');
@@ -9081,8 +8935,17 @@ function copyClaimCode() {
 
     // INITIALIZATION
     window.addEventListener('DOMContentLoaded', () => {
-      // Seed default category state (shoes) so S09..S16 match T2 baseline
+      // Init centralized DEMO_DATA, S32 profile & Proof Code 30-min timer
+      hydrateDemoData();
+      setS32Profile('kitti', 'S06');
       applyChecklistCategory('shoes');
+      ProofCodeTimer.init();
+
+      // Track report category cards on S33 (#report-scammed / #report-suspicious)
+      const cardScammed = document.getElementById('card-scammed');
+      const cardSuspicious = document.getElementById('card-suspicious');
+      if (cardScammed) cardScammed.addEventListener('click', () => setReportCategory('scammed'));
+      if (cardSuspicious) cardSuspicious.addEventListener('click', () => setReportCategory('suspicious'));
 
       // Recent seller rows reset preset
       document.querySelectorAll('#screen-S01 [data-recent-seller]').forEach((row) => {
@@ -9130,19 +8993,24 @@ function copyClaimCode() {
       }
       if (demoResetBtn) {
         demoResetBtn.addEventListener('click', () => {
-          applyDemoPersona('P1', 'S01');
-          const s1In = document.getElementById('check-input');
-          if (s1In) s1In.value = '';
+          resetAllState();
           closeDemoModal();
-          showToast('รีเซ็ตข้อมูลทดสอบทั้งหมดเรียบร้อย');
+          showToast('รีเซ็ตค่าเริ่มต้นทั้งหมดเรียบร้อย');
         });
       }
 
-      // Resolve initial screen from URL Hash (#S01..#S41, #T1..#T6, #P1..#P5)
-      const rawHash = window.location.hash.replace('#', '').toUpperCase();
+      // Resolve initial screen from URL Hash (#S01..#S41, #T1..#T6, #P1..#P5, #report-scammed, #report-suspicious)
+      const rawHashLower = window.location.hash.replace('#', '').toLowerCase();
+      const rawHash = rawHashLower.toUpperCase();
       let initScreen = 'S01';
       if (rawHash) {
-        if (DEMO_PERSONAS[rawHash]) {
+        if (rawHashLower === 'report-scammed') {
+          setReportCategory('scammed');
+          initScreen = 'S34';
+        } else if (rawHashLower === 'report-suspicious') {
+          setReportCategory('suspicious');
+          initScreen = 'S34';
+        } else if (DEMO_PERSONAS[rawHash]) {
           applyDemoPersona(rawHash, null);
           initScreen = DEMO_PERSONAS[rawHash].primaryScreen;
         } else if (TASK_START_MAP[rawHash]) {
@@ -9154,11 +9022,21 @@ function copyClaimCode() {
       }
       navigateTo(initScreen, false);
 
-      // Listen for browser hash navigation (Back/Forward)
+      // Listen for browser hash navigation (Back/Forward & custom report hashes)
       window.addEventListener('hashchange', () => {
-        const h = window.location.hash.replace('#', '').toUpperCase();
+        const hLower = window.location.hash.replace('#', '').toLowerCase();
+        const h = hLower.toUpperCase();
         let targetSid = 'S01';
-        if (TASK_START_MAP[h]) {
+        if (hLower === 'report-scammed') {
+          setReportCategory('scammed');
+          targetSid = 'S34';
+        } else if (hLower === 'report-suspicious') {
+          setReportCategory('suspicious');
+          targetSid = 'S34';
+        } else if (DEMO_PERSONAS[h]) {
+          applyDemoPersona(h, null);
+          targetSid = DEMO_PERSONAS[h].primaryScreen;
+        } else if (TASK_START_MAP[h]) {
           targetSid = TASK_START_MAP[h];
           if (h === 'T6') applyChecklistCategory('clothing');
         } else if (SCREEN_NAMES[h]) {
@@ -9301,6 +9179,431 @@ function copyClaimCode() {
         }
       }, 1000);
     }
+
+    const ProofCodeTimer = {
+      remaining: DEMO_DATA.proofCodeDurationSec,
+      expired: false,
+      intervalId: null,
+      codeSeq: 0,
+      extraCodes: ['KT-5914', 'KT-7382', 'KT-8620'],
+
+      init() {
+        this.render();
+        if (this.intervalId) clearInterval(this.intervalId);
+        this.intervalId = setInterval(() => this.tick(), 1000);
+      },
+
+      tick() {
+        const s12 = document.getElementById('screen-S12');
+        const s13 = document.getElementById('screen-S13');
+        const onProofScreen = (s12 && !s12.classList.contains('hidden')) || (s13 && !s13.classList.contains('hidden'));
+        if (!onProofScreen || this.expired) return;
+        if (this.remaining <= 1) {
+          this.remaining = 0;
+          this.expired = true;
+          this.render();
+          return;
+        }
+        this.remaining--;
+        this.render();
+      },
+
+      formatTime(sec) {
+        const safe = Math.max(0, sec | 0);
+        const mins = Math.floor(safe / 60);
+        const secs = safe % 60;
+        return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      },
+
+      render() {
+        const timeStr = this.formatTime(this.remaining);
+        const s12Chip = document.getElementById('s12-timer-chip');
+        const s12Icon = document.getElementById('s12-timer-icon');
+        const s12Status = document.getElementById('s12-timer-status-text');
+        const s12ExpiredBox = document.getElementById('s12-expired-actions');
+
+        const s13Chip = document.getElementById('s13-timer-chip');
+        const s13Icon = document.getElementById('s13-timer-icon');
+        const s13Status = document.getElementById('s13-timer-status-text');
+        const s13ExpiredBox = document.getElementById('s13-expired-actions');
+
+        if (this.expired) {
+          if (s12Chip) {
+            s12Chip.classList.remove('bg-risk-caution-bg', 'text-risk-caution');
+            s12Chip.classList.add('bg-risk-high-bg', 'text-risk-high');
+          }
+          if (s12Icon) {
+            s12Icon.classList.remove('animate-spin');
+            s12Icon.textContent = 'timer_off';
+          }
+          if (s12Status) s12Status.innerHTML = '<span class="font-semibold" id="timer-display">หมดอายุ</span>';
+          if (s12ExpiredBox) s12ExpiredBox.classList.remove('hidden');
+
+          if (s13Chip) {
+            s13Chip.classList.remove('bg-risk-caution-bg', 'text-risk-caution');
+            s13Chip.classList.add('bg-risk-high-bg', 'text-risk-high');
+          }
+          if (s13Icon) s13Icon.textContent = 'timer_off';
+          if (s13Status) s13Status.innerHTML = '<span class="font-semibold" id="s13-timer-display">หมดอายุ</span>';
+          if (s13ExpiredBox) s13ExpiredBox.classList.remove('hidden');
+        } else {
+          if (s12Chip) {
+            s12Chip.classList.add('bg-risk-caution-bg', 'text-risk-caution');
+            s12Chip.classList.remove('bg-risk-high-bg', 'text-risk-high');
+          }
+          if (s12Icon) {
+            s12Icon.classList.add('animate-spin');
+            s12Icon.textContent = 'timelapse';
+          }
+          if (s12Status) s12Status.innerHTML = `ใช้ได้ภายใน <span class="font-semibold" id="timer-display">${timeStr}</span> นาที`;
+          if (s12ExpiredBox) s12ExpiredBox.classList.add('hidden');
+
+          if (s13Chip) {
+            s13Chip.classList.add('bg-risk-caution-bg', 'text-risk-caution');
+            s13Chip.classList.remove('bg-risk-high-bg', 'text-risk-high');
+          }
+          if (s13Icon) s13Icon.textContent = 'schedule';
+          if (s13Status) s13Status.innerHTML = `ใช้ได้ภายใน <span class="font-semibold" id="s13-timer-display">${timeStr}</span> นาที`;
+          if (s13ExpiredBox) s13ExpiredBox.classList.add('hidden');
+        }
+      },
+
+      expireNow() {
+        this.remaining = 0;
+        this.expired = true;
+        this.render();
+      },
+
+      regenerate() {
+        const cat = CHECKLIST_CATEGORIES[appState.checklistCategory] || CHECKLIST_CATEGORIES.shoes;
+        const prefix = (cat.proofCode || 'KT-4829').split('-')[0];
+        const suffix = ['5914', '7382', '8620'][this.codeSeq % 3];
+        const nextCode = `${prefix}-${suffix}`;
+        this.codeSeq++;
+        appState.activeProofCode = nextCode;
+        this.remaining = DEMO_DATA.proofCodeDurationSec;
+        this.expired = false;
+        applyChecklistCategory(appState.checklistCategory, true);
+        this.render();
+        showToast(`สร้างรหัสใหม่ (${nextCode}) แล้ว`);
+      },
+
+      reset() {
+        this.codeSeq = 0;
+        this.remaining = DEMO_DATA.proofCodeDurationSec;
+        this.expired = false;
+        const cat = CHECKLIST_CATEGORIES[appState.checklistCategory] || CHECKLIST_CATEGORIES.shoes;
+        appState.activeProofCode = cat.proofCode;
+        applyChecklistCategory(appState.checklistCategory);
+        this.render();
+      }
+    };
+    window.ProofCodeTimer = ProofCodeTimer;
+
+    function getActiveProofCopyMessage() {
+      const cat = CHECKLIST_CATEGORIES[appState.checklistCategory] || CHECKLIST_CATEGORIES.shoes;
+      const code = appState.activeProofCode || cat.proofCode;
+      return cat.copyMsg.replace(cat.proofCode, code);
+    }
+    window.getActiveProofCopyMessage = getActiveProofCopyMessage;
+
+    function setReportCategory(kind) {
+      appState.reportType = kind === 'suspicious' ? 'suspicious' : 'scammed';
+      const lbl = document.getElementById('s36-behavior-label');
+      if (lbl) {
+        lbl.textContent = appState.reportType === 'suspicious'
+          ? 'น่าสงสัย / พฤติกรรมเร่งรัดผิดปกติ (ยังไม่โอน)'
+          : 'โอนเงินแล้วบล็อกหนี / ไม่ส่งสินค้า';
+      }
+    }
+    window.setReportCategory = setReportCategory;
+
+    function hydrateDemoData() {
+      const p1 = DEMO_PERSONAS.P1;
+      applySearchQuery(DEMO_DATA.seller.name);
+      const s17Title = document.getElementById('s17-product-title');
+      const s17Price = document.getElementById('s17-product-price');
+      const s17Market = document.getElementById('s17-market-range');
+      const s17Ptr = document.getElementById('s17-pointer-price');
+      const s17Box = document.getElementById('s17-deal-price-box');
+      const s17Diff = document.getElementById('s17-diff-box');
+      const s17Verdict = document.getElementById('s17-verdict-title');
+      if (s17Title) s17Title.textContent = p1.s17Title;
+      if (s17Price) s17Price.textContent = p1.s17Offer;
+      if (s17Market) s17Market.textContent = p1.s17Market;
+      if (s17Ptr) s17Ptr.textContent = p1.s17Offer + ' (ดีลนี้)';
+      if (s17Box) s17Box.textContent = p1.s17Offer;
+      if (s17Diff) s17Diff.textContent = p1.s17Diff;
+      if (s17Verdict) s17Verdict.textContent = p1.s17Verdict;
+
+      const s21Pct = DEMO_DATA.product.discountPct;
+      const s21Title = document.getElementById('s21-price-title');
+      const s21Desc = document.getElementById('s21-price-desc');
+      const s21OfferLbl = document.getElementById('s21-offer-label');
+      const s21MidEl = document.getElementById('s21-market-mid');
+      if (s21Title) s21Title.textContent = `⚠️ ราคาถูกกว่าปกติ ${s21Pct}% และมีพฤติกรรมเร่งรัด`;
+      if (s21Desc) s21Desc.textContent = `เสนอขาย ${DEMO_DATA.product.offerPriceFormatted} เทียบกับราคาตลาด ${DEMO_DATA.product.marketRangeFormatted} พร้อมเร่งให้โอนมัดจำ`;
+      if (s21OfferLbl) s21OfferLbl.innerHTML = `ราคาที่เสนอ: <strong class="text-on-surface">${DEMO_DATA.product.offerPriceFormatted}</strong>`;
+      if (s21MidEl) s21MidEl.textContent = `ราคาตลาดกลาง: ${DEMO_DATA.product.marketMidFormatted}`;
+
+      const s26Deals = document.getElementById('s26-deals-count');
+      const s27Deals = document.getElementById('s27-deals-count');
+      if (s26Deals) s26Deals.textContent = String(DEMO_DATA.profileUser.confirmedDeals);
+      if (s27Deals) s27Deals.textContent = String(DEMO_DATA.profileUser.confirmedDeals);
+    }
+    window.hydrateDemoData = hydrateDemoData;
+
+    const S32_PROFILES = {
+      kitti: {
+        headerTitle: 'Seller Reviews Detail',
+        name: 'Kitti Used Gear',
+        avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkyDYL3KkWZY8kBPUfsXifIvUDqqaY_E2jK4vP1CvZIomJhK4_KjE_weobVklgl1xQbClT5Jq08dAPP1Xa4mDYNzzCfk-U0qVQO3MZhdG6L3h87Jvk_fMqMVlWyKnB7XvGlGHPVyDoIpFs7TD-k7iwk6kptKirwEHFrm1AwWpZ1PERFt9ZGVBDRveH10YvGF_JSrcL3I-BBaaWYgaCA-MUUGMOx7SqwVL21BOqDTM',
+        subtitle: 'กลุ่มไอที มหาวิทยาลัย · หูฟังเกมมิ่ง',
+        tenure: 'สมาชิกกลุ่ม นศ. 2 ปี',
+        idCode: 'KIT-8810',
+        dealsCount: '12 ดีล',
+        bannerDesc: 'ผู้ขายผ่านการตรวจสอบเอกสาร KYC เรียบร้อย ชื่อบัญชีตรงกับบัตรประชาชน และไม่มีประวัติร้องเรียน',
+        backScreen: 'S06',
+        primaryGoto: 'S10',
+        primaryIcon: 'checklist',
+        primaryLabel: 'ไปเช็กลิสต์ก่อนโอน',
+        secondaryGoto: 'S06',
+        secondaryLabel: 'กลับไปหน้าผลตรวจผู้ขาย',
+        reviews: [
+          {
+            item: 'ขาย "หูฟังเกมมิ่ง HyperX Cloud II"',
+            meta: 'นัดรับ หอสมุดกลาง • 3 วันที่แล้ว',
+            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAggivxl5rssXUSM2eTmCFgdwW6kwWujU21bXkYLRoBKx4aCb3O9LOhQpwId3ZuZE1PMqCaNGDaq6Quf4PHmJ7Gjzt0itm9LmfTAjd6cfuUPkp3YiwXl0OXtHIgM_n_3rT7zVdBC0MRivWJjfHSrrzTpUmO63aUG7HW114haOBq4CVC-2yRQ_sL5BIzw86iA4CXL-JZXpcUIUgra1ERDgx_DB0fuiWYdKbSTH4O-Cc',
+            quote: '"ของสภาพใหม่มาก ตรงปก นัดรับลองเสียงก่อนโอน สบายใจเลยครับ"',
+            author: '— ผู้ซื้อ @Boss_Eng (ยืนยันแล้ว)'
+          },
+          {
+            item: 'ขาย "คีย์บอร์ด Mechanical Keychron K2"',
+            meta: 'นัดรับ คณะวิศวะ • 10 วันที่แล้ว',
+            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBbJvBwvXubU_GWOuSxey0phqBgTp6FaSyPgpnYBPWWbS1-LXKgXmPWABa8gLJNpvE3Pi0z501LNZ-bjhpGHkt_kast56Cxvrr5VO5ZWIJiZoJmzL28MVODuKhSkdWWZvQ8T6k1f1B7jC7TjCgCsTUGXz2dwFIBfL5TNL-TMfeRkcFem3cnO2-TiGXqJYuzlyHOnHLvfKGZfM0ZVgQpD_xCoZiIqCBTePn5t-zvn-Y',
+            quote: '"แพ็กดีมาก กล่องครบ ประกันเหลือตรงตามที่แจ้งครับ"',
+            author: '— ผู้ซื้อ @Mint_Arch (ยืนยันแล้ว)'
+          },
+          {
+            item: 'ขาย "เมาส์ไร้สาย Logitech G Pro"',
+            meta: 'จัดส่งพัสดุด่วน • 18 วันที่แล้ว',
+            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD_GcMCy5sYQXal2xrW2XPLdXRp0rHV_8rfcYBYo44lQ7BOW8xdve0fwry0IdS2kkbaRXrXEqzDOsPTz5UevoZpIuIWJp2Kfbk1lROUWn0UVEAqcjPXeMsw1oJ2_TlxdAQGA3AOXCUb8cYf-8zAxsDj3iWeFdMJeKMSh5KdtP7FRv-AHIHHRzUBJGJuyyh4Drp7gxRjeZdlmD2u7b6edozHKQcLdIJHTRQ2y4ktwKs',
+            quote: '"ส่งไวมาก ถ่ายรูปคู่ Proof Code ให้ดูก่อนโอนด้วยครับ"',
+            author: '— ผู้ซื้อ @Jay_IT (ยืนยันแล้ว)'
+          }
+        ]
+      },
+      pim: {
+        headerTitle: 'Buyer Profile Detail',
+        name: 'คุณพิม (Pim)',
+        avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD2yn687GW-fsFENZBl4OL3yOM9j5V0AnayLjBCbR7YiVF7D-lFV7jBtr6Z9wIq7ysvR-VN6jMf8Y40km-5iX02WHyd1vOzifTV8usJ2ijgdXl7jXr-I-aqOqyKLfbAX5EiQatTsCYf7AdCXKYbC6SAaSsAi3mhY0kYSyHnH8bJwZNB0_b87TPjdOPFrEW9FGF5Nhm64o-R7ujTHQbt53fpIzqyuyo2aSfYVg4VIuI',
+        subtitle: 'ผู้ซื้อในกลุ่ม Facebook / มหาวิทยาลัย',
+        tenure: 'สมาชิกกลุ่ม นศ. 2 ปี',
+        idCode: 'PIM-9482',
+        dealsCount: '10 ดีล',
+        bannerDesc: 'ผู้ซื้อผ่านการตรวจสอบเอกสาร KYC เรียบร้อย มีประวัตินัดรับตรงเวลา และไม่มีข้อพิพาทค้างชำระ',
+        backScreen: 'S28',
+        primaryGoto: 'S28',
+        primaryIcon: 'handshake',
+        primaryLabel: 'กลับไปหน้ายืนยันดีล',
+        secondaryGoto: 'S26',
+        secondaryLabel: 'กลับไปโปรไฟล์ของฉัน',
+        reviews: [
+          {
+            item: 'ซื้อ "เสื้อผ้ามือสอง"',
+            meta: 'นัดรับ คอนโดใกล้มหาวิทยาลัย • 3 วันที่แล้ว',
+            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCoAT1dbKyEoySqMCH_mZ8y6gsIWMasr9yESxUeu0ONPic8dFNktqjbkAh2EbUaUePX1Y8ywQaHK_MJly_3YllJI0Ui1TrUSDEEPGfYA3m_O1U1ZYB_7XoBOrZHPDviOoVxdOPvj__z8pW77ZDgfLw27VUKavu_WxRBA-_E5jKVRWFHaPbCUBGqEhsYqOB7XOooW_Lksd080XsGMaj9v3fGVpTtjHJ9fJdjVppWT7c',
+            quote: '"ตรงเวลา สุภาพ โอนไว คุยง่ายมากครับ แนะนำเลย"',
+            author: '— ผู้ขาย @Tar_Secondhand (ยืนยันแล้ว)'
+          },
+          {
+            item: 'ซื้อ "iPad Air 5"',
+            meta: 'นัดรับ โรงอาหารกลาง • 14 วันที่แล้ว',
+            img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA2aXGjV06r3IGoNU_yeAR_Ha_cl_OeVkL3_GtYuNS_BMHafgdoBdffe7CNSBSQqfDitWvPZw1nMyIST3OAQtbkvnXDWrIcSlSEUUX8lTWcyGJus6pjQEun1yFGcZr5QcWbgEGnV1ah6bWLdJ5c__ihnN2kHH4Fn81170yyKUF0CdVzpFTI0HUke4lBMOZpcB-nAyzQeTsKlw7ct3VIzY5bdtaXdVcrDceeNJr2w4g',
+            quote: '"มารับเครื่องตามนัด ตรวจสภาพรวดเร็ว โอนเงินทันที ซื้อขายราบรื่น"',
+            author: '— ผู้ขาย @Apple_StudentDeals (ยืนยันแล้ว)'
+          }
+        ]
+      }
+    };
+
+    function setS32Profile(key, backScreenOverride) {
+      const p = S32_PROFILES[key] || S32_PROFILES.kitti;
+      const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      setTxt('s32-header-title', p.headerTitle);
+      setTxt('s32-name', p.name);
+      setTxt('s32-subtitle', p.subtitle);
+      setTxt('s32-tenure-text', p.tenure);
+      setTxt('s32-code-text', 'ID: ' + p.idCode);
+      setTxt('s32-deals-count', p.dealsCount);
+      setTxt('s32-banner-desc', p.bannerDesc);
+      setTxt('s32-primary-cta-icon', p.primaryIcon);
+      setTxt('s32-primary-cta-label', p.primaryLabel);
+      setTxt('s32-secondary-cta-label', p.secondaryLabel);
+
+      const avatar = document.getElementById('s32-avatar');
+      if (avatar) { avatar.src = p.avatar; avatar.alt = 'โปรไฟล์ ' + p.name; }
+      const backBtn = document.getElementById('s32-back-btn');
+      if (backBtn) backBtn.setAttribute('data-proto-goto', backScreenOverride || p.backScreen);
+      const pCta = document.getElementById('s32-primary-cta');
+      if (pCta) pCta.setAttribute('data-proto-goto', p.primaryGoto);
+      const sCta = document.getElementById('s32-secondary-cta');
+      if (sCta) sCta.setAttribute('data-proto-goto', p.secondaryGoto);
+      if (typeof window._s32SetCopyId === 'function') window._s32SetCopyId(p.idCode);
+
+      const list = document.getElementById('s32-reviews-list');
+      if (list) {
+        list.innerHTML = p.reviews.map((r) => `
+          <div class="bg-surface-card rounded-xl p-space-md shadow-[0px_2px_8px_rgba(15,23,42,0.06)] flex flex-col gap-2.5">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-12 h-12 rounded-lg bg-surface-container-low overflow-hidden shrink-0 flex items-center justify-center">
+                  <img alt="${r.item}" class="w-full h-full object-cover" src="${r.img}"/>
+                </div>
+                <div class="flex flex-col min-w-0">
+                  <span class="font-label-lg text-label-lg text-on-surface truncate">${r.item}</span>
+                  <span class="font-caption text-caption text-secondary">${r.meta}</span>
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-1 bg-surface-container-low text-on-secondary-container px-2 py-0.5 rounded-full font-caption text-caption shrink-0">
+                <span class="material-symbols-outlined text-[13px] text-risk-safe" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                ดีลที่ยืนยันโดยทั้งสองฝ่าย
+              </span>
+            </div>
+            <div class="bg-surface-container-low/70 rounded-lg p-2.5 flex flex-col gap-1">
+              <div class="flex items-center gap-1 text-[#F59E0B]">
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="font-label-sm text-label-sm text-on-surface ml-1 font-semibold">5.0</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface italic">${r.quote}</p>
+              <span class="font-caption text-caption text-secondary mt-0.5">${r.author}</span>
+            </div>
+          </div>`).join('');
+      }
+    }
+    window.setS32Profile = setS32Profile;
+
+    function resetAllState() {
+      // 1. Clear active timers
+      if (s03Timer) { clearTimeout(s03Timer); s03Timer = null; }
+      if (s19Timer) { clearInterval(s19Timer); s19Timer = null; }
+
+      // 2. Reset KYC, active persona, checklist & Proof Code timer
+      appState.kycVerified = false;
+      appState.activePersona = 'P1';
+      appState.checklistCategory = 'shoes';
+      appState.activeProofCode = DEMO_DATA.proofCode;
+      setReportCategory('scammed');
+
+      applyDemoPersona('P1', null);
+      hydrateDemoData();
+      applyChecklistCategory('shoes');
+      ProofCodeTimer.reset();
+
+      // 3. Clear search inputs (keep placeholder clean)
+      const s1In = document.getElementById('check-input');
+      const s2In = document.getElementById('targetInputText');
+      if (s1In) s1In.value = '';
+      if (s2In) s2In.value = '';
+
+      // 4. Reset S28 Confirm Deal button state
+      if (typeof window.resetS28Confirm === 'function') window.resetS28Confirm();
+
+      // 4b. Reset S19 ("เบรกก่อนโอน") timer, 3 review checkboxes & proceed CTA
+      const screen19 = document.getElementById('screen-S19');
+      if (screen19) {
+        screen19.querySelectorAll('.s19-check-card').forEach((card) => {
+          card.setAttribute('data-checked', 'false');
+          card.classList.remove('ring-2', 'ring-risk-safe');
+          const badge = card.querySelector('.s19-check-badge');
+          const iconWrap = card.querySelector('.s19-check-icon-wrap');
+          if (badge) {
+            badge.textContent = 'radio_button_unchecked';
+            badge.classList.add('text-outline-variant');
+            badge.classList.remove('text-risk-safe');
+            badge.style.fontVariationSettings = "'FILL' 0";
+          }
+          if (iconWrap) {
+            iconWrap.classList.add('bg-secondary-container', 'text-primary');
+            iconWrap.classList.remove('bg-risk-safe-bg', 'text-risk-safe');
+          }
+        });
+        const cText = screen19.querySelector('#countdown-text');
+        const cCircle = screen19.querySelector('#countdown-circle');
+        const pBtn = screen19.querySelector('#btn-proceed');
+        const bLbl = screen19.querySelector('#btn-label');
+        if (cText) cText.textContent = '10s';
+        if (cCircle) {
+          cCircle.style.strokeDashoffset = 0;
+          cCircle.classList.add('text-primary-container');
+          cCircle.classList.remove('text-risk-safe');
+        }
+        if (pBtn) {
+          pBtn.disabled = true;
+          pBtn.classList.add('opacity-50', 'cursor-not-allowed');
+          pBtn.classList.remove('bg-risk-safe', 'text-on-tertiary', 'active:opacity-90');
+        }
+        if (bLbl) bLbl.textContent = 'กำลังนับเวลาถอยหลัง (10s)';
+      }
+
+      // 5. Reset Report forms (S34 evidence upload, S36 consent/text, S40 demo attach)
+      const s34Screen = document.getElementById('screen-S34');
+      if (s34Screen) {
+        const fInput = s34Screen.querySelector('#evidence-input');
+        const drop = s34Screen.querySelector('#dropzone');
+        const nextBtn = s34Screen.querySelector('#next-button');
+        const demoBtn = s34Screen.querySelector('#s34-demo-upload-btn');
+        if (fInput) fInput.value = '';
+        if (drop) {
+          drop.classList.add('bg-secondary-fixed/30', 'border-primary/30');
+          drop.classList.remove('bg-risk-safe-bg', 'border-risk-safe');
+          const dH3 = drop.querySelector('h3');
+          const dP = drop.querySelector('p');
+          if (dH3) {
+            dH3.textContent = 'เลือกรูปสลิปหรือแคปแชท';
+            dH3.classList.remove('text-risk-safe');
+          }
+          if (dP) {
+            dP.innerHTML = 'แตะเพื่อเลือกรูปภาพจากคลังภาพ หรือถ่ายภาพใหม่ <br/><span class="text-caption font-caption text-secondary">(รองรับ JPG, PNG สูงสุด 5 รูป)</span>';
+          }
+        }
+        if (nextBtn) {
+          nextBtn.disabled = true;
+          nextBtn.setAttribute('aria-disabled', 'true');
+          nextBtn.classList.add('bg-surface-container-highest', 'text-secondary', 'cursor-not-allowed', 'opacity-75');
+          nextBtn.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-md', 'active:bg-state-pressed-blue', 'cursor-pointer');
+        }
+        if (demoBtn) {
+          demoBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">auto_awesome</span><span>ใช้หลักฐานจำลอง (สลิป + แชทตัวอย่าง)</span>';
+        }
+      }
+
+      const consentBox = document.getElementById('legal-consent');
+      if (consentBox) consentBox.checked = true;
+
+      const s40Btn = document.getElementById('s40-demo-attach-btn');
+      if (s40Btn) {
+        s40Btn.classList.remove('bg-risk-safe-bg', 'text-risk-safe');
+        s40Btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">attach_file</span><span>แนบหลักฐานจำลอง (เลขพัสดุ TH480192831A)</span>';
+      }
+
+      // 6. Hide any visible toast notifications across all screens
+      document.querySelectorAll('#global-toast, #toast-notification, #toast-pill, #copy-toast, #toast-unsure, #s27-copy-toast, [id="copyToast"]').forEach((t) => {
+        t.classList.add('opacity-0', 'pointer-events-none');
+        t.classList.remove('opacity-100', 'translate-y-0');
+        if (t.id === 'toast-unsure') t.classList.add('hidden');
+      });
+
+      const fabLbl = document.getElementById('demo-fab-label');
+      if (fabLbl) fabLbl.textContent = 'Demo: P1–P5';
+      renderDemoPersonaCards();
+      navigateTo('S01');
+    }
+    window.resetAllState = resetAllState;
 
     function handleChecklistRedirect() {
       showToast('กำลังพาไปหน้าเช็กลิสต์ตรวจสอบ...');
