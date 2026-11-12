@@ -104,6 +104,21 @@
       cursor: pointer;
       -webkit-tap-highlight-color: rgba(37, 99, 235, 0.15);
     }
+
+    /* Global persistent tabbar & toast clearance across all 41 screens */
+    .screen-view > main {
+      padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .screen-view .fixed.bottom-6,
+    .screen-view .fixed.bottom-8 {
+      bottom: 5.5rem !important;
+    }
+    #global-bottom-nav {
+      max-width: 440px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
 </style>
 
 </head>
@@ -203,7 +218,7 @@
       </button>
 </div>
 <!-- Recent Item 1: High Risk -->
-<div class="w-full bg-surface-card rounded-xl p-space-md shadow-[0_2px_8px_rgba(15,23,42,0.06)] flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="w-full bg-surface-card rounded-xl p-space-md shadow-[0_2px_8px_rgba(15,23,42,0.06)] flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer" data-proto-goto="S04" data-recent-seller="min">
 <div class="flex items-center gap-3 min-w-0">
 <div class="w-11 h-11 rounded-xl bg-risk-high-bg text-risk-high flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[24px]">storefront</span>
@@ -225,7 +240,7 @@
 </div>
 </div>
 <!-- Recent Item 2: Caution -->
-<div class="w-full bg-surface-card rounded-xl p-space-md shadow-[0_2px_8px_rgba(15,23,42,0.06)] flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="w-full bg-surface-card rounded-xl p-space-md shadow-[0_2px_8px_rgba(15,23,42,0.06)] flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer" data-proto-goto="S05" data-recent-seller="pim">
 <div class="flex items-center gap-3 min-w-0">
 <div class="w-11 h-11 rounded-xl bg-risk-caution-bg text-risk-caution flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
@@ -247,7 +262,7 @@
 </div>
 </div>
 <!-- Recent Item 3: Safe / Passed -->
-<div class="w-full bg-surface-card rounded-xl p-space-md shadow-[0_2px_8px_rgba(15,23,42,0.06)] flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="w-full bg-surface-card rounded-xl p-space-md shadow-[0_2px_8px_rgba(15,23,42,0.06)] flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer" data-proto-goto="S06" data-recent-seller="kitti">
 <div class="flex items-center gap-3 min-w-0">
 <div class="w-11 h-11 rounded-xl bg-risk-safe-bg text-risk-safe flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[24px]">devices</span>
@@ -418,15 +433,19 @@
 
     if (submitBtn) {
       submitBtn.addEventListener('click', () => {
-        if (input && input.value.trim()) {
-          syncToS02(input.value.trim());
+        const val = input ? input.value.trim() : '';
+        if (val) {
+          syncToS02(val);
+        }
+        if (typeof window.applySearchQuery === 'function') {
+          window.applySearchQuery(val || 'Min Sneaker Shop');
         }
         showToast('กำลังวิเคราะห์ประวัติคู่ค้า...');
       });
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="check-deal" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="safety-checklist" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
+</script></main>
 
 
 
@@ -637,12 +656,16 @@
 
     if (checkCtaBtn) {
       checkCtaBtn.addEventListener('click', function() {
+        const val = targetInputText ? targetInputText.value.trim() : '';
+        if (typeof window.applySearchQuery === 'function') {
+          window.applySearchQuery(val || 'Min Sneaker Shop');
+        }
         showToast('กำลังวิเคราะห์ข้อมูลความเสี่ยง...');
       });
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="check-deal" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="safety-checklist" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
+</script></main>
 
 
 
@@ -674,7 +697,7 @@
 </div>
 <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-1.5">กำลังตรวจสอบ...</h2>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">
-      กำลังดึงและวิเคราะห์ข้อมูล <span class="font-semibold text-on-surface">Min Sneaker Shop</span>
+      กำลังดึงและวิเคราะห์ข้อมูล <span class="font-semibold text-on-surface" id="s03-target-name">Min Sneaker Shop</span>
 </p>
 <div class="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/60 text-on-secondary-container">
 <span class="material-symbols-outlined text-[16px]">sync</span>
@@ -818,7 +841,7 @@
 </div>
 </div>
 </div>
-<div class="bg-surface-card rounded-2xl p-space-md shadow-sm mb-space-lg"><div class="cursor-pointer" title="ดูรายละเอียดผู้ขาย"><div class="cursor-pointer" title="ดูรายละเอียดผู้ขาย"><div class="cursor-pointer" title="ดูรายละเอียดผู้ขาย">
+<div class="bg-surface-card rounded-2xl p-space-md shadow-sm mb-space-lg cursor-pointer" id="s04-seller-card" title="ดูรายละเอียดผู้ขาย" data-proto-goto="S07">
 <div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-low/60 p-space-sm rounded-xl">
 <div class="flex items-center gap-3 min-w-0">
 <div class="relative shrink-0 w-12 h-12 rounded-full overflow-hidden bg-surface-container-high shadow-inner">
@@ -826,13 +849,13 @@
 </div>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1.5">
-<span class="font-label-lg text-label-lg text-on-surface truncate">Min Sneaker Shop</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate" id="s04-seller-name">Min Sneaker Shop</span>
 <span class="material-symbols-outlined text-risk-high text-[16px]" title="ไม่ได้รับการยืนยัน">cancel</span>
 </div>
-<span class="font-caption text-caption text-secondary truncate">facebook.com/min.sneaker.shop</span>
+<span class="font-caption text-caption text-secondary truncate" id="s04-seller-link">facebook.com/min.sneaker.shop</span>
 </div>
 </div>
-<button aria-label="คัดลอกข้อมูลผู้ขาย" class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container active:scale-95 transition-all" id="copyProfileBtn">
+<button aria-label="คัดลอกข้อมูลผู้ขาย" class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container active:scale-95 transition-all" id="copyProfileBtn" type="button">
 <span class="material-symbols-outlined text-[20px]">content_copy</span>
 </button>
 </div>
@@ -841,33 +864,33 @@
 <span class="font-body-sm text-body-sm text-secondary">ธนาคาร</span>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-risk-safe" data-proto-goto="S07"></div>
-<span class="font-label-md text-label-md text-on-surface font-semibold">ธนาคารกสิกรไทย</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="s04-bank-name">ธนาคารกสิกรไทย</span>
 </div>
 </div>
 <div class="flex items-center justify-between text-body-sm">
 <span class="font-body-sm text-body-sm text-secondary">เลขที่บัญชี</span>
-<span class="font-label-md text-label-md text-on-surface tracking-wider font-semibold">xxx-x-x4821-x</span>
+<span class="font-label-md text-label-md text-on-surface tracking-wider font-semibold" id="s04-bank-acc">xxx-x-x4821-x</span>
 </div>
 <div class="flex items-center justify-between text-body-sm">
 <span class="font-body-sm text-body-sm text-secondary">ชื่อบัญชีผู้รับ</span>
-<span class="font-label-md text-label-md text-risk-high font-semibold">นายสมชาย ใจดี</span>
+<span class="font-label-md text-label-md text-risk-high font-semibold" id="s04-bank-owner">นายสมชาย ใจดี</span>
 </div>
 </div>
 </div>
-</div></div></div><div class="flex items-center justify-between mb-space-sm px-1">
+<div class="flex items-center justify-between mb-space-sm px-1">
 <h3 class="font-label-lg text-label-lg text-on-surface">ข้อสังเกตความเสี่ยง (3 รายการ)</h3>
 <span class="font-caption text-caption text-risk-high font-semibold">มีประวัติฉ้อโกง</span>
 </div>
 <div class="flex flex-col gap-space-sm mb-space-xl">
-<div class="group cursor-pointer bg-surface-card rounded-2xl p-space-md shadow-sm active:scale-[0.99] transition-all duration-200" onclick="toggleReason(1)">
+<div class="group cursor-pointer bg-surface-card rounded-2xl p-space-md shadow-sm active:scale-[0.99] transition-all duration-200" onclick="toggleReason(1)" data-proto-goto="S08">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex items-start gap-3 min-w-0">
 <div class="w-10 h-10 rounded-xl bg-risk-high-bg text-risk-high flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[22px]">report</span>
 </div>
 <div class="flex flex-col min-w-0" data-proto-goto="S08">
-<span class="font-label-md text-label-md text-risk-high font-semibold">เลขบัญชีนี้ถูกรายงาน 3 ครั้ง</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">มีผู้แจ้งว่าโอนเงินแล้วไม่ส่งสินค้า ล่าสุดเมื่อ 2 สัปดาห์ก่อน</p>
+<span class="font-label-md text-label-md text-risk-high font-semibold" id="s04-r1-title">เลขบัญชีนี้ถูกรายงาน 3 ครั้ง</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug" id="s04-r1-desc">มีผู้แจ้งว่าโอนเงินแล้วไม่ส่งสินค้า ล่าสุดเมื่อ 2 สัปดาห์ก่อน</p>
 </div>
 </div>
 <div class="w-8 h-8 rounded-full flex items-center justify-center text-outline group-hover:text-on-surface shrink-0 mt-1">
@@ -887,15 +910,15 @@
 </div>
 </div>
 </div>
-<div class="group cursor-pointer bg-surface-card rounded-2xl p-space-md shadow-sm active:scale-[0.99] transition-all duration-200" onclick="toggleReason(2)">
+<div class="group cursor-pointer bg-surface-card rounded-2xl p-space-md shadow-sm active:scale-[0.99] transition-all duration-200" onclick="toggleReason(2)" data-proto-goto="S07">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex items-start gap-3 min-w-0">
 <div class="w-10 h-10 rounded-xl bg-risk-high-bg text-risk-high flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[22px]">badge</span>
 </div>
 <div class="flex flex-col min-w-0" data-proto-goto="S07">
-<span class="font-label-md text-label-md text-risk-high font-semibold">ชื่อบัญชีไม่ตรงกับชื่อโปรไฟล์</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">ชื่อบัญชี นายสมชาย ใจดี ไม่ตรงกับชื่อร้าน Min Sneaker Shop</p>
+<span class="font-label-md text-label-md text-risk-high font-semibold" id="s04-r2-title">ชื่อบัญชีไม่ตรงกับชื่อโปรไฟล์</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug" id="s04-r2-desc">ชื่อบัญชี นายสมชาย ใจดี ไม่ตรงกับชื่อร้าน Min Sneaker Shop</p>
 </div>
 </div>
 <div class="w-8 h-8 rounded-full flex items-center justify-center text-outline group-hover:text-on-surface shrink-0 mt-1">
@@ -908,15 +931,15 @@
 </div>
 </div>
 </div>
-<div class="group cursor-pointer bg-surface-card rounded-2xl p-space-md shadow-sm active:scale-[0.99] transition-all duration-200" onclick="toggleReason(3)">
+<div class="group cursor-pointer bg-surface-card rounded-2xl p-space-md shadow-sm active:scale-[0.99] transition-all duration-200" onclick="toggleReason(3)" data-proto-goto="S08">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex items-start gap-3 min-w-0">
 <div class="w-10 h-10 rounded-xl bg-risk-caution-bg text-risk-caution flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[22px]">calendar_clock</span>
 </div>
 <div class="flex flex-col min-w-0" data-proto-goto="S08">
-<span class="font-label-md text-label-md text-risk-caution font-semibold">บัญชีเพิ่งสร้างเมื่อ 5 วันก่อน</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">เพิ่งเปิดเพจและไม่มีประวัติดีลที่ยืนยันสำเร็จ</p>
+<span class="font-label-md text-label-md text-risk-caution font-semibold" id="s04-r3-title">บัญชีเพิ่งสร้างเมื่อ 5 วันก่อน</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug" id="s04-r3-desc">เพิ่งเปิดเพจและไม่มีประวัติดีลที่ยืนยันสำเร็จ</p>
 </div>
 </div>
 <div class="w-8 h-8 rounded-full flex items-center justify-center text-outline group-hover:text-on-surface shrink-0 mt-1">
@@ -979,8 +1002,13 @@ function toggleReason(id) {
   const toast = _doc.getElementById('copyToast');
 
   if (copyBtn && toast) {
-    copyBtn.addEventListener('click', () => {
-      navigator.clipboard?.writeText('Min Sneaker Shop | กสิกรไทย xxx-x-x4821-x | นายสมชาย ใจดี');
+    copyBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const sName = _doc.getElementById('s04-seller-name')?.textContent?.trim() || 'Min Sneaker Shop';
+      const bName = _doc.getElementById('s04-bank-name')?.textContent?.trim() || 'ธนาคารกสิกรไทย';
+      const bAcc = _doc.getElementById('s04-bank-acc')?.textContent?.trim() || 'xxx-x-x4821-x';
+      const bOwner = _doc.getElementById('s04-bank-owner')?.textContent?.trim() || 'นายสมชาย ใจดี';
+      navigator.clipboard?.writeText(`${sName} | ${bName} ${bAcc} | ${bOwner}`);
       toast.classList.remove('opacity-0', 'pointer-events-none');
       toast.classList.add('opacity-100');
       setTimeout(() => {
@@ -1075,7 +1103,7 @@ function toggleReason(id) {
 <span class="font-caption text-caption text-on-surface-variant">อัปเดตเรียลไทม์</span>
 </div>
 <!-- Item 1: Amber Warning Card (Tappable) -->
-<div class="w-full bg-surface-card rounded-xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] cursor-pointer" onclick="toggleDetails('detail-1')">
+<div class="w-full bg-surface-card rounded-xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] cursor-pointer" onclick="toggleDetails('detail-1')" data-proto-goto="S08">
 <div class="flex items-start gap-space-sm">
 <div class="w-8 h-8 rounded-full bg-risk-caution-bg text-risk-caution flex items-center justify-center shrink-0 mt-0.5">
 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">info</span>
@@ -1428,7 +1456,7 @@ function triggerCopyToast() {
 <span class="font-label-sm text-label-sm text-on-surface-variant">ชื่อบัญชีธนาคาร (ปลายทางรับเงิน)</span>
 <div class="flex items-center gap-1 text-risk-safe bg-risk-safe-bg px-2 py-0.5 rounded-full">
 <span class="material-symbols-outlined text-[14px]">account_balance</span>
-<span class="font-caption text-caption font-semibold">กสิกรไทย (KBANK)</span>
+<span class="font-caption text-caption font-semibold" id="s07-bank-name">กสิกรไทย (KBANK)</span>
 </div>
 </div>
 <div class="flex items-center gap-3">
@@ -1436,8 +1464,8 @@ function triggerCopyToast() {
 <span class="material-symbols-outlined text-risk-safe text-[22px]">person_check</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-headline-sm text-headline-sm text-on-surface truncate">นายสมชาย ใจดี</span>
-<span class="font-caption text-caption text-on-surface-variant">เลขบัญชี: xxx-x-x4892-x</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate" id="s07-bank-owner">นายสมชาย ใจดี</span>
+<span class="font-caption text-caption text-on-surface-variant" id="s07-bank-acc">เลขบัญชี: xxx-x-x4892-x</span>
 </div>
 </div>
 </div>
@@ -1462,7 +1490,7 @@ function triggerCopyToast() {
 <span class="material-symbols-outlined text-tertiary text-[22px]">store</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-headline-sm text-headline-sm text-on-surface truncate">Min Sneaker Shop</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate" id="s07-seller-name">Min Sneaker Shop</span>
 <span class="font-caption text-caption text-on-surface-variant">ผู้ใช้งานตั้งแต่มกราคม 2024</span>
 </div>
 </div>
@@ -1618,7 +1646,7 @@ function triggerCopyToast() {
 </div>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1.5 flex-wrap">
-<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Min Sneaker Shop</h2>
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate" id="s08-seller-name">Min Sneaker Shop</h2>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
 <span class="material-symbols-outlined text-[15px] text-risk-high">report_problem</span>
@@ -1958,10 +1986,10 @@ function handleChecklistRedirect() {
 <img class="w-full h-full object-cover" data-alt="Close up photography of pre-owned Nike Kyrie 7 basketball sneakers in vibrant colorway with authentic laces and box on a clean modern studio backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA98GGnvZqRS947LvTHAB_ewWNNyXS6LT3NrIW3cF5zUqj9Qy8hTZrKp7UE-dkXloGww8oJpcHZUVK4e1xNEjyBW_7qql13EZV_aOhL110FYzOTc9cMOmd2Gs4EvX3QAsWBoYAfKt8NRqx_rA_99O_Ys-qC0LYMUwPSvb8LF-W9r6DdLIRNmybvNmzLxmX7DNtkYTgAuMajxmairmW0Sne-sobG9BQh1Fg8D19SXRE"/>
 </div>
 <div class="flex-1 min-w-0">
-<h4 class="font-label-md text-label-md text-on-surface truncate font-semibold">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</h4>
-<p class="font-body-sm text-body-sm text-primary font-medium mt-0.5">฿2,450 <span class="font-caption text-caption text-on-surface-variant line-through ml-1">฿4,200</span></p>
+<h4 class="font-label-md text-label-md text-on-surface truncate font-semibold" id="s09-preview-title">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</h4>
+<p class="font-body-sm text-body-sm text-primary font-medium mt-0.5" id="s09-preview-price">฿1,500 <span class="font-caption text-caption text-on-surface-variant line-through ml-1">฿2,800</span></p>
 <span class="font-caption text-caption text-on-surface-variant flex items-center gap-1 mt-0.5">
-<span class="material-symbols-outlined text-[13px]">person_outline</span> ผู้ขาย: Nutthapong K.
+<span class="material-symbols-outlined text-[13px]">person_outline</span> <span id="s09-preview-seller">ผู้ขาย: Nutthapong K.</span>
         </span>
 </div>
 </div>
@@ -1973,7 +2001,7 @@ function handleChecklistRedirect() {
 </div>
 <div class="flex-1 min-w-0 text-on-surface">
 <span class="font-label-md text-label-md text-risk-caution font-semibold block">คำแนะนำเฉพาะคุณ</span>
-<p class="font-body-sm text-body-sm text-on-surface leading-snug mt-1">
+<p class="font-body-sm text-body-sm text-on-surface leading-snug mt-1" id="s09-tip-text">
         ฟ้ากำลังสนใจ <strong class="font-semibold text-on-surface">"รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42"</strong> แนะนำเลือกหมวด <span class="text-primary font-semibold underline decoration-primary/40 underline-offset-2">รองเท้า</span> เพื่อเปิดชุดตรวจเช็กป้ายไซซ์และพื้นกันย้อมแมว
       </p>
 </div>
@@ -2040,14 +2068,18 @@ function handleChecklistRedirect() {
         }
 
         const catKey = card.getAttribute('data-category');
-        if (startBtn && categoryLabels[catKey]) {
-          startBtn.querySelector('span:first-child').textContent = `เริ่มตรวจเช็กลิสต์หมวด "${categoryLabels[catKey]}"`;
+        const startLabel = startBtn ? startBtn.querySelector('span') : null;
+        if (startLabel && categoryLabels[catKey]) {
+          startLabel.textContent = `เริ่มตรวจเช็กลิสต์หมวด "${categoryLabels[catKey]}"`;
+        }
+        if (typeof window.applyChecklistCategory === 'function' && catKey) {
+          window.applyChecklistCategory(catKey);
         }
       });
     });
   })();
 })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="s01-เช็กก่อนดีล" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="s09-เช็กลิสต์ความปลอดภัย" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
+</script></main>
 
 
 
@@ -2058,40 +2090,40 @@ function handleChecklistRedirect() {
 
 <!-- SCREEN S10: เช็กลิสต์รองเท้า (ทำแล้ว 4/6 ข้อ) -->
 <div id="screen-S10" class="screen-view hidden" data-screen-id="S10">
-<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S09" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S09')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">S10 ตรวจสอบสลิปโอนเงิน</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S09" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S09')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">เช็กลิสต์ก่อนโอน</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
 <!-- Top Summary Progress Card -->
 <div class="relative overflow-hidden bg-surface-card rounded-xl p-space-md shadow-sm mb-space-md">
 <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary/5 rounded-full pointer-events-none"></div>
 <div class="flex items-center justify-between mb-space-xs">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm" id="s10-cat-badge">
 <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">steps</span>
         รองเท้าบาส / สนีกเกอร์
       </span>
-<span class="px-2.5 py-0.5 rounded-full bg-risk-safe-bg text-risk-safe font-label-sm text-label-sm flex items-center gap-1">
+<span class="px-2.5 py-0.5 rounded-full bg-risk-safe-bg text-risk-safe font-label-sm text-label-sm flex items-center gap-1" id="s10-done-pill">
 <span class="material-symbols-outlined text-[14px]">check_circle</span>
-        ตรวจแล้ว 4/6 ข้อ
+        <span>ตรวจแล้ว 4/6 ข้อ</span>
       </span>
 </div>
 <!-- Product Scenario & Price -->
 <div class="mt-2 mb-3">
 <p class="font-caption text-caption text-on-surface-variant">การซื้อขายเป้าหมาย</p>
 <h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5 mt-0.5">
-        Nike Kyrie 7 มือสอง
-        <span class="text-primary font-label-md text-label-md font-bold">฿900</span>
+        <span id="s10-product-title">Nike Kyrie 7 มือสอง</span>
+        <span class="text-primary font-label-md text-label-md font-bold" id="s10-product-price">฿1,500</span>
 </h2>
 <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
 <span class="material-symbols-outlined text-[16px] text-outline">straighten</span>
-        ไซซ์ 42 EU • สภาพผ่านการใช้งาน
+        <span id="s10-product-sub">ไซซ์ 42 EU • สภาพผ่านการใช้งาน</span>
       </p>
 </div>
 <!-- Dynamic Meter Bar -->
 <div class="space-y-1.5 pt-1">
 <div class="flex justify-between items-center font-label-sm text-label-sm">
 <span class="text-on-surface-variant">ความคืบหน้าการเช็กความปลอดภัย</span>
-<span class="text-primary font-bold">67%</span>
+<span class="text-primary font-bold" id="s10-pct-text">67%</span>
 </div>
 <div class="w-full h-2.5 bg-surface-container rounded-full overflow-hidden p-0.5">
-<div class="h-full bg-primary-container rounded-full transition-all duration-500 ease-out" style="width: 67%;"></div>
+<div class="h-full bg-primary-container rounded-full transition-all duration-500 ease-out" id="s10-pct-bar" style="width: 67%;"></div>
 </div>
 </div>
 </div>
@@ -2101,10 +2133,10 @@ function handleChecklistRedirect() {
 <span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
 <span class="font-label-md text-label-md text-on-surface font-semibold">รายการตรวจสอบเพื่อความปลอดภัย</span>
 </div>
-<span class="font-caption text-caption text-on-surface-variant">เหลือ 2 ข้อสำคัญ</span>
+<span class="font-caption text-caption text-on-surface-variant" id="s10-rem-label">เหลือ 2 ข้อสำคัญ</span>
 </div>
-<!-- COMPLETED LIST: 4 Read-only Items -->
-<div class="space-y-2 mb-space-lg">
+<!-- COMPLETED LIST -->
+<div class="space-y-2 mb-space-lg" id="s10-done-list">
 <!-- Item 1 -->
 <div class="bg-surface-container-low rounded-xl p-space-md opacity-85">
 <div class="flex items-start gap-3">
@@ -2183,10 +2215,10 @@ function handleChecklistRedirect() {
 <span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">ต้องทำต่อเพื่อยืนยันสินค้า</span>
 <span class="font-caption text-caption text-on-surface-variant">แตะเพื่อดูรายละเอียดหรือทำเครื่องหมาย</span>
 </div>
-<!-- PENDING ITEMS: 2 Interactive Tappable Cards -->
-<div class="space-y-3 mb-space-xl">
+<!-- PENDING ITEMS: Interactive Tappable Cards -->
+<div class="space-y-3 mb-space-xl" id="s10-pending-list">
 <!-- Item 5 -->
-<div class="group bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all cursor-pointer flex flex-col gap-2" role="button" tabindex="0">
+<div class="group bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all cursor-pointer flex flex-col gap-2" role="button" tabindex="0" data-proto-goto="S11">
 <div class="flex items-start gap-3">
 <div class="w-6 h-6 rounded-lg bg-surface-container-high group-hover:bg-primary-fixed flex items-center justify-center shrink-0 mt-0.5 transition-colors">
 <div class="w-3.5 h-3.5 rounded-sm bg-surface-card"></div>
@@ -2211,7 +2243,7 @@ function handleChecklistRedirect() {
 </div>
 </div>
 <!-- Item 6: Highlighted / Recommended Card -->
-<div class="group relative bg-surface-card rounded-xl p-space-md shadow-md active:bg-secondary-container/30 transition-all cursor-pointer overflow-hidden" role="button" tabindex="0">
+<div class="group relative bg-surface-card rounded-xl p-space-md shadow-md active:bg-secondary-container/30 transition-all cursor-pointer overflow-hidden" role="button" tabindex="0" data-proto-goto="S11">
 <!-- Glow Accent Bar -->
 <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
 <div class="flex items-start gap-3 pl-1">
@@ -2267,7 +2299,7 @@ function handleChecklistRedirect() {
 
 <!-- SCREEN S11: เช็กลิสต์ครบถ้วน (6/6 ข้อ) -->
 <div id="screen-S11" class="screen-view hidden" data-screen-id="S11">
-<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S09" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S09')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">S11 ตรวจสอบเบอร์โทรและบัญชีธนาคาร</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8 space-y-space-md">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S09" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S09')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">เช็กลิสต์ครบถ้วน (6/6 ข้อ)</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8 space-y-space-md">
 <!-- Celebration Micro-toast / Banner -->
 <div class="w-full bg-risk-safe-bg rounded-xl p-space-md shadow-sm flex items-start gap-space-sm animate-pulse">
 <div class="w-8 h-8 rounded-full bg-risk-safe flex items-center justify-center shrink-0 mt-0.5">
@@ -2281,7 +2313,7 @@ function handleChecklistRedirect() {
 <!-- Top Summary Bento Card -->
 <div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col space-y-space-md">
 <div class="flex items-center justify-between">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium" id="s11-cat-badge">
 <span class="material-symbols-outlined text-[16px]">sports_basketball</span>
         รองเท้าบาส / สนีกเกอร์
       </span>
@@ -2297,8 +2329,8 @@ function handleChecklistRedirect() {
 </div>
 <div class="flex flex-col min-w-0">
 <span class="font-caption text-caption text-on-surface-variant font-medium">รายการที่กำลังเช็ก</span>
-<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Nike Kyrie 7 มือสอง ไซซ์ 42</span>
-<span class="font-body-sm text-body-sm text-primary font-medium">฿900</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate" id="s11-product-title">Nike Kyrie 7 มือสอง ไซซ์ 42</span>
+<span class="font-body-sm text-body-sm text-primary font-medium" id="s11-product-price">฿1,500</span>
 </div>
 </div>
 <!-- Progress Meter -->
@@ -2313,7 +2345,7 @@ function handleChecklistRedirect() {
 </div>
 </div>
 <!-- Checklist Stream (All 6 Completed) -->
-<div class="flex flex-col space-y-2.5">
+<div class="flex flex-col space-y-2.5" id="s11-checklist-items">
 <div class="flex items-center justify-between px-1">
 <span class="font-headline-sm text-headline-sm text-on-surface">รายการตรวจสอบ (6 รายการ)</span>
 <span class="font-caption text-caption text-risk-safe font-medium flex items-center gap-0.5">
@@ -2476,7 +2508,7 @@ function handleGenerateCode() {
 
 <!-- SCREEN S12: สร้าง Proof Code (KT-4829) -->
 <div id="screen-S12" class="screen-view hidden" data-screen-id="S12">
-<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S10" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S10')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">S12 ตรวจสอบร้านค้าและโซเชียลมีเดีย</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8 space-y-space-md">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S10" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S10')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">สร้าง Proof Code</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8 space-y-space-md">
 <!-- Context Header Card -->
 <div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col space-y-space-xs">
 <div class="flex items-center gap-space-xs">
@@ -2488,7 +2520,7 @@ function handleGenerateCode() {
 <div class="flex items-start gap-space-xs pt-1">
 <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">shopping_bag</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
-        สำหรับสั่งซื้อ: <span class="font-medium text-on-surface">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</span> จาก <span class="font-medium text-primary">Min Sneaker Shop</span>
+        สำหรับสั่งซื้อ: <span class="font-medium text-on-surface" id="s12-context-item">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</span> จาก <span class="font-medium text-primary" id="s12-context-seller">Nutthapong K.</span>
 </p>
 </div>
 </div>
@@ -2503,9 +2535,7 @@ function handleGenerateCode() {
     </span>
 <!-- Big Code Display Container -->
 <div class="w-full bg-surface-container-low rounded-xl py-4 px-3 flex flex-col items-center justify-center my-1 relative group cursor-pointer active:scale-[0.99] transition-transform" id="code-container" onclick="copyCodeDirectly()">
-<div class="font-headline-lg text-headline-lg font-bold text-primary tracking-[0.25em] text-center select-all drop-shadow-sm font-mono">
-        KT-4829
-      </div>
+<div class="font-headline-lg text-headline-lg font-bold text-primary tracking-[0.25em] text-center select-all drop-shadow-sm font-mono" id="s12-code-big">KT-4829</div>
 <span class="font-caption text-caption text-on-surface-variant mt-1 flex items-center gap-1">
 <span class="material-symbols-outlined text-[13px]">content_copy</span> แตะเพื่อคัดลอกเฉพาะรหัส
       </span>
@@ -2531,7 +2561,7 @@ function handleGenerateCode() {
 <div class="flex items-start gap-2.5">
 <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">draw</span>
 <p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
-          เขียนคำว่า <span class="font-semibold text-primary font-mono bg-surface-card px-1.5 py-0.5 rounded">KT-4829</span> ลงบนกระดาษใบเล็ก
+          เขียนคำว่า <span class="font-semibold text-primary font-mono bg-surface-card px-1.5 py-0.5 rounded" id="s12-code-inline">KT-4829</span> ลงบนกระดาษใบเล็ก
         </p>
 </div>
 <div class="flex items-start gap-2.5">
@@ -2652,8 +2682,9 @@ function handleGenerateCode() {
   }
 
   function copyCodeDirectly() {
-    navigator.clipboard?.writeText('KT-4829').then(() => {
-      showToast('คัดลอกรหัส KT-4829 แล้ว');
+    const activeCode = _doc.getElementById('s12-code-big')?.textContent?.trim() || 'KT-4829';
+    navigator.clipboard?.writeText(activeCode).then(() => {
+      showToast('คัดลอกรหัส ' + activeCode + ' แล้ว');
     });
   }
 
@@ -2676,7 +2707,7 @@ function handleGenerateCode() {
 
 <!-- SCREEN S13: คัดลอก Proof Code ส่งคนขาย -->
 <div id="screen-S13" class="screen-view hidden" data-screen-id="S13">
-<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S10" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S10')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">S13 ผลการตรวจเช็กและประเมินความเสี่ยง</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S10" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S10')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">ส่ง Proof Code ให้คนขาย</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
 <!-- Context Banner -->
 <div class="flex flex-col gap-space-xs mt-space-sm mb-space-md">
 <div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-secondary-container w-fit">
@@ -2686,7 +2717,7 @@ function handleGenerateCode() {
 <div class="flex items-center gap-space-xs px-1">
 <span class="material-symbols-outlined text-[16px] text-secondary">shopping_bag</span>
 <p class="font-body-sm text-body-sm text-secondary truncate">
-        สำหรับสั่งซื้อ: <span class="font-medium text-on-surface">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</span> จาก Min Sneaker Shop
+        สำหรับสั่งซื้อ: <span class="font-medium text-on-surface" id="s13-context-item">รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42</span>
       </p>
 </div>
 </div>
@@ -2699,9 +2730,7 @@ function handleGenerateCode() {
 <span class="font-label-sm text-label-sm text-secondary">รหัสเฉพาะของคุณ (สร้างเมื่อสักครู่)</span>
 </div>
 <!-- Proof Code -->
-<div class="my-space-sm tracking-wider font-headline-lg text-primary-container select-all font-bold" style="font-size: 38px; line-height: 46px; letter-spacing: 0.08em;">
-      KT-4829
-    </div>
+<div class="my-space-sm tracking-wider font-headline-lg text-primary-container select-all font-bold" id="s13-code-big" style="font-size: 38px; line-height: 46px; letter-spacing: 0.08em;">KT-4829</div>
 <!-- Expiration Chip -->
 <div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-risk-caution-bg text-risk-caution">
 <span class="material-symbols-outlined text-[16px]">schedule</span>
@@ -2729,7 +2758,7 @@ function handleGenerateCode() {
 <div class="flex items-start gap-2">
 <span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">edit_note</span>
 <p class="font-body-sm text-body-sm text-secondary">
-          เขียนคำว่า <span class="font-medium text-primary-container">"KT-4829"</span> ลงบนกระดาษแล้ววางทาบบนรองเท้าข้างขวา
+          เขียนคำว่า <span class="font-medium text-primary-container" id="s13-code-inline">"KT-4829"</span> ลงบนกระดาษแล้ววางคู่กับสินค้าจริง
         </p>
 </div>
 </div>
@@ -2811,7 +2840,7 @@ function handleGenerateCode() {
 
 <!-- SCREEN S14: คำถามสำเร็จรูปจับพิรุธ -->
 <div id="screen-S14" class="screen-view hidden" data-screen-id="S14">
-<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S10" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S10')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">S14 คู่มือความปลอดภัยและวิธีรับมือมิจฉาชีพ</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S10" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S10')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">คำถามสำเร็จรูปจับพิรุธ</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
 <!-- Interactive Toast Notification -->
 <div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-3 scale-95 flex items-center gap-space-xs px-space-md py-space-sm bg-inverse-surface text-inverse-on-surface rounded-full shadow-xl" id="copy-toast">
 <span class="material-symbols-outlined text-[18px] text-risk-safe" style="font-variation-settings: 'FILL' 1;">check_circle</span>
@@ -2823,7 +2852,7 @@ function handleGenerateCode() {
 <div class="flex items-center justify-between">
 <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
 <span class="material-symbols-outlined text-[14px]">category</span>
-<span>หมวด: รองเท้า / สนีกเกอร์</span>
+<span id="s14-cat-label">หมวด: รองเท้า / สนีกเกอร์</span>
 </span>
 <span class="inline-flex items-center text-primary font-caption text-caption">
 <span class="material-symbols-outlined text-[14px] mr-1">touch_app</span> แตะเพื่อคัดลอก
@@ -2837,7 +2866,7 @@ function handleGenerateCode() {
 <!-- Question Template Cards List -->
 <section class="flex flex-col gap-space-md" id="templates-list">
 <!-- Card 1 -->
-<button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, 'ขอรูปสินค้าตอนนี้พร้อมเขียนโค้ดหรือชื่อลงกระดาษวางคู่ได้ไหมครับ')" type="button">
+<button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, 'ขอรูปสินค้าตอนนี้พร้อมเขียนโค้ดหรือชื่อลงกระดาษวางคู่ได้ไหมครับ')" type="button" data-proto-goto="S15">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex flex-col gap-space-xs flex-1 min-w-0" data-proto-goto="S15">
 <span class="inline-flex items-center gap-1 self-start px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
@@ -2858,7 +2887,7 @@ function handleGenerateCode() {
 </div>
 </button>
 <!-- Card 2 -->
-<button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, 'ขอดูรูปป้ายไซซ์ด้านในและพื้นรองเท้าชัด ๆ หน่อยครับ')" type="button">
+<button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, 'ขอดูรูปป้ายไซซ์ด้านในและพื้นรองเท้าชัด ๆ หน่อยครับ')" type="button" data-proto-goto="S15">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex flex-col gap-space-xs flex-1 min-w-0">
 <span class="inline-flex items-center gap-1 self-start px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
@@ -2879,7 +2908,7 @@ function handleGenerateCode() {
 </div>
 </button>
 <!-- Card 3 -->
-<button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, 'คู่นี้ซื้อจากช็อปไหน และใส่เล่นพื้นปูนหรือพื้นปาเก้มาครับ')" type="button">
+<button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, 'คู่นี้ซื้อจากช็อปไหน และใส่เล่นพื้นปูนหรือพื้นปาเก้มาครับ')" type="button" data-proto-goto="S15">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex flex-col gap-space-xs flex-1 min-w-0">
 <span class="inline-flex items-center gap-1 self-start px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
@@ -2900,7 +2929,7 @@ function handleGenerateCode() {
 </div>
 </button>
 <!-- Card 4 -->
-<button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, 'ชื่อบัญชีธนาคารตรงกับชื่อบัตรประชาชนหรือชื่อโปรไฟล์ไหมครับ')" type="button">
+<button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, 'ชื่อบัญชีธนาคารตรงกับชื่อบัตรประชาชนหรือชื่อโปรไฟล์ไหมครับ')" type="button" data-proto-goto="S15">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex flex-col gap-space-xs flex-1 min-w-0">
 <span class="inline-flex items-center gap-1 self-start px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">
@@ -2992,12 +3021,12 @@ let toastTimer = null;
 
 <!-- SCREEN S15: คัดลอกคำถามส่งคนขายแล้ว -->
 <div id="screen-S15" class="screen-view hidden" data-screen-id="S15">
-<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S10" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S10')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">S15 แจ้งเรื่องร้องเรียนและเบาะแสมิจฉาชีพ</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S10" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S10')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">คัดลอกคำถามส่งคนขาย</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
 <!-- Sub-header Section -->
 <div class="flex flex-col gap-space-sm pt-space-xs pb-space-md">
 <div class="flex items-center gap-space-xs self-start bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full">
 <span class="material-symbols-outlined text-[16px]">category</span>
-<span class="font-label-sm text-label-sm">หมวด: รองเท้า / สนีกเกอร์</span>
+<span class="font-label-sm text-label-sm" id="s15-cat-label">หมวด: รองเท้า / สนีกเกอร์</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant">
       แตะที่ข้อความเพื่อคัดลอกไปส่งในแชทกับผู้ขายได้ทันที โดยไม่ต้องพิมพ์เอง
@@ -3143,7 +3172,7 @@ function handleCardCopy(element, textToCopy) {
 
 <!-- SCREEN S16: บันทึกผลการเช็กลิสต์สำเร็จ -->
 <div id="screen-S16" class="screen-view hidden" data-screen-id="S16">
-<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S11" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S11')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">S16 ยืนยันการส่งรายงานและสถานะการตรวจสอบ</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S11" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S11')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">สรุปผลการเช็กลิสต์</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8">
 <!-- Confetti / Particle Ambient Canvas & Hero Badge -->
 <div class="relative w-full flex flex-col items-center pt-4 pb-2 overflow-hidden">
 <!-- Playful Background Accents -->
@@ -3196,11 +3225,11 @@ function handleCardCopy(element, textToCopy) {
 </div>
 <div class="flex flex-col min-w-0 flex-1">
 <span class="font-caption text-caption text-secondary uppercase tracking-wider">เป้าหมายการตรวจเช็ก</span>
-<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate">
-          Nike Kyrie 7 มือสอง ไซซ์ 42 (฿900)
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate" id="s16-target-title">
+          Nike Kyrie 7 มือสอง ไซซ์ 42 (฿1,500)
         </h3>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">
-          ร้านค้า: Min Sneaker Shop
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" id="s16-target-seller">
+          ผู้ขาย: Nutthapong K.
         </span>
 </div>
 </div>
@@ -3244,10 +3273,10 @@ function handleCardCopy(element, textToCopy) {
 <span class="material-symbols-outlined text-risk-safe text-[18px]">check_circle</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md text-risk-safe font-semibold">
+<span class="font-label-md text-label-md text-risk-safe font-semibold" id="s16-proof-title">
             ได้รับรูป Proof Code ตรวจสอบแล้ว
           </span>
-<span class="font-caption text-caption text-risk-safe/80">
+<span class="font-caption text-caption text-risk-safe/80" id="s16-proof-note">
             รหัสป้ายมือ KT-4829 ถ่ายคู่สินค้าจริง
           </span>
 </div>
@@ -3297,7 +3326,7 @@ function handleCardCopy(element, textToCopy) {
 
 <!-- SCREEN S17: เครื่องมือเช็กราคาตลาด -->
 <div id="screen-S17" class="screen-view hidden" data-screen-id="S17">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S01" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S01')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">Bank Account Evaluation</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-6 space-y-4">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S01" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S01')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">เช็กราคาตลาด</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" data-proto-goto="S39" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-6 space-y-4">
 <!-- Target Item Information Card -->
 <div class="bg-surface-card rounded-xl p-space-md shadow-sm">
 <div class="flex items-center gap-space-md">
@@ -3343,7 +3372,7 @@ function handleCardCopy(element, textToCopy) {
 <div class="bg-surface-container-low rounded-xl p-space-md space-y-3">
 <div class="flex justify-between items-baseline text-body-sm font-body-sm">
 <span class="text-on-surface-variant">ช่วงราคาตลาดเฉลี่ย</span>
-<span class="text-label-md font-label-md text-on-surface">฿1,800 - ฿2,500</span>
+<span class="text-label-md font-label-md text-on-surface">฿2,500 - ฿3,000</span>
 </div>
 <!-- Segmented Track Bar -->
 <div class="relative pt-6 pb-2">
@@ -3367,8 +3396,8 @@ function handleCardCopy(element, textToCopy) {
 <div class="flex justify-between text-caption font-caption text-on-surface-variant mt-1.5">
 <span>฿0</span>
 <span class="text-risk-high font-medium">฿900</span>
-<span>฿1,800</span>
-<span class="text-right">฿2,500+</span>
+<span>฿2,500</span>
+<span class="text-right">฿3,000+</span>
 </div>
 </div>
 <!-- Price Breakdown Metrics Mini-Grid -->
@@ -3379,7 +3408,7 @@ function handleCardCopy(element, textToCopy) {
 </div>
 <div class="bg-surface-card rounded-lg p-2.5">
 <span class="text-caption font-caption text-on-surface-variant block">ส่วนต่างจากต่ำสุด</span>
-<span class="text-label-md font-label-md text-risk-high font-bold">-฿900 (ประหยัดเกินจริง)</span>
+<span class="text-label-md font-label-md text-risk-high font-bold">-฿1,600 (ถูกเกินจริง)</span>
 </div>
 </div>
 </div>
@@ -3387,7 +3416,7 @@ function handleCardCopy(element, textToCopy) {
 <div class="bg-risk-high-bg rounded-xl p-space-md space-y-2">
 <div class="flex items-center gap-2 text-risk-high">
 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">error</span>
-<h3 class="text-label-lg font-label-lg font-bold">ถูกกว่าตลาด 55% ผิดปกติ</h3>
+<h3 class="text-label-lg font-label-lg font-bold">ถูกกว่าตลาด 64% ผิดปกติ</h3>
 </div>
 <p class="text-body-sm font-body-sm text-risk-high leading-relaxed">
         ราคาถูกผิดปกติมักเป็นสัญญาณหลอก โดยมิจฉาชีพมักตั้งราคาต่ำเพื่อเร่งรัดให้ผู้ซื้อรีบตัดสินใจโอนเงิน
@@ -3455,7 +3484,7 @@ function handleCardCopy(element, textToCopy) {
 
 <!-- SCREEN S18: เครื่องมือตรวจวิเคราะห์แชท -->
 <div id="screen-S18" class="screen-view hidden" data-screen-id="S18">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S17" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S17')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">Bank Account Evaluation</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S17" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S17')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">ตรวจวิเคราะห์แชท</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" data-proto-goto="S39" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-8">
 <!-- Card: Analysis Summary & Seller Overview -->
 <section class="bg-surface-card rounded-xl p-space-md shadow-sm mb-space-md flex flex-col gap-space-sm">
 <div class="flex items-center justify-between gap-space-sm">
@@ -3525,7 +3554,7 @@ function handleCardCopy(element, textToCopy) {
 <span class="font-label-sm text-label-sm font-semibold">เร่งให้โอน</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface">
-          ยังอยู่ครับ ราคานี้ 900 รวมส่งด่วนให้เลย พอดีมีคนทักมาเยอะมาก ถ้าจะเอาต้องรีบโอนจองตอนนี้เลยครับ ไม่งั้นหลุดคิว
+          ยังอยู่ครับ มีคนทักมาจะเอาอยู่ครับ ถ้าไม่โอนใน 10 นาที ขายให้คนอื่นนะ
         </p>
 <div class="mt-2.5 pt-2 flex items-center gap-1 text-risk-high bg-risk-high-bg/80 px-2 py-1 rounded-lg">
 <span class="material-symbols-outlined text-[15px]">report</span>
@@ -3556,7 +3585,7 @@ function handleCardCopy(element, textToCopy) {
 <span class="font-label-sm text-label-sm font-semibold">ไม่ยอมนัดรับ</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface">
-          ไม่สะดวกนัดรับครับ ทำงานประจำไม่ว่างออกไปเจอใคร ส่งพัสดุ Flash Express วันนี้รอบบ่ายเลย มั่นใจได้ ส่งจริงล้าน%
+          ไม่สะดวกนัดรับ โอนมาอย่างเดียวครับ ส่งพัสดุ Flash Express ให้วันนี้เลย
         </p>
 <div class="mt-2.5 pt-2 flex items-center gap-1 text-risk-high bg-risk-high-bg/80 px-2 py-1 rounded-lg">
 <span class="material-symbols-outlined text-[15px]">report</span>
@@ -3654,7 +3683,7 @@ function handleCardCopy(element, textToCopy) {
 
 <!-- SCREEN S19: เบรกก่อนโอน (นับถอยหลัง 10 วิ) -->
 <div id="screen-S19" class="screen-view hidden" data-screen-id="S19">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S18" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S18')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">Bank Account Evaluation</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-space-xl">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S18" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S18')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">เบรกก่อนโอน</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" data-proto-goto="S39" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-space-xl">
 <!-- Dynamic Ambient Background Aura -->
 <div class="relative w-full flex flex-col items-center pt-space-xs pb-space-sm overflow-hidden">
 <!-- Pulse Ring Graphic -->
@@ -3690,14 +3719,15 @@ function handleCardCopy(element, textToCopy) {
 <span class="text-caption font-caption text-secondary">ประเมินด้วยตนเอง</span>
 </div>
 <!-- Card 1 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 cursor-pointer s19-check-card" onclick="toggleS19Check(this)" role="button" tabindex="0">
 <div class="flex items-start gap-space-sm">
-<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-primary">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-primary s19-check-icon-wrap">
 <span class="material-symbols-outlined text-[22px]">badge</span>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center justify-between">
+<div class="flex items-center justify-between gap-2">
 <h3 class="text-label-lg font-label-lg text-on-surface">1. ตรวจชื่อบัญชีตรงกับชื่อโปรไฟล์แล้วใช่ไหม?</h3>
+<span class="material-symbols-outlined text-outline-variant text-[20px] shrink-0 s19-check-badge">radio_button_unchecked</span>
 </div>
 <p class="text-body-sm font-body-sm text-secondary mt-1">
             ชื่อบัญชีรับเงินต้องตรงกับชื่อเจ้าของโปรไฟล์หรือบัตรประชาชน ระวังบัญชีม้าที่ชื่อไม่ตรง
@@ -3706,14 +3736,15 @@ function handleCardCopy(element, textToCopy) {
 </div>
 </div>
 <!-- Card 2 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 cursor-pointer s19-check-card" onclick="toggleS19Check(this)" role="button" tabindex="0">
 <div class="flex items-start gap-space-sm">
-<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-primary">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-primary s19-check-icon-wrap">
 <span class="material-symbols-outlined text-[22px]">pin_drop</span>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center justify-between">
+<div class="flex items-center justify-between gap-2">
 <h3 class="text-label-lg font-label-lg text-on-surface">2. ได้ Proof Code จากคนขายแล้วใช่ไหม?</h3>
+<span class="material-symbols-outlined text-outline-variant text-[20px] shrink-0 s19-check-badge">radio_button_unchecked</span>
 </div>
 <p class="text-body-sm font-body-sm text-secondary mt-1">
             คนขายถ่ายรูปคู่กับรหัสป้ายชื่อจริง ยืนยันว่ามีสินค้าในมือ ไม่ใช่รูปดึงมาจากเน็ต
@@ -3722,14 +3753,15 @@ function handleCardCopy(element, textToCopy) {
 </div>
 </div>
 <!-- Card 3 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 cursor-pointer s19-check-card" onclick="toggleS19Check(this)" role="button" tabindex="0">
 <div class="flex items-start gap-space-sm">
-<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-primary">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-primary s19-check-icon-wrap">
 <span class="material-symbols-outlined text-[22px]">payments</span>
 </div>
 <div class="flex-1 min-w-0">
-<div class="flex items-center justify-between">
+<div class="flex items-center justify-between gap-2">
 <h3 class="text-label-lg font-label-lg text-on-surface">3. ราคานี้สมเหตุสมผลใช่ไหม?</h3>
+<span class="material-symbols-outlined text-outline-variant text-[20px] shrink-0 s19-check-badge">radio_button_unchecked</span>
 </div>
 <p class="text-body-sm font-body-sm text-secondary mt-1">
             ไม่ถูกต่ำกว่าราคาตลาดจนน่าผิดปกติ (เช่น ถูกกว่า 50%) สินค้าราคาถูกเกินจริงมักเป็นเหยื่อล่อ
@@ -3780,7 +3812,40 @@ function showUnsureDialog() {
       toast.classList.add('hidden');
     }, 3200);
   }
+  function toggleS19Check(card) {
+    if (!card) return;
+    const next = card.getAttribute('data-checked') !== 'true';
+    card.setAttribute('data-checked', String(next));
+    const badge = card.querySelector('.s19-check-badge');
+    const iconWrap = card.querySelector('.s19-check-icon-wrap');
+    if (next) {
+      card.classList.add('ring-2', 'ring-risk-safe');
+      if (badge) {
+        badge.textContent = 'check_circle';
+        badge.classList.remove('text-outline-variant');
+        badge.classList.add('text-risk-safe');
+        badge.style.fontVariationSettings = "'FILL' 1";
+      }
+      if (iconWrap) {
+        iconWrap.classList.remove('bg-secondary-container', 'text-primary');
+        iconWrap.classList.add('bg-risk-safe-bg', 'text-risk-safe');
+      }
+    } else {
+      card.classList.remove('ring-2', 'ring-risk-safe');
+      if (badge) {
+        badge.textContent = 'radio_button_unchecked';
+        badge.classList.add('text-outline-variant');
+        badge.classList.remove('text-risk-safe');
+        badge.style.fontVariationSettings = "'FILL' 0";
+      }
+      if (iconWrap) {
+        iconWrap.classList.add('bg-secondary-container', 'text-primary');
+        iconWrap.classList.remove('bg-risk-safe-bg', 'text-risk-safe');
+      }
+    }
+  }
   window.showUnsureDialog = showUnsureDialog;
+  window.toggleS19Check = toggleS19Check;
 })();
 </script></main>
 
@@ -3793,7 +3858,7 @@ function showUnsureDialog() {
 
 <!-- SCREEN S20: พร้อมโอนเงิน (ปลอดภัย) -->
 <div id="screen-S20" class="screen-view hidden" data-screen-id="S20">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S19" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S19')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">Bank Account Evaluation</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S19" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S19')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">พร้อมโอนเงิน</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" data-proto-goto="S39" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-8">
 <!-- Top Confetti Burst Canvas (Micro-Delight) -->
 <div class="relative w-full flex flex-col items-center text-center pt-2 pb-6 px-2 overflow-hidden">
 <!-- Ambient Green Glow Behind Hero -->
@@ -3992,7 +4057,7 @@ function showUnsureDialog() {
 
 <!-- SCREEN S21: ยังมีข้อสงสัย (ข้อควรระวัง) -->
 <div id="screen-S21" class="screen-view hidden" data-screen-id="S21">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S19" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S19')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">Bank Account Evaluation</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-space-xl">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="ย้อนกลับ" data-proto-goto="S19" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface rounded-full active:bg-surface-container transition-colors" onclick="protoGoto('S19')"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-headline-sm font-headline-sm text-on-surface truncate">ยังมีข้อสงสัย</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="การแจ้งเตือน" data-proto-goto="S39" class="w-12 h-12 flex items-center justify-center text-on-surface-variant active:text-on-surface rounded-full transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-14 pb-safe bg-surface flex-1"><div class="flex flex-col w-full pb-space-xl">
 <!-- Status Caution Banner Hero -->
 <section class="w-full bg-risk-caution-bg rounded-xl p-space-md shadow-sm flex flex-col items-center text-center relative overflow-hidden mt-space-sm mb-space-md">
 <div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-risk-caution-border/30 pointer-events-none"></div>
@@ -4379,7 +4444,7 @@ function showUnsureDialog() {
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="s01-เช็กก่อนดีล" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="s09-เช็กลิสต์ความปลอดภัย" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
+</script></main>
 
 
 
@@ -4561,7 +4626,12 @@ function showUnsureDialog() {
 
     if (uploadBtn) {
       uploadBtn.addEventListener('click', () => {
-        showToast('เปิดคลังภาพเพื่อเลือกรูปถ่ายบัตรประชาชน');
+        const statusPill = _root?.querySelector('.bg-inverse-surface\\/85 span:last-child');
+        if (statusPill) {
+          statusPill.textContent = 'อัปโหลดบัตรจำลอง (สมมติ_KYC.jpg) สำเร็จ ✓';
+        }
+        uploadBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-risk-safe">check_circle</span><span>แนบภาพบัตรจำลองเรียบร้อยแล้ว</span>';
+        showToast('อัปโหลดภาพบัตรจำลองเรียบร้อย พร้อมกดถัดไป');
       });
     }
   })();
@@ -4936,7 +5006,7 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
       </span>
 <span class="font-label-sm text-label-sm text-risk-caution bg-risk-caution-bg px-2 py-0.5 rounded-full font-bold">1 รายการ</span>
 </div>
-<div class="bg-surface-card rounded-xl p-space-md shadow-sm active:bg-surface-container-low transition-colors cursor-pointer flex items-center justify-between gap-space-md" role="button" tabindex="0">
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm active:bg-surface-container-low transition-colors cursor-pointer flex items-center justify-between gap-space-md" role="button" tabindex="0" data-proto-goto="S28">
 <div class="flex items-center gap-space-md min-w-0">
 <div class="relative flex-shrink-0">
 <div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container">
@@ -5120,7 +5190,7 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="s01-เช็กก่อนดีล" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="s09-เช็กลิสต์ความปลอดภัย" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
+</script></main>
 
 
 
@@ -5319,7 +5389,7 @@ _doc.getElementById('viewProfileBtn')?.addEventListener('click', function() {
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary-container bg-tab-bg-active"><div class="h-16 px-space-xs grid grid-cols-4 items-center"><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="s01-เช็กก่อนดีล" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm">เช็ก</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="s09-เช็กลิสต์ความปลอดภัย" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-label-sm text-label-sm">เช็กลิสต์</span></a><a aria-current="page" class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active" data-path="user-profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">โปรไฟล์</span></a><a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-fraud" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm">รายงาน</span></a></div></nav>
+</script></main>
 
 
 
@@ -6593,6 +6663,9 @@ function copyBuyerId() {
     if (scammedCard) {
       scammedCard.addEventListener('click', function(e) {
         e.preventDefault();
+        window.reportType = 'โดนโกงแล้ว';
+        const badge = document.getElementById('s36-behavior-label');
+        if (badge) badge.textContent = 'โดนโกงแล้ว: โอนเงินแล้วบล็อกหนี / ไม่ส่งสินค้า';
         triggerFeedback('กรณีถูกโกง');
       });
     }
@@ -6600,12 +6673,15 @@ function copyBuyerId() {
     if (suspiciousCard) {
       suspiciousCard.addEventListener('click', function(e) {
         e.preventDefault();
+        window.reportType = 'น่าสงสัย ยังไม่โดน';
+        const badge = document.getElementById('s36-behavior-label');
+        if (badge) badge.textContent = 'น่าสงสัย ยังไม่โดน: เร่งให้โอน / ชื่อบัญชีไม่ตรง';
         triggerFeedback('กรณีเฝ้าระวัง');
       });
     }
   })();
 })();
-</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="bg-tab-bg-active text-primary-container font-semibold"><div class="grid grid-cols-4 items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="check" data-proto-goto="S01" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-caption text-caption mt-0.5">เช็ก</span></a><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="checklist" data-proto-goto="S09" href="#"><span class="material-symbols-outlined text-[22px]">checklist</span><span class="font-caption text-caption mt-0.5">เช็กลิสต์</span></a><a class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl text-on-surface-variant hover:text-on-surface transition-colors min-h-[48px]" data-path="profile" data-proto-goto="S22" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-caption text-caption mt-0.5">โปรไฟล์</span></a><a aria-current="page" class="flex flex-col items-center justify-center py-space-xs px-space-sm rounded-xl transition-colors min-h-[48px] bg-tab-bg-active text-primary-container font-semibold" data-path="report" data-proto-goto="S33" href="#"><span class="material-symbols-outlined text-[22px]">flag</span><span class="font-caption text-caption mt-0.5">รายงาน</span></a></div></nav>
+</script></main>
 
 
 
@@ -7110,25 +7186,23 @@ function showToast(message) {
 <span class="font-body-sm text-body-sm text-secondary shrink-0">รูปแบบพฤติกรรม</span>
 <div class="flex items-center gap-1 text-right">
 <span class="material-symbols-outlined text-risk-caution text-[16px]">warning</span>
-<span class="font-label-sm text-label-sm text-risk-caution font-semibold">โอนเงินแล้วบล็อกหนี / ไม่ส่งสินค้า</span>
+<span class="font-label-sm text-label-sm text-risk-caution font-semibold" id="s36-behavior-label">โอนเงินแล้วบล็อกหนี / ไม่ส่งสินค้า</span>
 </div>
 </div>
 </div>
 </div>
-<!-- Card 3: Read-Only Short Description Box -->
+<!-- Card 3: Editable Short Description Box -->
 <div class="bg-surface-card rounded-xl p-space-md shadow-[0_2px_8px_rgba(15,23,42,0.06)] flex flex-col">
 <div class="flex items-center justify-between mb-space-xs">
 <div class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-secondary text-[20px]">notes</span>
-<label class="font-label-md text-label-md text-on-surface font-semibold">รายละเอียดเหตุการณ์</label>
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="report-detail-input">รายละเอียดเหตุการณ์ (แก้ไขได้)</label>
 </div>
-<span class="material-symbols-outlined text-outline text-[18px]">lock</span>
+<span class="material-symbols-outlined text-primary text-[18px]">edit_note</span>
 </div>
-<div class="p-space-md rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm leading-relaxed select-none">
-        ตกลงซื้อรองเท้าบาส Kyrie 7 ยอด 900 บาท โอนเข้าบัญชีนายสมชาย ใจดี เมื่อส่งสลิปแล้ว คนขายแจ้งว่าจะส่งรอบบ่าย จากนั้นบล็อกเฟซบุ๊กหนี ติดต่อไม่ได้
-      </div>
+<textarea class="w-full min-h-[96px] p-space-md rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm leading-relaxed border border-outline/20 focus:border-primary focus:outline-none resize-none" id="report-detail-input" maxlength="200" oninput="var c=document.getElementById('s36-char-count');if(c)c.textContent=this.value.length+'/200 ตัวอักษร';">ตกลงซื้อรองเท้าบาส Kyrie 7 ยอด 900 บาท โอนเข้าบัญชีนายสมชาย ใจดี เมื่อส่งสลิปแล้ว คนขายแจ้งว่าจะส่งรอบบ่าย จากนั้นบล็อกเฟซบุ๊กหนี ติดต่อไม่ได้</textarea>
 <div class="flex justify-end mt-space-xs">
-<span class="font-caption text-caption text-on-surface-variant font-medium">158/200 ตัวอักษร</span>
+<span class="font-caption text-caption text-on-surface-variant font-medium" id="s36-char-count">146/200 ตัวอักษร</span>
 </div>
 </div>
 <!-- Card 4: Warning & Legal Consent Card -->
@@ -7200,7 +7274,7 @@ const submitBtn = _doc.getElementById('btn-submit');
 
 <!-- SCREEN S37: ส่งรายงานสำเร็จ (#RP-8841) -->
 <div id="screen-S37" class="screen-view hidden" data-screen-id="S37">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S36" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S36')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Seller Details</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S36" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S36')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">ส่งรายงานสำเร็จ</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl">
 <!-- Top Ambient Glow & Celebration Vector Graphic -->
 <div class="relative flex flex-col items-center justify-center pt-space-xl pb-space-lg text-center overflow-hidden">
 <!-- Soft Decorative Radial Aura -->
@@ -7351,7 +7425,7 @@ function copyReportId() {
 
 <!-- SCREEN S38: ติดตามสถานะรายงานของฉัน -->
 <div id="screen-S38" class="screen-view hidden" data-screen-id="S38">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S37" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S37')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Seller Details</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S37" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S37')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">สถานะรายงานของฉัน</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full pb-8">
 <div class="px-margin pt-space-md flex flex-col gap-space-lg">
 <!-- Impact Hero Card -->
 <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-primary-container to-tertiary p-5 text-on-primary shadow-lg">
@@ -7516,7 +7590,7 @@ function copyReportId() {
 
 <!-- SCREEN S39: ศูนย์การแจ้งเตือน (Notifications) -->
 <div id="screen-S39" class="screen-view hidden" data-screen-id="S39">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S01" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S01')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Seller Details</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S01" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S01')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">การแจ้งเตือน</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full pb-8">
 <!-- Interactive Action Subheader -->
 <div class="flex items-center justify-between px-margin pt-4 pb-2">
 <div class="flex items-center gap-space-xs">
@@ -7699,7 +7773,7 @@ function markAllAsRead() {
 
 <!-- SCREEN S40: ชี้แจงข้อร้องเรียน (Defense) -->
 <div id="screen-S40" class="screen-view hidden" data-screen-id="S40">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S39" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S39')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Seller Details</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full pb-8">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S39" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S39')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">ชี้แจงข้อร้องเรียน</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full pb-8">
 <!-- Subtle Ambient Glow -->
 <div class="px-margin pt-space-md flex flex-col gap-space-md">
 <!-- Notice Banner (Amber / Neutral Fairness Card) -->
@@ -7865,7 +7939,7 @@ function showToast() {
 
 <!-- SCREEN S41: ส่งคำชี้แจงสำเร็จ (#CL-9102-REV) -->
 <div id="screen-S41" class="screen-view hidden" data-screen-id="S41">
-<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S40" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S40')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Seller Details</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl">
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S40" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="protoGoto('S40')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">ส่งคำชี้แจงสำเร็จ</h1></div><div class="w-12 h-12 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl">
 <!-- Celebration Visual & Feedback Area -->
 <div class="flex flex-col items-center text-center mt-space-md mb-space-lg relative">
 <!-- Ambient festive glow effect -->
@@ -8016,24 +8090,43 @@ function copyClaimCode() {
 
   </div>
 
-  
+  <!-- GLOBAL PERSISTENT BOTTOM TABBAR (VISIBLE ON ALL 41 SCREENS) -->
+  <nav id="global-bottom-nav" class="fixed bottom-0 z-[90] pb-safe bg-surface/95 backdrop-blur-xl border-t border-slate-200/70 shadow-[0_-2px_12px_rgba(0,0,0,0.06)]">
+    <div class="h-16 px-space-xs grid grid-cols-4 items-center">
+      <a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-primary-container bg-tab-bg-active font-semibold" data-nav-tab="check" data-proto-goto="S01" href="#S01">
+        <span class="material-symbols-outlined text-[22px]">shield</span>
+        <span class="font-label-sm text-label-sm">เช็ก</span>
+      </a>
+      <a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-on-surface-variant hover:text-on-surface" data-nav-tab="checklist" data-proto-goto="S09" href="#S09">
+        <span class="material-symbols-outlined text-[22px]">checklist</span>
+        <span class="font-label-sm text-label-sm">เช็กลิสต์</span>
+      </a>
+      <a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-on-surface-variant hover:text-on-surface" data-nav-tab="profile" data-proto-goto="S22" href="#S22">
+        <span class="material-symbols-outlined text-[22px]">person</span>
+        <span class="font-label-sm text-label-sm">โปรไฟล์</span>
+      </a>
+      <a class="h-12 flex flex-col items-center justify-center gap-0.5 rounded-xl transition-colors text-on-surface-variant hover:text-on-surface" data-nav-tab="report" data-proto-goto="S33" href="#S33">
+        <span class="material-symbols-outlined text-[22px]">campaign</span>
+        <span class="font-label-sm text-label-sm">รายงาน</span>
+      </a>
+    </div>
+  </nav>
 
-  
   <!-- SPA MASTER CONTROLLER JAVASCRIPT -->
   <script>
     const SCREEN_NAMES = {
       'S01': 'เช็กคู่ค้าก่อนโอน',
       'S02': 'ป้อนข้อมูลตรวจสอบ',
       'S03': 'ระบบกำลังตรวจสอบ (AI Scan)',
-      'S04': 'ผลตรวจ Min Sneaker Shop (เสี่ยงสูง)',
+      'S04': 'ผลตรวจคู่ค้า (เสี่ยงสูง)',
       'S05': 'ผลตรวจ Pim Preloved (ควรระวัง)',
       'S06': 'ผลตรวจ Kitti Used Gear (ผ่านเบื้องต้น)',
       'S07': 'รายละเอียดความเสี่ยง: ชื่อบัญชีไม่ตรง',
       'S08': 'ประวัติการถูกรายงาน (3 ครั้ง)',
       'S09': 'เช็กลิสต์ก่อนโอน (เลือกหมวด)',
-      'S10': 'เช็กลิสต์รองเท้า (ทำแล้ว 4/6 ข้อ)',
+      'S10': 'เช็กลิสต์ก่อนโอน (รายการตรวจสอบ)',
       'S11': 'เช็กลิสต์ครบถ้วน (6/6 ข้อ)',
-      'S12': 'สร้าง Proof Code (KT-4829)',
+      'S12': 'สร้าง Proof Code',
       'S13': 'คัดลอก Proof Code ส่งคนขาย',
       'S14': 'คำถามสำเร็จรูปจับพิรุธ',
       'S15': 'คัดลอกคำถามส่งคนขายแล้ว',
@@ -8072,12 +8165,426 @@ function copyClaimCode() {
       'T3': 'S17',
       'T4': 'S22',
       'T4B': 'S28',
-      'T5': 'S33'
+      'T5': 'S33',
+      'T6': 'S09'
     };
 
-    let currentScreen = 'S01';
+    const CHECKLIST_CATEGORIES = {
+      shoes: {
+        badgeLabel: 'รองเท้าบาส / สนีกเกอร์',
+        shortLabel: 'รองเท้า / สนีกเกอร์',
+        icon: 'steps',
+        fullTitle: 'รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42',
+        shortTitle: 'Nike Kyrie 7 มือสอง',
+        price: '฿1,500',
+        origPrice: '฿2,800',
+        sub: 'ไซซ์ 42 EU • สภาพผ่านการใช้งาน',
+        seller: 'Nutthapong K.',
+        tipHtml: 'ฟ้ากำลังสนใจ <strong class="font-semibold text-on-surface">"รองเท้าบาส Nike Kyrie 7 มือสอง ไซซ์ 42"</strong> (฿1,500) แนะนำเลือกหมวด <span class="text-primary font-semibold underline decoration-primary/40 underline-offset-2">รองเท้า</span> เพื่อเปิดชุดตรวจเช็กป้ายไซซ์และพื้นกันย้อมแมว',
+        proofCode: 'KT-4829',
+        copyMsg: 'สวัสดีครับ สนใจ Kyrie 7 ไซซ์ 42 ราคา ฿1,500 ครับ รบกวนช่วยถ่ายรูปคู่กับป้ายกระดาษเขียนรหัส \'KT-4829\' ให้หน่อยนะครับ พอดีเช็กความปลอดภัยก่อนโอนเงินครับ ขอบคุณครับ',
+        doneItems: [
+          { title: 'ถามเหตุผลที่ขาย', note: 'สอบถามประวัติการใช้งานและสาเหตุที่ปล่อยต่อ (เปลี่ยนรุ่นใหม่)' },
+          { title: 'เทียบราคากับมือสองสภาพเดียวกัน', note: 'ราคา ฿1,500 อยู่ในเกณฑ์สมเหตุสมผล แต่ควรตรวจความแท้ซ้ำ', warn: 'ควรขอดูรูปป้ายไซซ์และตำหนิเพิ่มเติม' },
+          { title: 'ตกลงวิธีนัดรับหรือส่ง', note: 'ขอส่งพัสดุด่วนพร้อมเลขติดตามพัสดุ (Flash Express)' },
+          { title: 'ตรวจชื่อบัญชีก่อนโอน', note: 'ตรวจสอบบัญชีปลายทางเทียบชื่อโปรไฟล์ก่อนโอนทุกครั้ง' }
+        ],
+        pendingItems: [
+          { title: 'ขอรูปถ่ายพื้นรองเท้าและป้ายไซซ์', desc: 'เช็กตำหนิจริง รอยสึก และความแท้ของสินค้าก่อนโอนเงิน', pill: 'ขอดู 3 มุม: ป้ายไซซ์, พื้นดอกยาง, แผ่นรองด้านใน', important: false },
+          { title: 'ขอรูปคู่กับ Proof Code', desc: 'ให้ผู้ขายเขียนรหัส KT-4829 คู่กับสินค้าสด เพื่อยืนยันว่ามีของจริงในมือ', tip: 'ป้องกันมิจฉาชีพขโมยรูปจากกลุ่มสนีกเกอร์ได้ 99%', important: true }
+        ],
+        questions: [
+          { tag: 'ขอหลักฐานสินค้าจริง', icon: 'verified_user', q: 'ขอรูปสินค้าตอนนี้พร้อมเขียนโค้ดหรือชื่อลงกระดาษวางคู่ได้ไหมครับ', tip: 'ใช้ตรวจว่าคนขายมีของอยู่จริงในมือ' },
+          { tag: 'ตรวจความแท้และตำหนิ', icon: 'search_check', q: 'ขอดูรูปป้ายไซซ์ด้านในและพื้นรองเท้าชัด ๆ หน่อยครับ', tip: 'ใช้เทียบฟอนต์และรหัสรุ่นกับของแท้' },
+          { tag: 'ประวัติการใช้งาน', icon: 'history', q: 'คู่นี้ซื้อจากช็อปไหน และใส่เล่นพื้นปูนหรือพื้นปาเก้มาครับ', tip: 'เช็กความสึกหรอของพื้นยางและดอกยาง' },
+          { tag: 'ยืนยันชื่อบัญชี', icon: 'shield', q: 'ชื่อบัญชีธนาคารตรงกับชื่อบัตรประชาชนหรือชื่อโปรไฟล์ไหมครับ', tip: 'ป้องกันการโอนเงินเข้าบัญชีม้า' }
+        ]
+      },
+      game: {
+        badgeLabel: 'ไอดี / ไอเทมเกม',
+        shortLabel: 'ไอดี / ไอเทมเกม',
+        icon: 'sports_esports',
+        fullTitle: 'ไอดี Valorant Rank Ascendant 2 + สกิน Reaver',
+        shortTitle: 'ไอดี Valorant + สกิน Reaver',
+        price: '฿1,800',
+        origPrice: '฿3,500',
+        sub: 'เซิร์ฟเวอร์ TH • แจ้งเปลี่ยนเมลได้',
+        seller: 'ProGamer_TH99',
+        tipHtml: 'หมวดเกมเสี่ยงเรื่อง <strong>ดึงไอดีคืน (Recall)</strong> แนะนำตรวจเช็ก <strong>OGE (อีเมลแรก)</strong> และประวัติสลิปเติมเกมให้ครบก่อนโอน',
+        proofCode: 'GM-7315',
+        copyMsg: 'สวัสดีครับ สนใจไอดี Valorant ฿1,800 ครับ รบกวนแคปหน้าล็อบบี้เกมพร้อมพิมพ์รหัส \'GM-7315\' ในช่องแชทให้หน่อยนะครับ พอดีเช็กความปลอดภัยก่อนโอน ขอบคุณครับ',
+        doneItems: [
+          { title: 'เช็กแรงก์และสกินตรงตามประกาศ', note: 'ตรวจสอบรายการสกินในคลังและประวัติการเล่นล่าสุด' },
+          { title: 'เทียบราคาตลาดไอดีมือสอง', note: 'ราคา ฿1,800 ใกล้เคียงตลาดไอดีระดับ Ascendant' },
+          { title: 'ตรวจสถานะอีเมลแรก (OGE)', note: 'ผู้ขายแจ้งว่ามีอีเมลแรกพร้อมสลิปเติม Riot Points ยืนยัน' },
+          { title: 'ตรวจบัญชีผู้ขายในฐานข้อมูลโกง', note: 'ค้นหาเลขบัญชีกับประวัติเกมเมอร์แล้ว ไม่พบแบล็กลิสต์' }
+        ],
+        pendingItems: [
+          { title: 'ขอดูหน้าจอล็อบบี้เกมสดคู่รหัสยืนยัน', desc: 'ยืนยันว่าเป็นเจ้าของไอดีที่เข้าเล่นได้จริงตอนนี้ ไม่ใช่ภาพแคปเก่า', pill: 'ให้พิมพ์โค้ดลงแชทในเกมแล้วถ่ายส่งทันที', important: false },
+          { title: 'ขอภาพคู่ Proof Code + หลักฐานเปลี่ยนเมล', desc: 'ส่งรหัส GM-7315 เพื่อยืนยันตัวตนคู่บัตรประชาชนป้องกันดึงไอดีคืน', tip: 'ลดความเสี่ยงโดนดึงไอดีกลับหลังโอนเงินได้ 95%', important: true }
+        ],
+        questions: [
+          { tag: 'ยืนยันเจ้าของไอดีสด', icon: 'verified_user', q: 'รบกวนเปิดหน้าล็อบบี้เกมพร้อมพิมพ์โค้ดหรือชื่อส่งมาให้ดูหน่อยครับ', tip: 'ป้องกันการนำภาพไอดีคนอื่นมาวนขายซ้ำ' },
+          { tag: 'เช็กอีเมลแรก (OGE)', icon: 'mail', q: 'ไอดีนี้ให้อีเมลแรก (Original Email) กับสลิปเติมเกมด้วยไหมครับ', tip: 'ลดความเสี่ยงผู้ขายแจ้งซัพพอร์ตดึงไอดีกลับ' },
+          { tag: 'ประวัติการแบน', icon: 'gavel', q: 'ไอดีเคยโดนเตือน เคยใช้โปรแกรมช่วยเล่น หรือติดโทษแบนมาก่อนไหมครับ', tip: 'ป้องกันซื้อไปแล้วถูกแบนย้อนหลัง' },
+          { tag: 'ยืนยันชื่อบัญชีรับเงิน', icon: 'shield', q: 'ชื่อบัญชีรับโอนตรงกับชื่อบัตรประชาชนผู้ขายตัวจริงไหมครับ', tip: 'ป้องกันโอนผ่านกลางหรือบัญชีม้า' }
+        ]
+      },
+      clothing: {
+        badgeLabel: 'เสื้อผ้า / แฟชั่นมือสอง',
+        shortLabel: 'เสื้อผ้ามือสอง',
+        icon: 'checkroom',
+        fullTitle: 'เสื้อแจ็คเก็ต Stüssy Work Jacket มือสอง ไซซ์ L',
+        shortTitle: 'เสื้อ Stüssy Jacket มือสอง',
+        price: '฿1,200',
+        origPrice: '฿2,900',
+        sub: 'ไซซ์ L • อก 46 ยาว 28 นิ้ว',
+        seller: 'Pim Preloved',
+        tipHtml: 'หมวด <strong>เสื้อผ้ามือสอง</strong> ตอนนี้ตรวจแล้ว <strong>3/6 ข้อ (50%)</strong> อย่าลืมเช็กป้ายแคร์แท็ก รอยเปื้อน และขอรูปคู่ Proof Code ก่อนโอน',
+        proofCode: 'CL-2940',
+        copyMsg: 'สวัสดีค่ะ/ครับ สนใจเสื้อ Stüssy ไซซ์ L ฿1,200 รบกวนช่วยถ่ายรูปป้ายคอและเสื้อคู่กับกระดาษเขียนรหัส \'CL-2940\' ให้หน่อยนะคะ/ครับ ขอบคุณค่ะ/ครับ',
+        doneItems: [
+          { title: 'ตรวจขนาดอก-ยาวให้ตรงกับผู้ใส่', note: 'ไซซ์ L อก 46 นิ้ว ยาว 28 นิ้ว ตามที่ผู้ขายวัดจริง' },
+          { title: 'เทียบราคามือสองรุ่นเดียวกัน', note: 'ราคา ฿1,200 ถูกกว่ามือสองทั่วไปเล็กน้อย (เกณฑ์รับได้)' },
+          { title: 'ตรวจประวัติร้าน Pim Preloved เบื้องต้น', note: 'ไม่พบประวัติแบล็กลิสต์ แต่ดีลผ่านระบบยังมีน้อย (1 ครั้ง)', warn: 'ควรขอหลักฐานสินค้าจริงก่อนโอนเสมอ' }
+        ],
+        pendingItems: [
+          { title: 'ขอดูรูปป้ายคอและป้ายแคร์แท็กชัด ๆ', desc: 'เช็กฟอนต์ป้ายยี่ห้อและตะเข็บเพื่อกันงานก๊อป/ไม่ตรงปก', pill: 'ขอดู 2 จุด: ป้ายคอ + แคร์แท็กด้านใน', important: false },
+          { title: 'ขอดูจุดตำหนิ รอยเปื้อน หรือขุยผ้าภายใต้แสงจริง', desc: 'ป้องกันปัญหาได้รับของไม่ตรงสภาพที่ตกลง', pill: 'ขอวิดีโอแพนรอบตัวเสื้อ 5-10 วินาที', important: false },
+          { title: 'ขอรูปเสื้อคู่กับ Proof Code (CL-2940)', desc: 'ให้ผู้ขายเขียนรหัส CL-2940 วางคู่กับตัวเสื้อเพื่อยืนยันมีของในมือ', tip: 'กันมิจฉาชีพดูดรูปจากไอจีอื่นมาขายซ้ำ', important: true }
+        ],
+        questions: [
+          { tag: 'ขอหลักฐานสินค้าจริง', icon: 'verified_user', q: 'รบกวนถ่ายรูปเสื้อตอนนี้วางคู่กับป้ายเขียนโค้ดหน่อยได้ไหมคะ/ครับ', tip: 'ยืนยันว่าคนขายมีเสื้อตัวนี้อยู่จริง' },
+          { tag: 'ตรวจความแท้และป้าย', icon: 'search_check', q: 'ขอดูรูปป้ายคอ ป้ายแคร์แท็ก และรายละเอียดรอยตำหนิชัด ๆ หน่อยครับ', tip: 'ป้องกันได้รับสินค้าผิดสเปกหรือของปลอม' },
+          { tag: 'การซักและการจัดส่ง', icon: 'local_shipping', q: 'ซักทำความสะอาดแล้วหรือยัง และส่งพร้อมแจ้งเลขพัสดุวันไหนครับ', tip: 'ตกลงเงื่อนไขวันจัดส่งให้ชัดเจน' },
+          { tag: 'ยืนยันบัญชีผู้รับ', icon: 'shield', q: 'ชื่อบัญชีพร้อมเพย์/ธนาคารตรงกับชื่อเจ้าของร้านไหมครับ', tip: 'ป้องกันการสวมรอยบัญชีคนอื่น' }
+        ]
+      },
+      others: {
+        badgeLabel: 'อุปกรณ์ไอที / อื่น ๆ',
+        shortLabel: 'อุปกรณ์ไอที / อื่น ๆ',
+        icon: 'inventory_2',
+        fullTitle: 'หูฟัง Sony WH-1000XM4 มือสอง ศูนย์ไทย',
+        shortTitle: 'Sony WH-1000XM4 มือสอง',
+        price: '฿3,200',
+        origPrice: '฿6,500',
+        sub: 'มีกล่อง + ใบเสร็จศูนย์ • สีดำ',
+        seller: 'Kitti Used Gear',
+        tipHtml: 'หมวด <strong>อุปกรณ์ไอที / อื่น ๆ</strong> เหลือตรวจอีกแค่ 1 ข้อ! ขอวิดีโอทดสอบเปิดเครื่องคู่ <strong>Proof Code (OT-6183)</strong> เพื่อปิดดีลอย่างมั่นใจ',
+        proofCode: 'OT-6183',
+        copyMsg: 'สวัสดีครับ สนใจ Sony WH-1000XM4 ฿3,200 ครับ รบกวนถ่ายคลิปทดสอบเชื่อมต่อพร้อมกระดาษเขียนรหัส \'OT-6183\' ให้หน่อยนะครับ ขอบคุณครับ',
+        doneItems: [
+          { title: 'ตรวจประวัติร้าน Kitti Used Gear', note: 'ผ่านการยืนยันตัวตนแล้ว ไม่พบประวัติการถูกรายงาน' },
+          { title: 'เช็กหมายเลข Serial / ใบเสร็จศูนย์', note: 'ตรวจสอบวันหมดประกันศูนย์ไทยจากใบเสร็จตรงกับกล่อง' },
+          { title: 'เทียบราคาตลาดอุปกรณ์มือสอง', note: 'ราคา ฿3,200 สอดคล้องกับสภาพ 95% พร้อมอุปกรณ์ครบ' },
+          { title: 'ตกลงนัดรับหรือห่อกันกระแทก', note: 'นัดรับหน้าม.เกษตร หรือส่งพัสดุห่อบับเบิล 2 ชั้น' },
+          { title: 'ตรวจชื่อบัญชีก่อนโอนเงิน', note: 'ชื่อบัญชีธนาคารตรงกับชื่อเจ้าของโปรไฟล์ที่ยืนยัน KYC' }
+        ],
+        pendingItems: [
+          { title: 'ขอคลิปเปิดเครื่องทดสอบคู่กับ Proof Code', desc: 'ให้ผู้ขายเขียนรหัส OT-6183 วางคู่กับตัวเครื่องขณะเชื่อมต่อบลูทูธ', tip: 'เช็กทั้งว่ามีของจริงและใช้งานได้ปกติ', important: true }
+        ],
+        questions: [
+          { tag: 'ทดสอบใช้งานจริง', icon: 'verified_user', q: 'รบกวนถ่ายคลิปเปิดเครื่องต่อบลูทูธคู่กับกระดาษเขียนโค้ดหน่อยครับ', tip: 'เช็กว่าตัวเครื่องใช้งานได้จริงและมีของในมือ' },
+          { tag: 'เช็กแบตและประกัน', icon: 'battery_charging_full', q: 'แบตเตอรี่ยังเก็บไฟได้กี่ชั่วโมง และมีใบเสร็จประกันศูนย์ครบไหมครับ', tip: 'ป้องกันปัญหาแบตเสื่อมหรือเคลมไม่ได้' },
+          { tag: 'อุปกรณ์ในกล่อง', icon: 'inventory', q: 'อุปกรณ์สายชาร์จ เคส และกล่องซีเรียลตรงกับตัวเครื่องใช่ไหมครับ', tip: 'ตรวจสอบความครบของอุปกรณ์ตามที่ลงขาย' },
+          { tag: 'ยืนยันนัดรับ/จัดส่ง', icon: 'shield', q: 'สะดวกนัดรับตรวจของแถวไหน หรือส่งผ่านบัญชีชื่อเดียวกันนี้ไหมครับ', tip: 'ลดความเสี่ยงจากการส่งของชำรุด' }
+        ]
+      }
+    };
+
+    const appState = {
+      riskTarget: 'S04',
+      checklistCategory: 'shoes',
+      lastQuery: '',
+      activeProofCode: 'KT-4829'
+    };
+
+    let currentScreen = null;
     let s03Timer = null;
     let s19Timer = null;
+
+    function applyChecklistCategory(catKey) {
+      const cat = CHECKLIST_CATEGORIES[catKey] || CHECKLIST_CATEGORIES.shoes;
+      appState.checklistCategory = CHECKLIST_CATEGORIES[catKey] ? catKey : 'shoes';
+      appState.activeProofCode = cat.proofCode;
+
+      const doneCount = cat.doneItems.length;
+      const total = doneCount + cat.pendingItems.length;
+      const pct = Math.round((doneCount / total) * 100) + '%';
+
+      // S09 preview + tip + button
+      const s09Title = document.getElementById('s09-preview-title');
+      const s09Price = document.getElementById('s09-preview-price');
+      const s09Seller = document.getElementById('s09-preview-seller');
+      const s09Tip = document.getElementById('s09-tip-text');
+      if (s09Title) s09Title.textContent = cat.fullTitle;
+      if (s09Price) s09Price.innerHTML = `${cat.price} <span class="font-caption text-caption text-on-surface-variant line-through ml-1">${cat.origPrice}</span>`;
+      if (s09Seller) s09Seller.textContent = 'ผู้ขาย: ' + cat.seller;
+      if (s09Tip) s09Tip.innerHTML = cat.tipHtml;
+
+      // S10 top card + lists
+      const s10Badge = document.getElementById('s10-cat-badge');
+      const s10DonePill = document.getElementById('s10-done-pill');
+      const s10Title = document.getElementById('s10-product-title');
+      const s10Price = document.getElementById('s10-product-price');
+      const s10Sub = document.getElementById('s10-product-sub');
+      const s10PctText = document.getElementById('s10-pct-text');
+      const s10PctBar = document.getElementById('s10-pct-bar');
+      const s10Rem = document.getElementById('s10-rem-label');
+      const s10DoneList = document.getElementById('s10-done-list');
+      const s10PendingList = document.getElementById('s10-pending-list');
+
+      if (s10Badge) s10Badge.innerHTML = `<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">${cat.icon}</span> ${cat.badgeLabel}`;
+      if (s10DonePill) s10DonePill.innerHTML = `<span class="material-symbols-outlined text-[14px]">check_circle</span> <span>ตรวจแล้ว ${doneCount}/${total} ข้อ</span>`;
+      if (s10Title) s10Title.textContent = cat.shortTitle;
+      if (s10Price) s10Price.textContent = cat.price;
+      if (s10Sub) s10Sub.textContent = cat.sub;
+      if (s10PctText) s10PctText.textContent = pct;
+      if (s10PctBar) s10PctBar.style.width = pct;
+      if (s10Rem) s10Rem.textContent = `เหลือ ${cat.pendingItems.length} ข้อสำคัญ`;
+
+      if (s10DoneList) {
+        s10DoneList.innerHTML = cat.doneItems.map((it) => `
+          <div class="bg-surface-container-low rounded-xl p-space-md opacity-85">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-risk-safe-bg flex items-center justify-center shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-risk-safe text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="font-label-md text-label-md text-on-surface line-through opacity-75">${it.title}</h3>
+                  <span class="font-caption text-caption text-risk-safe bg-risk-safe-bg px-2 py-0.5 rounded-full shrink-0">เสร็จสิ้น</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">${it.note}</p>
+                ${it.warn ? `<div class="mt-2 px-2.5 py-1.5 rounded-lg bg-risk-caution-bg text-risk-caution font-caption text-caption flex items-start gap-1.5"><span class="material-symbols-outlined text-[15px] shrink-0 mt-0.5">warning</span><span>${it.warn}</span></div>` : ''}
+              </div>
+            </div>
+          </div>`).join('');
+      }
+
+      if (s10PendingList) {
+        s10PendingList.innerHTML = cat.pendingItems.map((it) => `
+          <div class="group relative bg-surface-card rounded-xl p-space-md ${it.important ? 'shadow-md' : 'shadow-sm'} active:bg-secondary-container/30 transition-all cursor-pointer overflow-hidden" role="button" tabindex="0" data-proto-goto="S11">
+            ${it.important ? '<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>' : ''}
+            <div class="flex items-start gap-3 ${it.important ? 'pl-1' : ''}">
+              <div class="w-6 h-6 rounded-lg ${it.important ? 'bg-primary-fixed-dim/60 group-hover:bg-primary' : 'bg-surface-container-high group-hover:bg-primary-fixed'} flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+                <div class="w-3.5 h-3.5 rounded-sm bg-surface-card"></div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between gap-1" data-proto-goto="S11">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <h3 class="font-label-lg text-label-lg text-on-surface font-semibold group-hover:text-primary transition-colors">${it.title}</h3>
+                    ${it.important ? '<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold inline-flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px]" style="font-variation-settings: \'FILL\' 1;">priority_high</span>สำคัญมาก</span>' : ''}
+                  </div>
+                  <span class="material-symbols-outlined text-primary text-[20px] shrink-0">chevron_right</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">${it.desc}</p>
+                ${it.pill ? `<div class="flex items-center gap-2 mt-2 pt-1"><span class="inline-flex items-center gap-1 font-caption text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded"><span class="material-symbols-outlined text-[13px]">image</span> ${it.pill}</span></div>` : ''}
+                ${it.tip ? `<div class="mt-2.5 p-2 rounded-lg bg-risk-safe-bg text-risk-safe font-caption text-caption flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] shrink-0" style="font-variation-settings: 'FILL' 1;">security</span><span>${it.tip}</span></div>` : ''}
+              </div>
+            </div>
+          </div>`).join('');
+      }
+
+      // S11 complete list + header
+      const s11Badge = document.getElementById('s11-cat-badge');
+      const s11Title = document.getElementById('s11-product-title');
+      const s11Price = document.getElementById('s11-product-price');
+      const s11List = document.getElementById('s11-checklist-items');
+      if (s11Badge) s11Badge.innerHTML = `<span class="material-symbols-outlined text-[16px]">${cat.icon}</span> ${cat.badgeLabel}`;
+      if (s11Title) s11Title.textContent = cat.fullTitle;
+      if (s11Price) s11Price.textContent = cat.price;
+      if (s11List) {
+        const allItems = [...cat.doneItems, ...cat.pendingItems];
+        s11List.innerHTML = allItems.map((it) => `
+          <div class="bg-surface-card rounded-xl p-space-md shadow-sm flex items-start gap-space-sm transition-all">
+            <div class="w-7 h-7 rounded-full bg-risk-safe text-on-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+              <span class="material-symbols-outlined text-[18px]">check</span>
+            </div>
+            <div class="flex flex-col flex-1 min-w-0">
+              <span class="font-label-md text-label-md text-on-surface font-medium">${it.title}</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">${it.note || it.desc}</p>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[20px] shrink-0 mt-1">verified_user</span>
+          </div>`).join('');
+      }
+
+      // S12 & S13 Proof Code
+      const s12Item = document.getElementById('s12-context-item');
+      const s12Seller = document.getElementById('s12-context-seller');
+      const s12CodeBig = document.getElementById('s12-code-big');
+      const s12CodeInline = document.getElementById('s12-code-inline');
+      const s12CopyMsg = document.getElementById('seller-copy-text');
+      const s13Item = document.getElementById('s13-context-item');
+      const s13CodeBig = document.getElementById('s13-code-big');
+      const s13CodeInline = document.getElementById('s13-code-inline');
+      const s13Template = document.getElementById('template-message');
+
+      if (s12Item) s12Item.textContent = cat.fullTitle;
+      if (s12Seller) s12Seller.textContent = cat.seller;
+      if (s12CodeBig) s12CodeBig.textContent = cat.proofCode;
+      if (s12CodeInline) s12CodeInline.textContent = cat.proofCode;
+      if (s12CopyMsg) s12CopyMsg.textContent = cat.copyMsg;
+      if (s13Item) s13Item.textContent = cat.fullTitle;
+      if (s13CodeBig) s13CodeBig.textContent = cat.proofCode;
+      if (s13CodeInline) s13CodeInline.textContent = `"${cat.proofCode}"`;
+      if (s13Template) s13Template.textContent = `"${cat.copyMsg}"`;
+
+      // S14 & S15 Questions
+      const s14Cat = document.getElementById('s14-cat-label');
+      const s15Cat = document.getElementById('s15-cat-label');
+      const s14List = document.getElementById('templates-list');
+      const s15List = document.getElementById('questions-container');
+      if (s14Cat) s14Cat.textContent = 'หมวด: ' + cat.shortLabel;
+      if (s15Cat) s15Cat.textContent = 'หมวด: ' + cat.shortLabel;
+
+      if (s14List) {
+        s14List.innerHTML = cat.questions.map((item) => `
+          <button class="group relative w-full text-left bg-surface-card rounded-xl p-space-md shadow-sm active:bg-secondary-container/30 transition-all duration-200 focus:outline-none overflow-hidden cursor-pointer select-none" onclick="copyTemplate(this, '${item.q.replace(/'/g, "\\'")}')" type="button" data-proto-goto="S15">
+            <div class="flex items-start justify-between gap-space-sm">
+              <div class="flex flex-col gap-space-xs flex-1 min-w-0">
+                <span class="inline-flex items-center gap-1 self-start px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+                  <span class="material-symbols-outlined text-[14px]">${item.icon}</span>
+                  ${item.tag}
+                </span>
+                <p class="font-label-lg text-label-lg text-on-surface pt-1 group-active:text-primary transition-colors">"${item.q}"</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 pt-0.5">
+                  <span class="material-symbols-outlined text-[15px] text-primary">lightbulb</span>
+                  <span>${item.tip}</span>
+                </p>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary-fixed group-active:scale-90 transition-all flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">content_copy</span>
+              </div>
+            </div>
+          </button>`).join('');
+      }
+
+      if (s15List) {
+        s15List.innerHTML = cat.questions.map((item, idx) => `
+          <button class="text-left w-full bg-surface-card rounded-xl p-space-md ${idx === 0 ? 'shadow-md bg-secondary-container/30' : 'shadow-sm'} transition-all active:scale-[0.98] flex items-start justify-between gap-space-md group" onclick="handleCardCopy(this, '${item.q.replace(/'/g, "\\'")}')" type="button" data-proto-goto="S15">
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <span class="font-label-sm text-label-sm ${idx === 0 ? 'text-primary font-medium' : 'text-on-surface-variant'} flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">${item.icon}</span>
+                ${item.tag}
+              </span>
+              <span class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">${item.q}</span>
+            </div>
+            <div class="w-10 h-10 rounded-full ${idx === 0 ? 'bg-primary text-on-primary shadow-sm' : 'bg-surface-container-low text-on-surface-variant group-hover:bg-primary-fixed group-hover:text-on-primary-fixed'} flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px]">content_copy</span>
+            </div>
+          </button>`).join('');
+      }
+
+      // S16 Summary
+      const s16Title = document.getElementById('s16-target-title');
+      const s16Seller = document.getElementById('s16-target-seller');
+      const s16Proof = document.getElementById('s16-proof-note');
+      if (s16Title) s16Title.textContent = `${cat.shortTitle} (${cat.price})`;
+      if (s16Seller) s16Seller.textContent = 'ผู้ขาย: ' + cat.seller;
+      if (s16Proof) s16Proof.textContent = `รหัสป้ายมือ ${cat.proofCode} ถ่ายคู่สินค้าจริง`;
+    }
+
+    window.applyChecklistCategory = applyChecklistCategory;
+
+    function applySearchQuery(rawQuery) {
+      const q = (rawQuery || '').trim();
+      const lower = q.toLowerCase();
+      appState.lastQuery = q;
+
+      // Determine risk destination screen
+      if (lower.includes('pim') || lower.includes('พิม')) {
+        appState.riskTarget = 'S05';
+      } else if (lower.includes('kitti') || lower.includes('กิตติ')) {
+        appState.riskTarget = 'S06';
+      } else {
+        appState.riskTarget = 'S04';
+      }
+
+      const s03Name = document.getElementById('s03-target-name');
+      if (s03Name) s03Name.textContent = q || 'Min Sneaker Shop';
+
+      const s04Name = document.getElementById('s04-seller-name');
+      const s04Link = document.getElementById('s04-seller-link');
+      const s04BankName = document.getElementById('s04-bank-name');
+      const s04BankAcc = document.getElementById('s04-bank-acc');
+      const s04BankOwner = document.getElementById('s04-bank-owner');
+      const s04R2Desc = document.getElementById('s04-r2-desc');
+      const s07Owner = document.getElementById('s07-bank-owner');
+      const s07Acc = document.getElementById('s07-bank-acc');
+      const s07Bank = document.getElementById('s07-bank-name');
+      const s07Seller = document.getElementById('s07-seller-name');
+      const s08Seller = document.getElementById('s08-seller-name');
+
+      const isT1Dummy = lower.includes('สมชาย ตัวอย่าง') || lower.includes('example.seller') || lower.includes('000-0-00000-0');
+
+      if (isT1Dummy) {
+        if (s04Name) s04Name.textContent = 'สมชาย ตัวอย่าง';
+        if (s04Link) s04Link.textContent = 'facebook.com/example.seller';
+        if (s04BankName) s04BankName.textContent = 'ธนาคารสมมติ';
+        if (s04BankAcc) s04BankAcc.textContent = '000-0-00000-0';
+        if (s04BankOwner) s04BankOwner.textContent = 'นายสมชาย ตัวอย่าง (เฝ้าระวัง)';
+        if (s04R2Desc) s04R2Desc.textContent = 'บัญชี 000-0-00000-0 (ธนาคารสมมติ) พบความเสี่ยงชื่อไม่ตรงและมีรายงานเฝ้าระวัง';
+        if (s07Bank) s07Bank.textContent = 'ธนาคารสมมติ (DEMO)';
+        if (s07Owner) s07Owner.textContent = 'สมชาย ตัวอย่าง';
+        if (s07Acc) s07Acc.textContent = 'เลขบัญชี: 000-0-00000-0';
+        if (s07Seller) s07Seller.textContent = 'facebook.com/example.seller';
+        if (s08Seller) s08Seller.textContent = 'สมชาย ตัวอย่าง';
+      } else if (q && !lower.includes('min sneaker')) {
+        if (s04Name) s04Name.textContent = q;
+        if (s04Link) s04Link.textContent = q.includes('/') || q.includes('.') ? q : 'ค้นหาจากระบบ: ' + q;
+        if (s04BankName) s04BankName.textContent = 'ธนาคารกสิกรไทย';
+        if (s04BankAcc) s04BankAcc.textContent = /\d{3}/.test(q) ? q : 'xxx-x-x4821-x';
+        if (s04BankOwner) s04BankOwner.textContent = 'นายสมชาย ใจดี';
+        if (s04R2Desc) s04R2Desc.textContent = 'ข้อมูลผู้รับโอนไม่สอดคล้องกับชื่อโปรไฟล์ ' + q;
+        if (s07Bank) s07Bank.textContent = 'กสิกรไทย (KBANK)';
+        if (s07Owner) s07Owner.textContent = 'นายสมชาย ใจดี';
+        if (s07Acc) s07Acc.textContent = 'เลขบัญชี: ' + (/\d{3}/.test(q) ? q : 'xxx-x-x4892-x');
+        if (s07Seller) s07Seller.textContent = q;
+        if (s08Seller) s08Seller.textContent = q;
+      } else {
+        if (s04Name) s04Name.textContent = 'Min Sneaker Shop';
+        if (s04Link) s04Link.textContent = 'facebook.com/min.sneaker.shop';
+        if (s04BankName) s04BankName.textContent = 'ธนาคารกสิกรไทย';
+        if (s04BankAcc) s04BankAcc.textContent = 'xxx-x-x4821-x';
+        if (s04BankOwner) s04BankOwner.textContent = 'นายสมชาย ใจดี';
+        if (s04R2Desc) s04R2Desc.textContent = 'ชื่อบัญชี นายสมชาย ใจดี ไม่ตรงกับชื่อร้าน Min Sneaker Shop';
+        if (s07Bank) s07Bank.textContent = 'กสิกรไทย (KBANK)';
+        if (s07Owner) s07Owner.textContent = 'นายสมชาย ใจดี';
+        if (s07Acc) s07Acc.textContent = 'เลขบัญชี: xxx-x-x4892-x';
+        if (s07Seller) s07Seller.textContent = 'Min Sneaker Shop';
+        if (s08Seller) s08Seller.textContent = 'Min Sneaker Shop';
+      }
+    }
+
+    window.applySearchQuery = applySearchQuery;
+
+    function getNavTabForScreen(screenId) {
+      const n = parseInt(screenId.replace('S', ''), 10);
+      if (n >= 9 && n <= 16) return 'checklist';
+      if ((n >= 22 && n <= 32) || (n >= 39 && n <= 41)) return 'profile';
+      if (n >= 33 && n <= 38) return 'report';
+      return 'check';
+    }
+
+    function updateBottomNav(screenId) {
+      const nav = document.getElementById('global-bottom-nav');
+      if (!nav) return;
+      const activeTab = getNavTabForScreen(screenId);
+      const links = nav.querySelectorAll('a[data-nav-tab]');
+      links.forEach((a) => {
+        const isActive = a.getAttribute('data-nav-tab') === activeTab;
+        if (isActive) {
+          a.setAttribute('aria-current', 'page');
+          a.classList.add('text-primary-container', 'bg-tab-bg-active', 'font-semibold');
+          a.classList.remove('text-on-surface-variant');
+        } else {
+          a.removeAttribute('aria-current');
+          a.classList.remove('text-primary-container', 'bg-tab-bg-active', 'font-semibold');
+          a.classList.add('text-on-surface-variant');
+        }
+      });
+    }
 
     // Toast Notification Element
     function showToast(message = 'คัดลอกข้อมูลเรียบร้อยแล้ว', icon = 'check_circle') {
@@ -8099,12 +8606,26 @@ function copyClaimCode() {
 
     // INITIALIZATION
     window.addEventListener('DOMContentLoaded', () => {
-      // Resolve initial screen from URL Hash (supports #S01..#S41 and #T1..#T5)
+      // Seed default category state (shoes) so S09..S16 match T2 baseline
+      applyChecklistCategory('shoes');
+
+      // Recent seller rows reset preset
+      document.querySelectorAll('#screen-S01 [data-recent-seller]').forEach((row) => {
+        row.addEventListener('click', () => {
+          const preset = row.getAttribute('data-recent-seller');
+          if (preset === 'min') applySearchQuery('Min Sneaker Shop');
+          else if (preset === 'pim') applySearchQuery('Pim Preloved');
+          else if (preset === 'kitti') applySearchQuery('Kitti Used Gear');
+        });
+      });
+
+      // Resolve initial screen from URL Hash (supports #S01..#S41 and #T1..#T6)
       const rawHash = window.location.hash.replace('#', '').toUpperCase();
       let initScreen = 'S01';
       if (rawHash) {
         if (TASK_START_MAP[rawHash]) {
           initScreen = TASK_START_MAP[rawHash];
+          if (rawHash === 'T6') applyChecklistCategory('clothing');
         } else if (SCREEN_NAMES[rawHash]) {
           initScreen = rawHash;
         }
@@ -8117,6 +8638,7 @@ function copyClaimCode() {
         let targetSid = 'S01';
         if (TASK_START_MAP[h]) {
           targetSid = TASK_START_MAP[h];
+          if (h === 'T6') applyChecklistCategory('clothing');
         } else if (SCREEN_NAMES[h]) {
           targetSid = h;
         }
@@ -8160,6 +8682,7 @@ function copyClaimCode() {
       }
 
       currentScreen = screenId;
+      updateBottomNav(screenId);
 
       if (updateHash) {
         window.location.hash = screenId;
@@ -8170,9 +8693,9 @@ function copyClaimCode() {
 
       // Screen-specific micro-interactions
       if (screenId === 'S03') {
-        // Auto-advance S03 -> S04 after 3 seconds
+        // Auto-advance S03 -> target risk screen after 3 seconds
         s03Timer = setTimeout(() => {
-          navigateTo('S04');
+          navigateTo(appState.riskTarget || 'S04');
         }, 3000);
       } else if (screenId === 'S19') {
         // Run 10-second pause timer on S19
