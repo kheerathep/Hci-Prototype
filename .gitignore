@@ -1,0 +1,7 @@
+.vercel
+.DS_Store
+.agents/
+.cursor/
+node_modules/
+.env
+.env.*

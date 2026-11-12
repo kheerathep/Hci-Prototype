@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#434655","on-secondary-container":"#586377","inverse-surface":"#2d3134","on-primary-fixed-variant":"#003ea8","tertiary":"#00569c","surface-container-lowest":"#ffffff","on-error":"#ffffff","secondary-fixed":"#d8e3fb","risk-caution":"#B45309","surface-container-highest":"#e0e3e6","risk-high-border":"#FECACA","on-secondary-fixed":"#111c2d","error":"#ba1a1a","risk-high-bg":"#FEF2F2","risk-high":"#B91C1C","tertiary-fixed-dim":"#a4c9ff","secondary-container":"#d5e0f8","error-container":"#ffdad6","tab-bg-active":"#E2E8F0","card-outline-active":"#BFDBFE","on-error-container":"#93000a","risk-caution-bg":"#FFFBEB","primary-container":"#2563eb","outline-variant":"#c3c6d7","surface-container-high":"#e6e8ec","surface-card":"#FFFFFF","on-primary":"#ffffff","on-surface":"#181c1f","outline":"#737686","risk-safe-border":"#A7F3D0","on-tertiary":"#ffffff","primary-fixed-dim":"#b4c5ff","surface":"#f7f9fd","state-destructive-hover":"#DC2626","surface-tint":"#0053db","surface-bright":"#f7f9fd","primary-fixed":"#dbe1ff","inverse-primary":"#b4c5ff","risk-safe-bg":"#ECFDF5","secondary-fixed-dim":"#bcc7de","on-secondary-fixed-variant":"#3c475a","tertiary-fixed":"#d4e3ff","risk-safe":"#15803D","tertiary-container":"#196fc0","background":"#f7f9fd","secondary":"#545f73","state-pressed-blue":"#1D4ED8","on-tertiary-fixed-variant":"#004883","on-background":"#181c1f","on-tertiary-container":"#ebf1ff","on-secondary":"#ffffff","surface-variant":"#e0e3e6","surface-container-low":"#f2f4f8","on-primary-container":"#eeefff","surface-dim":"#d8dade","surface-container":"#eceef2","risk-caution-border":"#FDE68A","inverse-on-surface":"#eff1f5","primary":"#004ac6","on-tertiary-fixed":"#001c39","on-primary-fixed":"#00174b"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin":"1rem","gutter":"1rem","space-lg":"1.25rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"1.5rem","space-md":"1rem"},fontFamily:{"headline-lg":["Noto Sans"],"body-lg":["Noto Sans"],"headline-sm":["Noto Sans"],"headline-md":["Noto Sans"],"caption":["Noto Sans"],"label-md":["Noto Sans"],"body-sm":["Noto Sans"],"body-md":["Noto Sans"],"label-lg":["Noto Sans"],"label-sm":["Noto Sans"]},fontSize:{"headline-lg":["24px",{"lineHeight":"34px","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"30px","fontWeight":"600"}],"caption":["11px",{"lineHeight":"16px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["16px",{"lineHeight":"24px","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"18px","fontWeight":"500"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S01" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S01')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Verification Result</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-6 space-y-space-md">
+<!-- Toast Notification (Copied / Action Feedback) -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-5 py-2.5 bg-inverse-surface text-inverse-on-surface rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2 flex items-center gap-2" id="toast-feedback">
+<span class="material-symbols-outlined text-[18px] text-risk-safe">check_circle</span>
+<span class="font-body-sm text-body-sm font-medium" id="toast-text">คัดลอกข้อความร้องขอแล้ว</span>
+</div>
+<!-- Hero Alert Card (Amber / Caution) -->
+<section class="w-full bg-risk-caution-bg rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-space-sm relative z-10">
+<div class="w-10 h-10 rounded-full bg-risk-caution-border/40 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-risk-caution text-[24px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1 min-w-0">
+<!-- Prominent Badge -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-risk-caution-border/60 text-risk-caution mb-1.5">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-sm text-label-sm font-bold">ควรระวัง</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight text-slate-900 leading-snug">
+          ควรตรวจสอบเพิ่มเติมก่อนโอนเงิน
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+          ยังไม่มีประวัติการโกง แต่ข้อมูลบัญชียังมีน้อย แนะนำให้ขอหลักฐานรูปถ่ายพร้อมป้ายชื่อก่อนตกลงสั่งซื้อ
+        </p>
+</div>
+</div>
+</section>
+<!-- Seller Profile Card -->
+<section class="w-full bg-surface-card rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-full object-cover bg-surface-container-high" data-alt="Square modern flat-lay profile picture of trendy preloved women vintage aesthetic pastel apparel and chic wardrobe, bright studio lighting, soft blue and warm beige tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBED_Y9gQm3CN98JzFGSbDQbz0FHV2YFbHIJuVIWWahk_lS0R6NwZkoS9yI4PYNZhnAM5MZ0NbPY_6_7_HtEhCUaKK711d9JFaHKMB6gOPOV1Q4vt1rfRXDjPZWCt1GYgXhdrM-6JNnU08f9yVOCtc2GjF51Y_meYV2sgf52-4SQKs-c3AHj-Ua_Ia7hi5-jMM_VLDdt5pGpDAP-pBO3P9RSI9Zh5EIY2GJGomMJOs"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-risk-caution flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate">Pim Preloved</h3>
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+          Instagram · เสื้อผ้ามือสอง
+        </p>
+</div>
+</div>
+<!-- Structured Data Highlights -->
+<div class="grid grid-cols-2 gap-space-sm mt-4 pt-4 bg-surface-container-low rounded-lg p-3">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-secondary">อายุบัญชีร้านค้า</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">schedule</span>
+<span class="font-label-md text-label-md text-on-surface">3 เดือน</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-secondary">ประวัติผ่านระบบ</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-risk-caution">inventory_2</span>
+<span class="font-label-md text-label-md text-on-surface">1 ดีลที่ยืนยันแล้ว</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Verification Breakdown -->
+<section class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<h4 class="font-label-md text-label-md text-secondary font-semibold uppercase tracking-wider">
+        เกณฑ์การตรวจสอบ (3 รายการ)
+      </h4>
+<span class="font-caption text-caption text-on-surface-variant">อัปเดตเรียลไทม์</span>
+</div>
+<!-- Item 1: Amber Warning Card (Tappable) -->
+<div class="w-full bg-surface-card rounded-xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] cursor-pointer" onclick="toggleDetails('detail-1')">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-risk-caution-bg text-risk-caution flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between" data-proto-goto="S08">
+<h5 class="font-label-md text-label-md text-on-surface font-semibold truncate pr-2">
+              ยังมีดีลที่ยืนยันแล้วเพียง 1 ครั้ง
+            </h5>
+<span class="material-symbols-outlined text-outline text-[20px] transition-transform duration-200" id="chevron-detail-1">
+              expand_more
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+            ประวัติการซื้อขายที่ผ่านการยืนยันยังน้อย โปรไฟล์มีโพสต์ไม่มาก
+          </p>
+<!-- Collapsible Micro-detail -->
+<div class="hidden mt-3 pt-3 bg-surface-container-low rounded-lg p-2.5" id="detail-1">
+<p class="font-caption text-caption text-on-surface-variant">
+              💡 แนะนำ: บัญชีที่พึ่งเปิดไม่นานและมีรายการยืนยันน้อย ควรขอเอกสารจับคู่ชื่อกับสินค้าเสมอ
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2: Safe Card -->
+<div class="w-full bg-surface-card rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-risk-safe-bg text-risk-safe flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<h5 class="font-label-md text-label-md text-on-surface font-semibold">
+            ไม่พบประวัติการถูกรายงานในระบบ
+          </h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-relaxed">
+            ไม่มีชื่อในแบล็กลิสต์หรือฐานข้อมูลมิจฉาชีพออนไลน์
+          </p>
+</div>
+</div>
+</div>
+<!-- Item 3: Safe Card -->
+<div class="w-full bg-surface-card rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-risk-safe-bg text-risk-safe flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex-1 min-w-0">
+<h5 class="font-label-md text-label-md text-on-surface font-semibold">
+            ชื่อบัญชีตรงกับชื่อที่ลงทะเบียน
+          </h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-relaxed">
+            ยืนยันตัวตนเบื้องต้นผ่านระบบตรวจสอบ
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Action Box -->
+<section class="w-full pt-space-sm flex flex-col space-y-space-sm">
+<!-- Primary CTA: Proof Code Request -->
+<button class="w-full min-h-[48px] px-6 py-3 bg-primary-container text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 active:bg-state-pressed-blue transition-colors shadow-sm" onclick="handleProofRequest()" data-proto-goto="S12">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+<span>ขอ Proof Code จากคนขาย</span>
+</button>
+<!-- Secondary CTA: Checklist Navigation -->
+<button class="w-full min-h-[48px] px-6 py-3 bg-transparent text-primary-container rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 active:bg-secondary-container/40 transition-colors" onclick="handleChecklistRedirect()" data-proto-goto="S10">
+<span class="material-symbols-outlined text-[20px]">checklist</span>
+<span>ไปเช็กลิสต์ก่อนโอน</span>
+</button>
+</section>
+</div>
+<script>
+  function toggleDetails(elementId) {
+    const el = document.getElementById(elementId);
+    const chevron = document.getElementById('chevron-' + elementId);
+    if (!el) return;
+    
+    const isHidden = el.classList.contains('hidden');
+    if (isHidden) {
+      el.classList.remove('hidden');
+      if (chevron) chevron.classList.add('rotate-180');
+    } else {
+      el.classList.add('hidden');
+      if (chevron) chevron.classList.remove('rotate-180');
+    }
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast-feedback');
+    const toastText = document.getElementById('toast-text');
+    if (!toast || !toastText) return;
+
+    toastText.innerText = message;
+    toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+    toast.classList.add('opacity-100', 'translate-y-0');
+
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+    }, 2400);
+  }
+
+  function handleProofRequest() {
+    showToast('สร้างคำขอ Proof Code และคัดลอกลิงก์แล้ว');
+  }
+
+  function handleChecklistRedirect() {
+    showToast('กำลังนำทางไปหน้าเช็กลิสต์ความปลอดภัย...');
+  }
+</script></main>
+
+
+<script>const CURRENT_SCREEN_ID = "S05";</script>
+<script src="../prototype_helper.js"></script>
+</body></html>

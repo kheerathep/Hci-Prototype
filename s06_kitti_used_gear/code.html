@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#434655","on-secondary-container":"#586377","inverse-surface":"#2d3134","on-primary-fixed-variant":"#003ea8","tertiary":"#00569c","surface-container-lowest":"#ffffff","on-error":"#ffffff","secondary-fixed":"#d8e3fb","risk-caution":"#B45309","surface-container-highest":"#e0e3e6","risk-high-border":"#FECACA","on-secondary-fixed":"#111c2d","error":"#ba1a1a","risk-high-bg":"#FEF2F2","risk-high":"#B91C1C","tertiary-fixed-dim":"#a4c9ff","secondary-container":"#d5e0f8","error-container":"#ffdad6","tab-bg-active":"#E2E8F0","card-outline-active":"#BFDBFE","on-error-container":"#93000a","risk-caution-bg":"#FFFBEB","primary-container":"#2563eb","outline-variant":"#c3c6d7","surface-container-high":"#e6e8ec","surface-card":"#FFFFFF","on-primary":"#ffffff","on-surface":"#181c1f","outline":"#737686","risk-safe-border":"#A7F3D0","on-tertiary":"#ffffff","primary-fixed-dim":"#b4c5ff","surface":"#f7f9fd","state-destructive-hover":"#DC2626","surface-tint":"#0053db","surface-bright":"#f7f9fd","primary-fixed":"#dbe1ff","inverse-primary":"#b4c5ff","risk-safe-bg":"#ECFDF5","secondary-fixed-dim":"#bcc7de","on-secondary-fixed-variant":"#3c475a","tertiary-fixed":"#d4e3ff","risk-safe":"#15803D","tertiary-container":"#196fc0","background":"#f7f9fd","secondary":"#545f73","state-pressed-blue":"#1D4ED8","on-tertiary-fixed-variant":"#004883","on-background":"#181c1f","on-tertiary-container":"#ebf1ff","on-secondary":"#ffffff","surface-variant":"#e0e3e6","surface-container-low":"#f2f4f8","on-primary-container":"#eeefff","surface-dim":"#d8dade","surface-container":"#eceef2","risk-caution-border":"#FDE68A","inverse-on-surface":"#eff1f5","primary":"#004ac6","on-tertiary-fixed":"#001c39","on-primary-fixed":"#00174b"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin":"1rem","gutter":"1rem","space-lg":"1.25rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"1.5rem","space-md":"1rem"},fontFamily:{"headline-lg":["Noto Sans"],"body-lg":["Noto Sans"],"headline-sm":["Noto Sans"],"headline-md":["Noto Sans"],"caption":["Noto Sans"],"label-md":["Noto Sans"],"body-sm":["Noto Sans"],"body-md":["Noto Sans"],"label-lg":["Noto Sans"],"label-sm":["Noto Sans"]},fontSize:{"headline-lg":["24px",{"lineHeight":"34px","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"30px","fontWeight":"600"}],"caption":["11px",{"lineHeight":"16px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["16px",{"lineHeight":"24px","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"18px","fontWeight":"500"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="ย้อนกลับ" data-proto-goto="S01" class="w-12 h-12 -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors rounded-full" onclick="protoGoto('S01')"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Verification Result</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8 space-y-space-md">
+<!-- Toast Notification (Hidden by default, triggered on copy/interaction) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-full shadow-lg flex items-center gap-space-xs pointer-events-none transition-all duration-300 opacity-0 translate-y-4" id="copyToast">
+<span class="material-symbols-outlined text-[18px] text-risk-safe">check_circle</span>
+<span class="font-label-sm text-label-sm">คัดลอกข้อมูลผู้ขายแล้ว</span>
+</div>
+<!-- Hero Alert Card (Green Banner / Verified Status) -->
+<section class="bg-risk-safe-bg rounded-2xl p-space-lg shadow-sm relative overflow-hidden">
+<!-- Subtle Ambient Decorative Motif -->
+<div class="absolute -right-8 -bottom-8 w-36 h-36 bg-risk-safe/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<!-- Status Emblem with Pulse Glow -->
+<div class="relative mb-space-sm">
+<div class="w-16 h-16 rounded-full bg-surface-card flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-risk-safe text-[36px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<span class="absolute -bottom-1 -right-1 flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-risk-safe opacity-75"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-risk-safe"></span>
+</span>
+</div>
+<!-- Verified Badge -->
+<div class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-surface-card shadow-xs mb-space-xs">
+<span class="material-symbols-outlined text-risk-safe text-[14px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-sm text-label-sm text-risk-safe">ผ่านการตรวจเบื้องต้น</span>
+</div>
+<!-- Main Heading -->
+<h2 class="font-headline-sm text-headline-sm text-on-surface">ผู้ขายมีความน่าเชื่อถือสูง</h2>
+<!-- Sub-label Verification Seal -->
+<div class="mt-space-xs inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-primary">Verified Seller รับรองโดยระบบ</span>
+</div>
+</div>
+</section>
+<!-- Seller Profile Card -->
+<section class="bg-surface-card rounded-2xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-md">
+<!-- Seller Avatar Placeholder -->
+<div class="relative w-14 h-14 rounded-full overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A friendly and professional Asian young adult smiling warmly in a tidy campus workspace with tech accessories in the background, soft daylight, warm approachable vibe, mobile avatar styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkyDYL3KkWZY8kBPUfsXifIvUDqqaY_E2jK4vP1CvZIomJhK4_KjE_weobVklgl1xQbClT5Jq08dAPP1Xa4mDYNzzCfk-U0qVQO3MZhdG6L3h87Jvk_fMqMVlWyKnB7XvGlGHPVyDoIpFs7TD-k7iwk6kptKirwEHFrm1AwWpZ1PERFt9ZGVBDRveH10YvGF_JSrcL3I-BBaaWYgaCA-MUUGMOx7SqwVL21BOqDTM"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-risk-safe rounded-full flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[10px]">check</span>
+</div>
+</div>
+<!-- Seller Meta -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Kitti Used Gear</h3>
+<button aria-label="คัดลอกข้อมูล" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:bg-surface-container-high transition-colors" onclick="triggerCopyToast()">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">กลุ่มไอที มหาวิทยาลัย · หูฟังเกมมิ่ง</p>
+</div>
+</div>
+<!-- Structured Data Summary -->
+<div class="mt-space-md pt-space-sm space-y-space-xs bg-surface-container-low rounded-xl p-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">account_balance</span>
+<span class="font-label-sm text-label-sm">ข้อมูลบัญชี</span>
+</div>
+<span class="font-label-sm text-label-sm text-risk-safe font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> ตรงกับชื่อโปรไฟล์
+        </span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">task_alt</span>
+<span class="font-label-sm text-label-sm">สถิติการขาย</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">12 ดีลที่ยืนยันแล้ว (100% สำเร็จ)</span>
+</div>
+</div>
+</section>
+<!-- Passed Breakdown Cards (3 Verification Criteria) -->
+<section class="space-y-space-sm">
+<div class="flex items-center justify-between px-space-xs">
+<h3 class="font-label-md text-label-md text-on-surface-variant">รายการตรวจสอบความปลอดภัย (3/3)</h3>
+<span class="font-label-sm text-label-sm text-risk-safe font-semibold">ครบถ้วน</span>
+</div>
+<!-- 1. Passed Deals -->
+<div class="bg-surface-card rounded-2xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-risk-safe-bg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-risk-safe text-[20px]" style="font-variation-settings: 'FILL' 1;">handshake</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">12 ดีลสำเร็จ มีการยืนยันตัวตนแล้ว</h4>
+<span class="material-symbols-outlined text-risk-safe text-[16px]">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">มีประวัติซื้อขายในระบบสม่ำเสมอและได้รับคะแนนบวกจากผู้ซื้อ</p>
+</div>
+</div>
+<!-- 2. Passed Identity & Bank Match -->
+<div class="bg-surface-card rounded-2xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-risk-safe-bg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-risk-safe text-[20px]" style="font-variation-settings: 'FILL' 1;">badge</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">ชื่อบัญชีตรงกับบัตรและโปรไฟล์</h4>
+<span class="material-symbols-outlined text-risk-safe text-[16px]">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ตรวจเช็กความตรงกัน 100% ชื่อ-นามสกุล บัญชีธนาคาร กสิกรไทย</p>
+</div>
+</div>
+<!-- 3. Passed Clean Report Record -->
+<div class="bg-surface-card rounded-2xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-risk-safe-bg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-risk-safe text-[20px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">ไม่เคยมีประวัติการร้องเรียน</h4>
+<span class="material-symbols-outlined text-risk-safe text-[16px]">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ตรวจสอบย้อนหลัง 1 ปี ในเครือข่ายฐานข้อมูล ไม่พบการรายงานฉ้อโกง</p>
+</div>
+</div>
+</section>
+<!-- Community Trust Snapshot (Visual Proof Placeholder) -->
+<section class="bg-surface-card rounded-2xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">rate_review</span>
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">ตัวอย่างสินค้าที่ส่งมอบแล้ว</h4>
+</div>
+<span class="font-label-sm text-label-sm text-primary">5 ดาว (12)</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="h-24 rounded-xl overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="High quality gaming headset in clean original box packaging sitting on a wooden study table, clean product delivery photo, soft indoor lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAggivxl5rssXUSM2eTmCFgdwW6kwWujU21bXkYLRoBKx4aCb3O9LOhQpwId3ZuZE1PMqCaNGDaq6Quf4PHmJ7Gjzt0itm9LmfTAjd6cfuUPkp3YiwXl0OXtHIgM_n_3rT7zVdBC0MRivWJjfHSrrzTpUmO63aUG7HW114haOBq4CVC-2yRQ_sL5BIzw86iA4CXL-JZXpcUIUgra1ERDgx_DB0fuiWYdKbSTH4O-Cc"/>
+<div class="absolute bottom-1 right-1 bg-inverse-surface/80 text-inverse-on-surface text-[10px] font-caption px-1.5 py-0.5 rounded">จัดส่งสำเร็จ</div>
+</div>
+<div class="h-24 rounded-xl overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="Mechanical keyboard with custom keycaps neatly packed in protective bubble wrap, clear verification tag visible, clean studio shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbJvBwvXubU_GWOuSxey0phqBgTp6FaSyPgpnYBPWWbS1-LXKgXmPWABa8gLJNpvE3Pi0z501LNZ-bjhpGHkt_kast56Cxvrr5VO5ZWIJiZoJmzL28MVODuKhSkdWWZvQ8T6k1f1B7jC7TjCgCsTUGXz2dwFIBfL5TNL-TMfeRkcFem3cnO2-TiGXqJYuzlyHOnHLvfKGZfM0ZVgQpD_xCoZiIqCBTePn5t-zvn-Y"/>
+<div class="absolute bottom-1 right-1 bg-inverse-surface/80 text-inverse-on-surface text-[10px] font-caption px-1.5 py-0.5 rounded">จัดส่งสำเร็จ</div>
+</div>
+</div>
+</section>
+<!-- Sticky-Ready Bottom Action Group -->
+<footer class="pt-space-sm space-y-space-sm">
+<!-- Primary CTA: Look at verified reviews -->
+<button class="w-full h-12 bg-primary-container text-on-primary rounded-2xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md transition-all active:bg-state-pressed-blue" data-proto-goto="S32">
+<span class="material-symbols-outlined text-[20px]">reviews</span>
+<span>ดูรีวิวที่ยืนยันแล้ว</span>
+</button>
+<!-- Secondary CTA: Safety Checklist -->
+<button class="w-full h-12 bg-transparent text-primary-container rounded-2xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-colors hover:bg-primary-fixed/30 active:bg-primary-fixed/50 shadow-none" data-proto-goto="S10">
+<span class="material-symbols-outlined text-[20px]">checklist</span>
+<span>ไปเช็กลิสต์ก่อนโอน</span>
+</button>
+</footer>
+</div>
+<script>
+  function triggerCopyToast() {
+    const toast = document.getElementById('copyToast');
+    if (!toast) return;
+    toast.classList.remove('opacity-0', 'translate-y-4');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'translate-y-4');
+    }, 2200);
+  }
+</script></main>
+
+
+<script>const CURRENT_SCREEN_ID = "S06";</script>
+<script src="../prototype_helper.js"></script>
+</body></html>
